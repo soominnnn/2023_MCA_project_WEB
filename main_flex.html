@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style_main_flex.css">
+    <title>MCA Hotel management system</title>
+</head>
+<script defer src="main.js"></script>
+<body>
+    <div class="header">
+        <div class="none"></div>
+        <div class="htag">
+            <h1><a href="#">호텔 통합 관리 시스템</a></h1>
+        </div>
+        <div class="nav">
+            <ul>
+                    <li><a href="#">호텔통합관리</a></li>
+                    <li><a href="/robot.html">로봇상태관리</a></li>
+                    <li><a href="#">객실팀</a></li>
+                    <li id="clock">00:00:00</li>
+            </ul>
+        </div>
+        <div class="none"></div>
+    </div>
+    <div class="main">
+        <div class="wrapper">
+            <div class="allstate">
+                    <p class="all">전체 현황</p>
+                <div class="standby">
+                    <div class="circle"></div>
+                    <div class="num"><p>71/150</p></div>
+                    <p class="roomname">스탠바이 룸</p>
+                </div>
+                <div class="checkin">
+                    <div class="circle"></div>
+                    <div class="num"><p>30/150</p></div>
+                    <p class="roomname" id="check">체크인 룸</p>
+                </div>
+                <div class="checkout">
+                    <div class="circle"></div>
+                    <div class="num"><p>30/150</p></div>
+                    <p class="roomname">체크아웃 룸</p>
+                </div>
+            </div>
+            <div class="roomstate">
+                <div class="ptagstate"><p>룸 상태 및 현황</p></div>
+                <select id="Test" class="box" onchange="room_change(this.value)">
+                    <option value="1">1층</option>
+                    <option value="2">2층</option>
+                </select>
+                    <div id="1" class="room1">
+                        <div class="room_grid">
+                            <div class="r1">
+                                <h1 class="room_name">101</h1>
+                                <h1 class="room_class">standard</h1>
+                                <button type="button" id="button_change"><p>Stand-by</p></button>
+                            </div>
+                            <div class="r2">
+                                <h1 class="room_name">102</h1>
+                                <h1 class="room_class">standard</h1>
+                                <button type="button"id="button_change"><p>Stand-by</p></button>
+                            </div>
+                            <div class="r3">
+                                <h1 class="room_name">103</h1>
+                                <h1 class="room_class">standard</h1>
+                                <button type="button"id="button_change"><p>Stand-by</p></button>
+                            </div>
+                            <div class="r4">
+                                <h1 class="room_name">104</h1>
+                                <h1 class="room_class">standard</h1>
+                                <button type="button"id="button_change"><p>Stand-by</p></button>
+                            </div>
+                            <div class="r5">
+                                <h1 class="room_name">105</h1>
+                                <h1 class="room_class">standard</h1>
+                                <button type="button"id="button_change"><p>Stand-by</p></button>
+                            </div>
+                            <div class="r6">
+                                <h1 class="room_name">106</h1>
+                                <h1 class="room_class">standard</h1>
+                                <button type="button"id="button_change"><p>Stand-by</p></button>
+                            </div>
+                            <div class="r7">
+                                <h1 class="room_name">107</h1>
+                                <h1 class="room_class">standard</h1>
+                                <button type="button"id="button_change"><p>Stand-by</p></button>
+                            </div>
+                            <div class="r8">
+                                <h1 class="room_name">108</h1>
+                                <h1 class="room_class">standard</h1>
+                                <button type="button"id="button_change"><p>Stand-by</p></button>
+                            </div>
+                            <div class="r9">
+                                <h1 class="room_name">109</h1>
+                                <h1 class="room_class">standard</h1>
+                                <button type="button"id="button_change"><p>Stand-by</p></button>
+                            </div>
+                            <div class="r10">
+                                <h1 class="room_name">110</h1>
+                                <h1 class="room_class">standard</h1>
+                                <button type="button"id="button_change"><p>Stand-by</p></button>
+                            </div>
+                        </div>
+                    </div>
+                        <div id="2" class="room2">
+                            <div class="room_grid">
+                                <div class="r1"><h1 class="room_name">101</h1></div>
+                                <div class="r2"><h1 class="room_name">102</h1></div>
+                                <div class="r3"><h1 class="room_name">103</h1></div>
+                                <div class="r4"><h1 class="room_name">104</h1></div>
+                                <div class="r5"><h1 class="room_name">105</h1></div>
+                                <div class="r6"><h1 class="room_name">106</h1></div>
+                                <div class="r7"><h1 class="room_name">107</h1></div>
+                                <div class="r8"><h1 class="room_name">108</h1></div>
+                                <div class="r9"><h1 class="room_name">109</h1></div>
+                                <div class="r10"><h1 class="room_name">110</h1></div>
+                            </div>
+                        </div>
+
+                    
+                </div>
+                <div class="service">
+                    <div class="rectang_service"><p>서비스 요청내역</p></div>
+                    <div class="service_main">
+                        <input type="radio" id="tab-1" class="service_all" name="show" checked/>
+                        <input type="radio" id="tab-2" class="service_order" name="show"/>
+                        <input type="radio" id="tab-3" class="service_conti" name="show"/>
+                        <input type="radio" id="tab-4" class="service_comp" name="show"/>
+                        <div class="tab">
+                            <label for="tab-1" class="margin_on">전체</label>
+                            <label for="tab-2" class="margin_on">요청</label>
+                            <label for="tab-3" class="margin_on">처리중</label>
+                            <label for="tab-4" class="margin_on">완료</label>
+                        </div>
+                        <div class="content">
+                            <div class="content-all"></div>
+                            <div class="content-order"></div>
+                            <div class="content-conti"></div>
+                            <div class="content-comp"></div>
+                        </div>
+                    </div>
+            </div>
+                <div class="service_line"></div>
+            </div>
+        </div>
+    </div>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+    <script >
+        // Import the functions you need from the SDKs you need
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
+        // Your web app's Firebase configuration
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        const firebaseConfig = {
+            apiKey: "AIzaSyCAT7bkhzoDUEMN7RaYUx9ZyRJyhs4yP0Q",
+            authDomain: "project1-6dfc7.firebaseapp.com",
+            databaseURL: "https://project1-6dfc7-default-rtdb.firebaseio.com",
+            projectId: "project1-6dfc7",
+            storageBucket: "project1-6dfc7.appspot.com",
+            messagingSenderId: "1086482242380",
+            appId: "1:1086482242380:web:7ef4b2d6b3c2a886fc8de9",
+            measurementId: "G-FQY04VY3MQ"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        </script>
+        <script>
+        function newtag(){
+            let tagArea = document.getElementsByClassName("content-all")[0];
+            firebase.database().ref('service/service').on('value',function(getData){
+                var data = getData.val();
+                const timestamp = data.timestamp;
+                const date = new Date(timestamp + new Date().getTimezoneOffset() * 60 * 1000);
+                console.log('Date was added at:', date.toLocaleString('ko-KR'));
+                console.log(data);
+                if(data == "1")
+                {
+                    function setting_tag(modline, tagg,namee,classnamee){
+                        let modline = document.createElement(tagg);
+                        modline.setAttribute('class',namee);
+                        let tagArea = document.getElementsByClassName(classnamee)[0];
+                        tagArea.appendChild(modd);
+                    }
+                    let base = document.createElement('div');
+                    base.setAttribute('class','rectang');
+                    tagArea.appendChild(base);
+
+                    setting_tag(room_namee, div, room_number, rectang);
+
+                    let line_1 = document.createElement('p');
+                    line_1.setAttribute('class','amenity');
+                    let tagArea_line = document.getElementsByClassName("rectang")[0];
+                    tagArea_line.appendChild(line_1);
+                    line_1.innerHTML = "수건";
+
+                    let line123 = document.createElement('div');
+                    line123.setAttribute('class', 'line123');
+                    tagArea_line.appendChild(line123);
+
+                    
+                }
+            })
+
+        }
+        newtag();
+        </script>

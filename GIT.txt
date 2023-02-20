@@ -1,0 +1,6 @@
+git remote add origin "https://github.com/soominnnn/2023_MCA_project_WEB.git"
+git status
+git add .
+git commit -m " 날짜 "
+git remote -v
+git push origin master
