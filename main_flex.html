@@ -170,6 +170,7 @@
         <script>
         function newtag(){
             let tagArea = document.getElementsByClassName("content-all")[0];
+
             firebase.database().ref('service/service').on('value',function(getData){
                 var data = getData.val();
                 const timestamp = data.timestamp;
@@ -178,21 +179,19 @@
                 console.log(data);
                 if(data == "1")
                 {
-                    function setting_tag(modline, tagg,namee,classnamee){
-                        let modline = document.createElement(tagg);
-                        modline.setAttribute('class',namee);
-                        let tagArea = document.getElementsByClassName(classnamee)[0];
-                        tagArea.appendChild(modd);
-                    }
                     let base = document.createElement('div');
                     base.setAttribute('class','rectang');
                     tagArea.appendChild(base);
 
-                    setting_tag(room_namee, div, room_number, rectang);
+                    let tagArea_line = document.getElementsByClassName("rectang")[0];
+                    
+                    let room_namee = document.createElement('div');
+                    room_namee.setAttribute('class','room_number');
+                    tagArea_line.appendChild(room_namee);
+                    room_namee.innerHTML = "101호"
 
                     let line_1 = document.createElement('p');
                     line_1.setAttribute('class','amenity');
-                    let tagArea_line = document.getElementsByClassName("rectang")[0];
                     tagArea_line.appendChild(line_1);
                     line_1.innerHTML = "수건";
 
