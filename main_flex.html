@@ -173,15 +173,21 @@
 
             firebase.database().ref('service/service').on('value',function(getData){
                 var data = getData.val();
-                const timestamp = data.timestamp;
-                const date = new Date(timestamp + new Date().getTimezoneOffset() * 60 * 1000);
-                console.log('Date was added at:', date.toLocaleString('ko-KR'));
                 console.log(data);
                 if(data == "1")
                 {
-                    let base = document.createElement('div');
-                    base.setAttribute('class','rectang');
-                    tagArea.appendChild(base);
+                    function makediv(){
+                        let base = document.createElement('div');
+                        base.setAttribute('class','rectang');
+                        tagArea.appendChild(base);
+                    }
+                    
+                    makediv();
+
+                    firebase.database().ref('service/101호').on('value',function(getData){
+                        var data = getData.val();
+                        console.log(data);
+                    })
 
                     let tagArea_line = document.getElementsByClassName("rectang")[0];
                     

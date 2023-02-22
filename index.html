@@ -41,9 +41,11 @@
 
             function savesoap(){
                 var soap = "비누";
-                firebase.database().ref('101호').set({
-                    service:soap,
-                    servoceeeee:soap
+                var EA = "1개";
+                var newone = "1";
+                firebase.database().ref('service/101호').set({
+                    soap:EA,
+                    service:newone
                 });
             }
         </script>
