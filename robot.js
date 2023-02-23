@@ -1,3 +1,5 @@
+
+
 const now = new Date();
 console.log(now);
 const year = now.getFullYear();
@@ -19,3 +21,19 @@ setInterval(getClock, 1000);
 function create_robot(){
   let create_borderline = document.createElement('div');
 }
+
+var ros = new ROSLIB.Ros({
+  url: 'ws://localhost:9090'
+});
+
+ros.on("connection", function() {
+  console.log("Connected to ROS Bridge");
+});
+
+ros.on("error", function(error) {
+  console.log("Error connecting to ROS Bridge: ", error);
+});
+
+ros.on("close", function() {
+  console.log("Disconnected from ROS Bridge");
+});

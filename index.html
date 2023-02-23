@@ -31,6 +31,8 @@
         
       <button type="button" onclick="savedata()">push me and db save</button>
       <button type="button" onclick="savesoap()">비누</button>
+      <button type="button" id="plus">+</button>
+      <button type="button" id="minus">-</button>
       <button type="button" onclick="savedata()">수건</button>
       <button type="button" onclick="savedata()">칫솔</button>
           <script>
@@ -40,9 +42,20 @@
                     }
 
             function savesoap(){
+                let clickCount = 0;
+                const plusbtn = document.getElementById("plus");
+                const minusbtn = document.getElementById("minus");
+                plusbtn.addEventListener("click",function(){
+                    clickCount++;
+                });
+                minusbtn.addEventListener("click",function(){
+                    clickCount--;
+                })
+                
                 var soap = "비누";
                 var EA = "1개";
                 var newone = "1";
+                for( var i = 1 ; i < 12; )
                 firebase.database().ref('service/101호').set({
                     soap:EA,
                     service:newone

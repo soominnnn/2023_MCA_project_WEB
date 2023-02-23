@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style_main_flex.css">
     <title>MCA Hotel management system</title>
+
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
 </head>
 <script defer src="main.js"></script>
 <body>
@@ -146,8 +149,6 @@
             </div>
         </div>
     </div>
-    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
     <script >
         // Import the functions you need from the SDKs you need
         // TODO: Add SDKs for Firebase products that you want to use
@@ -166,49 +167,4 @@
         };
         // Initialize Firebase
         firebase.initializeApp(firebaseConfig);
-        </script>
-        <script>
-        function newtag(){
-            let tagArea = document.getElementsByClassName("content-all")[0];
-
-            firebase.database().ref('service/service').on('value',function(getData){
-                var data = getData.val();
-                console.log(data);
-                if(data == "1")
-                {
-                    function makediv(){
-                        let base = document.createElement('div');
-                        base.setAttribute('class','rectang');
-                        tagArea.appendChild(base);
-                    }
-                    
-                    makediv();
-
-                    firebase.database().ref('service/101호').on('value',function(getData){
-                        var data = getData.val();
-                        console.log(data);
-                    })
-
-                    let tagArea_line = document.getElementsByClassName("rectang")[0];
-                    
-                    let room_namee = document.createElement('div');
-                    room_namee.setAttribute('class','room_number');
-                    tagArea_line.appendChild(room_namee);
-                    room_namee.innerHTML = "101호"
-
-                    let line_1 = document.createElement('p');
-                    line_1.setAttribute('class','amenity');
-                    tagArea_line.appendChild(line_1);
-                    line_1.innerHTML = "수건";
-
-                    let line123 = document.createElement('div');
-                    line123.setAttribute('class', 'line123');
-                    tagArea_line.appendChild(line123);
-
-                    
-                }
-            })
-
-        }
-        newtag();
         </script>
