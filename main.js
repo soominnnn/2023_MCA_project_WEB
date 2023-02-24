@@ -59,3 +59,13 @@ function buttonchange(){
 }
 
 newtag();
+
+firebase.database().ref('service').once('value')
+  .then(function(snapshot) {
+    // snapshot에서 데이터 가져오기
+    snapshot.forEach(function(childSnapshot) {
+      var childKey = childSnapshot.key;
+      var childData = childSnapshot.val();
+      console.log(childKey, childData.name, childData.age);
+    });
+  });
