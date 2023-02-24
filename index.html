@@ -7,58 +7,55 @@
     <title>Document</title>
 </head>
 <body>
-    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
-    <script >
+    <script type="module">
         // Import the functions you need from the SDKs you need
+        
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-analytics.js";
+        import { getDatabase } from "https://www.gstatic.com/firebasejs/9.16.0/firebase-database.js"
         // TODO: Add SDKs for Firebase products that you want to use
         // https://firebase.google.com/docs/web/setup#available-libraries
+      
         // Your web app's Firebase configuration
         // For Firebase JS SDK v7.20.0 and later, measurementId is optional
         const firebaseConfig = {
-            apiKey: "AIzaSyCAT7bkhzoDUEMN7RaYUx9ZyRJyhs4yP0Q",
-            authDomain: "project1-6dfc7.firebaseapp.com",
-            databaseURL: "https://project1-6dfc7-default-rtdb.firebaseio.com",
-            projectId: "project1-6dfc7",
-            storageBucket: "project1-6dfc7.appspot.com",
-            messagingSenderId: "1086482242380",
-            appId: "1:1086482242380:web:7ef4b2d6b3c2a886fc8de9",
-            measurementId: "G-FQY04VY3MQ"
+          apiKey: "AIzaSyCAT7bkhzoDUEMN7RaYUx9ZyRJyhs4yP0Q",
+          authDomain: "project1-6dfc7.firebaseapp.com",
+          databaseURL: "https://project1-6dfc7-default-rtdb.firebaseio.com",
+          projectId: "project1-6dfc7",
+          storageBucket: "project1-6dfc7.appspot.com",
+          messagingSenderId: "1086482242380",
+          appId: "1:1086482242380:web:0b0916b8472b9873fc8de9",
+          measurementId: "G-LFJ8EHLYE3"
         };
+      
         // Initialize Firebase
-        firebase.initializeApp(firebaseConfig);
-        </script>
+        const app = initializeApp(firebaseConfig);
+      </script>
         
       <button type="button" onclick="savedata()">push me and db save</button>
-      <button type="button" onclick="savesoap()">비누</button>
       <button type="button" id="plus">+</button>
       <button type="button" id="minus">-</button>
-      <button type="button" onclick="savedata()">수건</button>
-      <button type="button" onclick="savedata()">칫솔</button>
+      <button type="button" onclick="savesoap()">전송</button>
           <script>
-            function savedata(){
-                        var data="1";
-                        firebase.database().ref('service').set({service:data});
-                    }
 
             function savesoap(){
                 let clickCount = 0;
                 const plusbtn = document.getElementById("plus");
                 const minusbtn = document.getElementById("minus");
                 plusbtn.addEventListener("click",function(){
-                    clickCount++;
+                    clickCount=clickCount+1;
                 });
                 minusbtn.addEventListener("click",function(){
-                    clickCount--;
+                    clickCount=clickCount-1;
                 })
                 
-                var soap = "비누";
-                var EA = "1개";
-                var newone = "1";
-                for( var i = 1 ; i < 12; )
-                firebase.database().ref('service/101호').set({
-                    soap:EA,
-                    service:newone
+                var soap = "1";
+                var EA = clickCount;
+                var newone = "2";
+                const db = getDatabase();
+                set(ref(db, 'service/101호'), {
+                    i:EA,
                 });
             }
         </script>

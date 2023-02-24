@@ -413,19 +413,16 @@
         width: 147px;
         height: 12px;
         margin-left:13px;
-        margin-top: 54px;
         font-family: 'Pretendard-Regular';
         font-style: normal;
         font-weight: 400;
         font-size: 17px;
         line-height: 20px;
-        display: flex;
-        align-items: center;
-        
+        margin-bottom: 6px; 
         color: #FFFFFF;
         
 }
-.line123{
+.line_room{
     position: relative;
     width: 100px;
     height: 1px;
@@ -447,6 +444,7 @@
     line-height: 29px;
     display: flex;
     align-items: center;
+    margin-bottom:54px;
 
     color: #FFFFFF;
 }

@@ -30,34 +30,26 @@ function newtag(){
           make_rectang();
 
           firebase.database().ref('service/101호').on('value',function(getData){
-              var data = getData.val();
-              console.log(data);
-              var arr = JSON.parse(data);
-
-              for( var i = 0; i < arr.length; i++){
-                console.log(arr[i])
-              }
-          })
-          let tagArea_line = document.getElementsByClassName("rectang")[0];
-
-          function make_roomname(){
+            var count = getData.numChildren();
+            let tagArea_line = document.getElementsByClassName("rectang")[0];
+          // 서비스 요청 내역_ 룸 넘버
             let room_namee = document.createElement('div');
                     room_namee.setAttribute('class','room_number');
                     tagArea_line.appendChild(room_namee);
                     room_namee.innerHTML = "101호"
-          }
-          function make_service(){
-              let line_1 = document.createElement('p');
-              line_1.setAttribute('class','amenity');
-              tagArea_line.appendChild(line_1);
-              line_1.innerHTML = data;
-          
+            for( var i = 0; i < count; i++)
+            {
+              //룸 내 라인 위 요청 내역
+              let order_p = document.createElement('p');
+              order_p.setAttribute('class','amenity');
+              tagArea_line.appendChild(order_p);
+              order_p.innerHTML = data;
+          // 룸 내 라인 
               let line123 = document.createElement('div');
-              line123.setAttribute('class', 'line123');
+              line123.setAttribute('class', 'line_room');
               tagArea_line.appendChild(line123);
-          }
-          make_roomname();
-          make_service();
+            }
+          })
       }
   })
 
@@ -66,11 +58,4 @@ function buttonchange(){
   var button_state = document.getElementById('button_change');
 }
 
-function firebasenum(){
-  firebase.database().ref('service/101호').once('value').then(function(snapshot){
-    var count = snapshot.numChildren();
-    console.log(count);
-  })
-}
 newtag();
-firebasenum();
