@@ -29,10 +29,13 @@ function newtag(){
       {
           make_rectang();
 
-          firebase.database().ref('service/101호').on('value',function(getData){
+          firebase.database().ref('service/장바구니/101호').on('value',function(getData){
+            var test = getData.val();
             var count = getData.numChildren();
             let tagArea_line = document.getElementsByClassName("rectang")[0];
           // 서비스 요청 내역_ 룸 넘버
+            const entries = Object.entries(test);
+            console.log(entries);
             let room_namee = document.createElement('div');
                     room_namee.setAttribute('class','room_number');
                     tagArea_line.appendChild(room_namee);
@@ -40,10 +43,11 @@ function newtag(){
             for( var i = 0; i < count; i++)
             {
               //룸 내 라인 위 요청 내역
+              console.log(entries[i]);
               let order_p = document.createElement('p');
               order_p.setAttribute('class','amenity');
               tagArea_line.appendChild(order_p);
-              order_p.innerHTML = data;
+              order_p.innerHTML = entries[i];
           // 룸 내 라인 
               let line123 = document.createElement('div');
               line123.setAttribute('class', 'line_room');
