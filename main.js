@@ -48,6 +48,7 @@ function newtag(){
               order_p.setAttribute('class','amenity');
               tagArea_line.appendChild(order_p);
               order_p.innerHTML = entries[i];
+
           // 룸 내 라인 
               let line123 = document.createElement('div');
               line123.setAttribute('class', 'line_room');

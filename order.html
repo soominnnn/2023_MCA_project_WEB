@@ -47,11 +47,11 @@
                     clickCount=clickCount-1;
                 })
                 
-                var soap = "1";
+                var soap = "비누";
                 var EA = clickCount;
-                var newone = "2";
+                var newone = "2개";
                 firebase.database().ref('service/장바구니/101호').set({
-                    i:EA,
+                    soap:newone,
                 })
             }
         </script>
