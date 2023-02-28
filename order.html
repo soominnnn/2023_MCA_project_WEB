@@ -33,10 +33,11 @@
       <button type="button" onclick="savedata()">push me and db save</button>
       <button type="button" id="plus">+</button>
       <button type="button" id="minus">-</button>
-      <button type="button" onclick="savesoap()">전송</button>
+      <button type="button" onclick="save101()">전송101</button>
+      <button type="button" onclick="save102()">전송102</button>
           <script>
 
-            function savesoap(){
+            function save101(){
                 let clickCount = 0;
                 const plusbtn = document.getElementById("plus");
                 const minusbtn = document.getElementById("minus");
@@ -50,8 +51,16 @@
                 var soap = "비누";
                 var EA = clickCount;
                 var newone = "2개";
-                firebase.database().ref('service/장바구니/101호').set({
-                    soap:newone,
+                firebase.database().ref('service/장바구니/101').set({
+                    비누:newone,
+                    수건:newone
+                })
+            }
+            function save102(){
+                var newone = "2개";
+                firebase.database().ref('service/장바구니/102').set({
+                    간식:newone,
+                    수건:newone
                 })
             }
         </script>

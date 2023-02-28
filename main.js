@@ -21,33 +21,38 @@ function make_rectang(){
   tagArea.appendChild(base);
 }
 
-function newtag(){
+
   firebase.database().ref('service/service').on('value',function(getData){
       var data = getData.val();
       console.log(data);
       if(data == "1")
       {
           make_rectang();
-
+           //101호
           firebase.database().ref('service/장바구니/101호').on('value',function(getData){
             var test = getData.val();
             var count = getData.numChildren();
             let tagArea_line = document.getElementsByClassName("rectang")[0];
           // 서비스 요청 내역_ 룸 넘버
             const entries = Object.entries(test);
-            console.log(entries);
+            const tester = Object.fromEntries(entries);
+            const keytest = Object.values(tester);
+            const valuetest = Object.keys(tester);
+            console.log(keytest);
+            console.log(valuetest);
+            console.log(tester);
             let room_namee = document.createElement('div');
                     room_namee.setAttribute('class','room_number');
                     tagArea_line.appendChild(room_namee);
-                    room_namee.innerHTML = "101호"
+                    room_namee.innerHTML = "102호"
             for( var i = 0; i < count; i++)
             {
               //룸 내 라인 위 요청 내역
-              console.log(entries[i]);
+
               let order_p = document.createElement('p');
               order_p.setAttribute('class','amenity');
               tagArea_line.appendChild(order_p);
-              order_p.innerHTML = entries[i];
+              order_p.innerHTML = valuetest[i] + "&emsp;" + "&emsp;" + keytest[i];
 
           // 룸 내 라인 
               let line123 = document.createElement('div');
@@ -57,20 +62,36 @@ function newtag(){
           })
       }
   })
+  //102호
+  firebase.database().ref('service/장바구니/102호').on('value',function(getData){
+    var test = getData.val();
+    var count = getData.numChildren();
+    make_rectang();
+    let tagArea_line = document.getElementsByClassName("rectang")[0];
+  // 서비스 요청 내역_ 룸 넘버
+    const entries = Object.entries(test);
+    const tester = Object.fromEntries(entries);
+    const keytest = Object.values(tester);
+    const valuetest = Object.keys(tester);
+    console.log(keytest);
+    console.log(valuetest);
+    console.log(tester);
+    let room_namee = document.createElement('div');
+            room_namee.setAttribute('class','room_number');
+            tagArea_line.appendChild(room_namee);
+            room_namee.innerHTML = "101호"
+    for( var i = 0; i < count; i++)
+    {
+      //룸 내 라인 위 요청 내역
 
-}
-function buttonchange(){
-  var button_state = document.getElementById('button_change');
-}
+      let order_p = document.createElement('p');
+      order_p.setAttribute('class','amenity');
+      tagArea_line.appendChild(order_p);
+      order_p.innerHTML = valuetest[i] + "&emsp;" + "&emsp;" + keytest[i];
 
-newtag();
-
-firebase.database().ref('service').once('value')
-  .then(function(snapshot) {
-    // snapshot에서 데이터 가져오기
-    snapshot.forEach(function(childSnapshot) {
-      var childKey = childSnapshot.key;
-      var childData = childSnapshot.val();
-      console.log(childKey, childData.name, childData.age);
-    });
-  });
+  // 룸 내 라인 
+      let line123 = document.createElement('div');
+      line123.setAttribute('class', 'line_room');
+      tagArea_line.appendChild(line123);
+    }
+  })
