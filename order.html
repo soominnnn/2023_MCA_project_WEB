@@ -35,12 +35,13 @@
       <button type="button" id="minus">-</button>
       <button type="button" onclick="save101()">전송101</button>
       <button type="button" onclick="save102()">전송102</button>
+      <button type="button" onclick="save102_1()">전송102 중복테스트</button>
           <script>
 
             function save101(){
                 let clickCount = 0;
                 const plusbtn = document.getElementById("plus");
-                const minusbtn = document.getElementById("minus");
+                const minusbtn = document.getElementById("minus")
                 plusbtn.addEventListener("click",function(){
                     clickCount=clickCount+1;
                 });
@@ -61,6 +62,13 @@
                 firebase.database().ref('service/장바구니/102').set({
                     간식:newone,
                     수건:newone
+                })
+            }
+            function save102_1(){
+                var newone = "3개";
+                firebase.database().ref('service/장바구니/102').set({
+                    청소:newone,
+                    칫솔:newone
                 })
             }
         </script>

@@ -59,7 +59,7 @@ function make_rectang1(){
             let room_namee = document.createElement('div');
             room_namee.setAttribute('class','room_number');
             tagArea_line.appendChild(room_namee);
-            room_namee.innerHTML = "102호"
+            room_namee.innerHTML = "101호"
 
             for( var i = 0; i < count; i++)
             {
@@ -95,7 +95,7 @@ function make_rectang1(){
     let room_namee = document.createElement('div');
             room_namee.setAttribute('class','room_number');
             tagArea_line.appendChild(room_namee);
-            room_namee.innerHTML = "101호"
+            room_namee.innerHTML = "102호"
 
     for( var i = 0; i < count; i++)
     {
@@ -114,6 +114,7 @@ function make_rectang1(){
     }
   })
 
+  //룸 상태 변경 버튼 제작
   const button_list = document.getElementById("button_change");
   const list = document.getElementById('list');
   button_list.addEventListener('click',function(){
