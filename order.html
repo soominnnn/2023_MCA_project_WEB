@@ -36,6 +36,7 @@
       <button type="button" onclick="save101()">전송101</button>
       <button type="button" onclick="save102()">전송102</button>
       <button type="button" onclick="save102_1()">전송102 중복테스트</button>
+      <button type="button" onclick="save103()">전송103</button>
           <script>
 
             function save101(){
@@ -69,6 +70,13 @@
                 firebase.database().ref('service/장바구니/102').set({
                     청소:newone,
                     칫솔:newone
+                })
+            }
+            function save103(){
+                var newone = "3개";
+                firebase.database().ref('service/장바구니/103').set({
+                    수민:newone,
+                    선물:newone
                 })
             }
         </script>
