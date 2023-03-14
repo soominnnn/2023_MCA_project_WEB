@@ -6,6 +6,7 @@ function database_room(roomnum,num){
         var count = getData.numChildren();
 
   // 서비스 요청 내역_ 룸 넘버
+  if(test != null){
     const entries = Object.entries(test);
     const tester = Object.fromEntries(entries);
     const valuedata = Object.values(tester);
@@ -42,6 +43,8 @@ function database_room(roomnum,num){
       line123.setAttribute('class', 'line_room');
       tagArea_line.appendChild(line123);
     }
+  }
+
     })
   }
 
