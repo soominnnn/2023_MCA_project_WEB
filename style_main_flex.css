@@ -451,6 +451,16 @@
 #list{
     display: none;
 }
+#btnCanAll{
+    position: relative;
+    margin-left: 15px;
+    top:11px;
+    width: 103px;
+    height: 30px;
+    background-color: white;
+    border: 0.2px solid white;
+    border-radius: 15px;
+}
 #btnCanOrder{
     position: relative;
     margin-left: 15px;
@@ -461,6 +471,7 @@
     border: 0.2px solid white;
     border-radius: 15px;
 }
+
 
 .btnOrderOk{
     position:relative;
