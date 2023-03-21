@@ -267,7 +267,7 @@
 
 .service_main .tab .margin_on{
     display: inline-block;
-    margin-right: 20px;
+    margin-right: 15px;
     font-style: normal;
     font-weight: 400;
     font-size: 19px;
@@ -389,7 +389,28 @@
     color: #FFFFFF;
 
 }
-#rectang{
+#rectang_all{
+    width: 383px;
+    height: 161px;
+    background-color: #060715;
+    border: 1px solid white;
+    border-radius: 10px;
+}
+#rectang_order{
+    width: 383px;
+    height: 161px;
+    background-color: #060715;
+    border: 1px solid white;
+    border-radius: 10px;
+}
+#rectang_conti{
+    width: 383px;
+    height: 161px;
+    background-color: #060715;
+    border: 1px solid white;
+    border-radius: 10px;
+}
+#rectang_comp{
     width: 383px;
     height: 161px;
     background-color: #060715;
@@ -447,6 +468,34 @@
 
     color: #FFFFFF;
 }
+.room_number_comp{
+    position: relative;
+    top:14px;
+    left:13px;
+    width: 147px;
+    height: 12px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 29px;
+    margin-bottom:54px;
+
+    color: #FFFFFF;
+}
+.room_number_conti{
+    position: relative;
+    top:14px;
+    left:13px;
+    width: 147px;
+    height: 12px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 29px;
+    margin-bottom:54px;
+
+    color: #FFFFFF;
+}
 
 #list{
     display: none;
@@ -473,7 +522,7 @@
 }
 
 
-.btnOrderOk{
+#btnTakeAll{
     position:relative;
     width: 209px;
     height: 30px;
