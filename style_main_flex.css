@@ -51,10 +51,10 @@
 .header .nav ul li{
     display: inline-block;
     margin :0 10px;
-    text-align: center;
-    align-content: center;
+    text-align: right;
     font-size: 19px;
     margin-top: 10px;
+    float: right;
 }
 
 .header .nav ul li a{
@@ -523,6 +523,18 @@
 
 
 #btnTakeAll{
+    position:relative;
+    width: 209px;
+    height: 30px;
+    left:32px;
+    top:11px;
+    background: #FF612F;
+    border: 0.2px solid #FFFFFF;
+    border-radius: 15px;
+    color: white;
+}
+
+#btnTakeOrder{
     position:relative;
     width: 209px;
     height: 30px;

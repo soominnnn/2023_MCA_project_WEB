@@ -18,8 +18,9 @@ function getClock(){
   }
 setInterval(getClock, 1000);
 
-function create_robot(){
-  let create_borderline = document.createElement('div');
+function createRobot(){
+  let createBorderline = document.createElement('div');
+  createBorderline.setAttribute('class',line);
 }
 
 var ros = new ROSLIB.Ros({

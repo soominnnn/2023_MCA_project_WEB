@@ -86,22 +86,29 @@ function btnClickCancelAll(num,roomnum,count,keydata,valuedata){
         btnCan_cre.innerHTML = "취소 요청"
         //버튼 이벤트 리스너 생성
         btnCan_cre.addEventListener('click', function() {
+          //전체와 요청 사항에 있는 취소 버튼 삭제 처리
           const btnCreCancel = document.getElementById('btnCanAll');
           const btnCreCancelOrder = document.getElementById('btnCanOrder');
           const parent = btnCreCancelOrder.parentNode;
           parent.parentNode.removeChild(parent);
           OrderCountingMinus();
 
+          //접수 버튼 삭제 처리
+          const btnTakeAll = document.getElementById('btnTakeAll');
+          btnTakeAll.remove();
+
           //완료로 처리
           compCounting();
           baseElementCreate(tagArea_comp,"1000"+num,compCount,'comp','contentComp','comp','완료');
           roomNumPrint("tagAreaLineComp", "1000"+num,roomnum,"comp");
           roomLinePrint(count,"1000"+num,keydata,valuedata,"comp","1000"+num);
+
           //요청 삭제 처리
           const contentOrderNum = document.getElementById('content_order');
           contentOrderNum.innerHTML = '요청'+'\u00a0'+'\u00a0'+orderCount+'건';
           btnCreCancelOrder.remove();
           btnCreCancel.remove();
+
           //수량 변경
           const contentAllNum = document.getElementById('content_all');
           contentAllNum.innerHTML = '전체'+'\u00a0'+'\u00a0'+allCount+'건';
@@ -121,13 +128,21 @@ function btnClickCancelOrder(num,roomnum,count,keydata,valuedata){
         btnCan_cre.innerHTML = "취소 요청"
         //버튼 이벤트 리스너 생성
         btnCan_cre.addEventListener('click', function() {
+          //버튼 삭제 처리
           const parent = this.parentNode; // 부모 요소 찾기
           parent.parentNode.removeChild(parent); // 부모 요소 삭제
+          const btnCanAll = document.getElementById('btnCanAll');
+          btnCanAll.remove();
+          const btnTakeAll = document.getElementById('btnTakeAll');
+          btnTakeAll.remove();
+          //요청 카운트 다운, 완료 카운트 업
           OrderCountingMinus();
           compCounting();
+          //완료 요소 생성
           baseElementCreate(tagArea_comp,"1000"+num,compCount,'comp','contentComp','comp','완료');
           roomNumPrint("tagAreaLineComp", "1000"+num,roomnum,"comp");
           roomLinePrint(count,"1000"+num,keydata,valuedata,"comp","1000"+num);
+          //카운트 재생성
           const contentOrderNum = document.getElementById('content_order');
           const contentAllNum = document.getElementById('content_all');
           contentAllNum.innerHTML = '전체'+'\u00a0'+'\u00a0'+allCount+'건';
@@ -146,21 +161,61 @@ function btnClickTakeAll(num,roomnum,count,keydata,valuedata){
         btnTake.innerHTML = "접수 받기"
         //버튼 이벤트 리스너 생성
         btnTake.addEventListener('click', function() {
+          //자신 버튼 삭제
           const parent = this.parentNode; // 부모 요소 찾기
           parent.parentNode.removeChild(parent); // 부모 요소 삭제
+          
+          //요청중에 있는 취소 버튼 삭제
           const btnCreCancelOrder = document.getElementById('btnCanOrder');
           const parentOrder = btnCreCancelOrder.parentNode;
           parentOrder.parentNode.removeChild(parentOrder);
-          
+          //요청 카운트 다운, 처리중 카운트 업
           OrderCountingMinus();
-          compCounting();
+          contiCounting();
           baseElementCreate(tagArea_conti,"100"+num,contiCount,'conti','contentConti','conti','처리중');
           roomNumPrint("tagAreaLineConti", "100"+num,roomnum,"conti");
           roomLinePrint(count,"100"+num,keydata,valuedata,"conti","100"+num);
           const contentContiNum = document.getElementById('content_conti');
-          contentContiNum.innerHTML = '처리중'+'\u00a0'+'\u00a0'+compCount+'건';
+          contentContiNum.innerHTML = '처리중'+'\u00a0'+'\u00a0'+contiCount+'건';
           const contentOrderNum = document.getElementById('content_order');
           contentOrderNum.innerHTML = '요청'+'\u00a0'+'\u00a0'+orderCount+'건';
+        })
+}
+//요청 접수버튼 클릭 function
+function btnClickTakeOrder(num,roomnum,count,keydata,valuedata){
+  let tagAreaLine = document.getElementsByClassName("rectang"+num)[0];
+  //버튼 동적생성
+        let btnTake = document.createElement('button');
+        //버튼 attribute 지정
+        btnTake.setAttribute('class','btnOrderOk'+num);
+        btnTake.setAttribute('id','btnTakeOrder');
+        tagAreaLine.appendChild(btnTake);
+        btnTake.innerHTML = "접수 받기"
+        //버튼 이벤트 리스너 생성
+        btnTake.addEventListener('click', function() {
+          const parent = this.parentNode; // 부모 요소 찾기
+          parent.parentNode.removeChild(parent); // 부모 요소 삭제    
+          
+          //요청 카운트 다운, 처리중 카운트 업   
+          OrderCountingMinus();
+          contiCounting();
+          
+          //처리중 요소 생성
+          baseElementCreate(tagArea_conti,"100"+num,contiCount,'conti','contentConti','conti','처리중');
+          roomNumPrint("tagAreaLineConti", "100"+num,roomnum,"conti");
+          roomLinePrint(count,"100"+num,keydata,valuedata,"conti","100"+num);
+          
+          //카운트 재생성
+          const contentContiNum = document.getElementById('content_conti');
+          contentContiNum.innerHTML = '처리중'+'\u00a0'+'\u00a0'+contiCount+'건';
+          const contentOrderNum = document.getElementById('content_order');
+          contentOrderNum.innerHTML = '요청'+'\u00a0'+'\u00a0'+orderCount+'건';
+
+          //전체 버튼 삭제
+          const btnCanAll = document.getElementById('btnCanAll');
+          btnCanAll.remove();
+          const btnTakeAll = document.getElementById('btnTakeAll');
+          btnTakeAll.remove();
         })
 }
 
@@ -197,6 +252,7 @@ function database_roomAllOrder(roomnum,num){
         btnClickCancelAll(num,roomnum,count,keydata,valuedata);
         btnClickCancelOrder('10'+num,roomnum,count,keydata,valuedata);
         btnClickTakeAll(num,roomnum,count,keydata,valuedata);
+        btnClickTakeOrder('10'+num,roomnum,count,keydata,valuedata);
       }
         })
   }
