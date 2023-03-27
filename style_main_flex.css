@@ -529,7 +529,7 @@
     left:32px;
     top:11px;
     background: #FF612F;
-    border: 0.2px solid #FFFFFF;
+    border: 0.1px solid #FFFFFF;
     border-radius: 15px;
     color: white;
 }
@@ -541,7 +541,19 @@
     left:32px;
     top:11px;
     background: #FF612F;
-    border: 0.2px solid #FFFFFF;
+    border: 0.1px solid #FFFFFF;
     border-radius: 15px;
+    color: white;
+}
+
+#btnTakeOrdertoComp{
+    position:relative;
+    width:  209px;
+    height: 30px;
+    left:29px;
+    top: 11px;
+    background-color: #FF612F;
+    border:0.1px solid #FFFFFF;
+    border-radius:  15px;
     color: white;
 }
