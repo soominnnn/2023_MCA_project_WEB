@@ -23,7 +23,7 @@ function createRobot(){
   createBorderline.setAttribute('class',line);
 }
 
-var ros = new ROSLIB.Ros({
+const ros = new ROSLIB.Ros({
   url: 'ws://localhost:9090'
 });
 

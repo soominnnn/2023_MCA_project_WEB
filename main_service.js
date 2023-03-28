@@ -34,14 +34,14 @@ function make_rectang2(){
         rectangstyle.style.borderRadius = '10px';
   }
   firebase.database().ref('service/service').on('value',function(getData){
-      var data = getData.val();
+      const data = getData.val();
       console.log(data);
       if(data == "1")
       {
            //101호
           firebase.database().ref('service/장바구니/101호').on('value',function(getData){
-            var test = getData.val();
-            var count = getData.numChildren();
+            const test = getData.val();
+            const count = getData.numChildren();
           // 서비스 요청 내역_ 룸 넘버
             const entries = Object.entries(test);
             const tester = Object.fromEntries(entries);
@@ -74,7 +74,7 @@ function make_rectang2(){
           })
           //102호
           firebase.database().ref('service/장바구니/102호').on('value',function(getData){
-            var test = getData.val();
+            const test = getData.val();
             var count = getData.numChildren();
           // 서비스 요청 내역_ 룸 넘버
             const entries = Object.entries(test);

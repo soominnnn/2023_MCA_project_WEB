@@ -58,7 +58,7 @@ function roomNumPrint(Area, num, roomnum,content){
 //내역 생성 function
 function roomLinePrint(count,num,keydata,valuedata,PName){
   let tagAreaLine = document.getElementsByClassName("rectang"+num)[0];
-  for( var i = 0; i < count; i++)
+  for( let i = 0; i < count; i++)
   {
     //룸 내 라인 위 요청 내역
     PName = document.createElement('p');
@@ -182,7 +182,7 @@ function btnClickTakeAll(num,roomnum,count,keydata,valuedata){
         })
 }
 //요청 접수버튼 클릭 function
-function btnClickTakeOrder(num,roomnum,count,keydata,valuedata){
+function btnClickTakeOrder(number,num,roomnum,count,keydata,valuedata){
   let tagAreaLine = document.getElementsByClassName("rectang"+num)[0];
   //버튼 동적생성
         let btnTake = document.createElement('button');
@@ -201,9 +201,15 @@ function btnClickTakeOrder(num,roomnum,count,keydata,valuedata){
           contiCounting();
           
           //처리중 요소 생성
-          baseElementCreate(tagArea_conti,"100"+num,contiCount,'conti','contentConti','conti','처리중');
-          roomNumPrint("tagAreaLineConti", "100"+num,roomnum,"conti");
-          roomLinePrint(count,"100"+num,keydata,valuedata,"conti","100"+num);
+          baseElementCreate(tagArea_conti,"100"+number,contiCount,'conti','contentConti','conti','처리중');
+          roomNumPrint("tagAreaLineConti", "100"+number,roomnum,"conti");
+          roomLinePrint(count,"100"+number,keydata,valuedata,"conti","100"+number);
+          let tagAreaLineContibtn = document.getElementsByClassName("rectang"+"100"+number)[0];
+          const btnConti = document.createElement('button');
+                btnConti.setAttribute('class','btnConti'+num);
+                btnConti.setAttribute('id','btnTakeOrdertoComp');
+                tagAreaLineContibtn.appendChild(btnConti);
+                btnConti.innerHTML = "처리 완료";
           
           //카운트 재생성
           const contentContiNum = document.getElementById('content_conti');
@@ -229,8 +235,8 @@ function database_roomAllOrder(roomnum,num){
         contentCompNum.innerHTML = '완료'+'\u00a0'+'\u00a0'+compCount+'건';
     firebase.database().ref('service/장바구니/'+roomnum).on('value',function(getData){
       //데이터 가져오기
-        var test = getData.val();
-        var count = getData.numChildren();
+        const test = getData.val();
+        const count = getData.numChildren();
 
       if(test != null){
         //배열 변경
@@ -252,13 +258,13 @@ function database_roomAllOrder(roomnum,num){
         btnClickCancelAll(num,roomnum,count,keydata,valuedata);
         btnClickCancelOrder('10'+num,roomnum,count,keydata,valuedata);
         btnClickTakeAll(num,roomnum,count,keydata,valuedata);
-        btnClickTakeOrder('10'+num,roomnum,count,keydata,valuedata);
+        btnClickTakeOrder(num,'10'+num,roomnum,count,keydata,valuedata);
       }
         })
   }
 
 
-  for(var i = 1; i<4; i++){
+  for(let i = 1; i<4; i++){
     database_roomAllOrder("10"+i,i);
   }
 

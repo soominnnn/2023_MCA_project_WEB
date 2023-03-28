@@ -1,6 +1,6 @@
 
 function room_change(value){
-  for( var i = 1; i<=2; i++){
+  for( const i = 1; i<=2; i++){
     document.getElementById(i).style.display="none";
   }
   document.getElementById(value).style.display="block";
