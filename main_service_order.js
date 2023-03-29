@@ -102,6 +102,11 @@ function btnClickCancelAll(num,roomnum,count,keydata,valuedata){
           baseElementCreate(tagArea_comp,"1000"+num,compCount,'comp','contentComp','comp','완료');
           roomNumPrint("tagAreaLineComp", "1000"+num,roomnum,"comp");
           roomLinePrint(count,"1000"+num,keydata,valuedata,"comp","1000"+num);
+          let tagAreaLineCompbtn = document.getElementsByClassName("rectang"+"1000"+num)[0];
+          let btnCanAlltoComp = document.createElement('button');
+          btnCanAlltoComp.setAttribute('id','btnCancelAlltoComp');
+          tagAreaLineCompbtn.appendChild(btnCanAlltoComp);
+          btnCanAlltoComp.innerHTML = "취소 완료"
 
           //요청 삭제 처리
           const contentOrderNum = document.getElementById('content_order');
@@ -142,6 +147,12 @@ function btnClickCancelOrder(num,roomnum,count,keydata,valuedata){
           baseElementCreate(tagArea_comp,"1000"+num,compCount,'comp','contentComp','comp','완료');
           roomNumPrint("tagAreaLineComp", "1000"+num,roomnum,"comp");
           roomLinePrint(count,"1000"+num,keydata,valuedata,"comp","1000"+num);
+          let tagAreaLineCompbtn = document.getElementsByClassName("rectang"+"1000"+num)[0];
+          let btnCanAlltoComp = document.createElement('button');
+          btnCanAlltoComp.setAttribute('id','btnCancelAlltoComp');
+          tagAreaLineCompbtn.appendChild(btnCanAlltoComp);
+          btnCanAlltoComp.innerHTML = "취소 완료"
+          
           //카운트 재생성
           const contentOrderNum = document.getElementById('content_order');
           const contentAllNum = document.getElementById('content_all');
@@ -161,20 +172,51 @@ function btnClickTakeAll(num,roomnum,count,keydata,valuedata){
         btnTake.innerHTML = "접수 받기"
         //버튼 이벤트 리스너 생성
         btnTake.addEventListener('click', function() {
-          //자신 버튼 삭제
-          const parent = this.parentNode; // 부모 요소 찾기
-          parent.parentNode.removeChild(parent); // 부모 요소 삭제
+          //자신 버튼 삭제 및 취소 버튼 삭제
+          const btnCanAll = document.getElementById('btnCanAll');
+          const btnTakeAll = document.getElementById('btnTakeAll');
+          btnTakeAll.remove();
+          btnCanAll.remove();
           
           //요청중에 있는 취소 버튼 삭제
           const btnCreCancelOrder = document.getElementById('btnCanOrder');
           const parentOrder = btnCreCancelOrder.parentNode;
           parentOrder.parentNode.removeChild(parentOrder);
+
+
           //요청 카운트 다운, 처리중 카운트 업
           OrderCountingMinus();
           contiCounting();
+          //처리중 요소생성
           baseElementCreate(tagArea_conti,"100"+num,contiCount,'conti','contentConti','conti','처리중');
           roomNumPrint("tagAreaLineConti", "100"+num,roomnum,"conti");
           roomLinePrint(count,"100"+num,keydata,valuedata,"conti","100"+num);
+          let tagAreaLineContibtn = document.getElementsByClassName("rectang"+"100"+num)[0];
+          //처리중 완료 버튼 생성
+          const btnConti = document.createElement('button');
+                btnConti.setAttribute('class','btnConti'+num);
+                btnConti.setAttribute('id','btnTakeOrdertoComp');
+                tagAreaLineContibtn.appendChild(btnConti);
+                btnConti.innerHTML = "완료하기";
+                btnConti.addEventListener('click',function(){
+                  const parentConti = this.parentNode;
+                  parentConti.parentNode.removeChild(parentConti);
+                  contiCountingMinus();
+                  contentContiNum.innerHTML = '처리중'+'\u00a0'+'\u00a0'+contiCount+'건';
+                  //완료 요소 생성
+                  baseElementCreate(tagArea_comp, "1000"+num,compCount,'comp','contentComp','comp','완료');
+                  roomNumPrint("tagAreaLineComp","1000"+num,roomnum,"comp");
+                  roomLinePrint(count,"1000"+num,keydata,valuedata,"comp","1000"+num);
+                  compCounting();
+                  const contentCompNum = document.getElementById('content_comp');
+                  contentCompNum.innerHTML = '완료'+'\u00a0'+'\u00a0'+compCount+'건';
+                  let tagAreaLineCompbtn = document.getElementsByClassName("rectang"+"1000"+num)[0];
+                  const btnComp = document.createElement('button');
+                        btnComp.setAttribute('id','btnTakeContitoComp');
+                        tagAreaLineCompbtn.appendChild(btnComp);
+                        btnComp.innerHTML = "처리 완료";
+                })
+
           const contentContiNum = document.getElementById('content_conti');
           contentContiNum.innerHTML = '처리중'+'\u00a0'+'\u00a0'+contiCount+'건';
           const contentOrderNum = document.getElementById('content_order');
@@ -184,6 +226,7 @@ function btnClickTakeAll(num,roomnum,count,keydata,valuedata){
 //요청 접수버튼 클릭 function
 function btnClickTakeOrder(number,num,roomnum,count,keydata,valuedata){
   let tagAreaLine = document.getElementsByClassName("rectang"+num)[0];
+  const contentContiNum = document.getElementById('content_conti');
   //버튼 동적생성
         let btnTake = document.createElement('button');
         //버튼 attribute 지정
@@ -209,10 +252,28 @@ function btnClickTakeOrder(number,num,roomnum,count,keydata,valuedata){
                 btnConti.setAttribute('class','btnConti'+num);
                 btnConti.setAttribute('id','btnTakeOrdertoComp');
                 tagAreaLineContibtn.appendChild(btnConti);
-                btnConti.innerHTML = "처리 완료";
+                btnConti.innerHTML = "완료하기";
+          btnConti.addEventListener('click',function(){
+            const parentConti = this.parentNode;
+            parentConti.parentNode.removeChild(parentConti);
+            contiCountingMinus();
+            contentContiNum.innerHTML = '처리중'+'\u00a0'+'\u00a0'+contiCount+'건';
+            //완료 요소 생성
+            baseElementCreate(tagArea_comp, "1000"+number,compCount,'comp','contentComp','comp','완료');
+            roomNumPrint("tagAreaLineComp","1000"+number,roomnum,"comp");
+            roomLinePrint(count,"1000"+number,keydata,valuedata,"comp","1000"+number);
+            compCounting();
+            const contentCompNum = document.getElementById('content_comp');
+            contentCompNum.innerHTML = '완료'+'\u00a0'+'\u00a0'+compCount+'건';
+            let tagAreaLineCompbtn = document.getElementsByClassName("rectang"+"1000"+number)[0];
+            const btnComp = document.createElement('button');
+                  btnComp.setAttribute('id','btnTakeContitoComp');
+                  tagAreaLineCompbtn.appendChild(btnComp);
+                  btnComp.innerHTML = "처리 완료";
+          })
           
           //카운트 재생성
-          const contentContiNum = document.getElementById('content_conti');
+          
           contentContiNum.innerHTML = '처리중'+'\u00a0'+'\u00a0'+contiCount+'건';
           const contentOrderNum = document.getElementById('content_order');
           contentOrderNum.innerHTML = '요청'+'\u00a0'+'\u00a0'+orderCount+'건';

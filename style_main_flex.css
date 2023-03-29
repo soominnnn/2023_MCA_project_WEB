@@ -376,6 +376,11 @@
     background: #A6A6A6;
     border-radius: 15px;  
 }
+
+#button_change:active{
+    box-shadow: 7px 6px 28px 1px rgba(0,0,0,0.24);
+    transform: translate(-0.5px,0.5px);
+}
 .room_grid p {
     position: relative;
     width: 100px;
@@ -510,6 +515,12 @@
     border: 0.2px solid white;
     border-radius: 15px;
 }
+
+#btnCanAll:active{
+    box-shadow: 7px 6px 28px 1px rgba(0,0,0,0.24);
+    transform: translate(-0.5px,0.5px);
+}
+
 #btnCanOrder{
     position: relative;
     margin-left: 15px;
@@ -521,6 +532,10 @@
     border-radius: 15px;
 }
 
+#btnCanOrder:active{
+    box-shadow: 7px 6px 28px 1px rgba(0,0,0,0.24);
+    transform: translate(-0.5px,0.5px);
+}
 
 #btnTakeAll{
     position:relative;
@@ -532,6 +547,11 @@
     border: 0.1px solid #FFFFFF;
     border-radius: 15px;
     color: white;
+}
+
+#btnTakeAll:active{
+    box-shadow: 7px 6px 28px 1px rgba(0,0,0,0.24);
+    transform: translate(-0.5px,0.5px);
 }
 
 #btnTakeOrder{
@@ -546,6 +566,11 @@
     color: white;
 }
 
+#btnTakeOrder:active{
+    box-shadow: 7px 6px 28px 1px rgba(0,0,0,0.24);
+    transform: translate(-0.5px,0.5px);
+}
+
 #btnTakeOrdertoComp{
     position:relative;
     width:  325px;
@@ -556,4 +581,33 @@
     border:0.1px solid #FFFFFF;
     border-radius:  15px;
     color: white;
+}
+
+#btnTakeOrdertoComp:active{
+    box-shadow: 7px 6px 28px 1px rgba(0,0,0,0.24);
+    transform: translate(-0.5px,0.5px);
+}
+
+#btnTakeContitoComp{
+    position:relative;
+    width:  325px;
+    height: 30px;
+    left:32px;
+    bottom:-26px;
+    background-color: #FF612F;
+    border:0.1px solid #FFFFFF;
+    border-radius:  15px;
+    color: white;
+}
+
+#btnCancelAlltoComp {
+    box-sizing: border-box;
+    position: relative;
+    width: 325px;
+    height: 30px;
+    left: 32px;
+    bottom:-26px;
+    background: #FFFFFF;
+    border: 0.2px solid #FFFFFF;
+    border-radius: 15px;
 }
