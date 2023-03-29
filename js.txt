@@ -19,6 +19,11 @@ main_service_order page
 요청 -> 처리중 -> 완료
 
 
+-> 로컬 스토리지 사용 시, key, value, time, date 건에 대한 OBJ를 제작해서 값을 하나하나 꺼내쓰는 방식으로 가야할 것 같은데,,,
+이렇게 하고 div와 같은 객체들도 생성이 가능할까?... 생성 후 로컬 스토리지로 이동 -> x 
+새로고침 방지 이벤트 사용?
+
+
 
 function database_room_all(roomnum,num){
     firebase.database().ref('service/장바구니/'+roomnum).on('value',function(getData){

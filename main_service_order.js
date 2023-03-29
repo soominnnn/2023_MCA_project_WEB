@@ -85,17 +85,19 @@ function btnClickCancelAll(num,roomnum,count,keydata,valuedata){
         tagAreaLine.appendChild(btnCan_cre);
         btnCan_cre.innerHTML = "취소 요청"
         //버튼 이벤트 리스너 생성
-        btnCan_cre.addEventListener('click', function() {
+        btnCan_cre.addEventListener('click', function(event) {
           //전체와 요청 사항에 있는 취소 버튼 삭제 처리
-          const btnCreCancel = document.getElementById('btnCanAll');
           const btnCreCancelOrder = document.getElementById('btnCanOrder');
           const parent = btnCreCancelOrder.parentNode;
           parent.parentNode.removeChild(parent);
           OrderCountingMinus();
+          
 
-          //접수 버튼 삭제 처리
-          const btnTakeAll = document.getElementById('btnTakeAll');
-          btnTakeAll.remove();
+          const btnTakeAllTarget = event.target;
+          const btnPre = btnTakeAllTarget.nextSibling;
+          btnTakeAllTarget.remove();
+          btnPre.remove();
+
 
           //완료로 처리
           compCounting();
@@ -171,17 +173,15 @@ function btnClickTakeAll(num,roomnum,count,keydata,valuedata){
         tagAreaLine.appendChild(btnTake);
         btnTake.innerHTML = "접수 받기"
         //버튼 이벤트 리스너 생성
-        btnTake.addEventListener('click', function() {
+        btnTake.addEventListener('click', function(event) {
           //자신 버튼 삭제 및 취소 버튼 삭제
-          const btnCanAll = document.getElementById('btnCanAll');
-          const btnTakeAll = document.getElementById('btnTakeAll');
-          btnTakeAll.remove();
-          btnCanAll.remove();
+          
+          const btnTakeAllTarget = event.target;
+          const btnPre = btnTakeAllTarget.previousSibling;
+          btnTakeAllTarget.remove();
+          btnPre.remove();
           
           //요청중에 있는 취소 버튼 삭제
-          const btnCreCancelOrder = document.getElementById('btnCanOrder');
-          const parentOrder = btnCreCancelOrder.parentNode;
-          parentOrder.parentNode.removeChild(parentOrder);
 
 
           //요청 카운트 다운, 처리중 카운트 업
