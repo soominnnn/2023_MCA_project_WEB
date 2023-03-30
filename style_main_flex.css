@@ -381,6 +381,23 @@
     box-shadow: 7px 6px 28px 1px rgba(0,0,0,0.24);
     transform: translate(-0.5px,0.5px);
 }
+#list1 {display: none;}
+#list2 {display: none;}
+#list3 {display: none;}
+#list4 {display: none;}
+#list5 {display: none;}
+#list6 {display: none;}
+#list7 {display: none;}
+#list8 {display: none;}
+#list9 {display: none;}
+#list10{display: none;}
+
+.roombtn1:checked + #list1 {display: block;}
+.roombtn2:checked + #list2 {display: block;}
+.roombtn3:checked + #list3 {display: block;}
+.roombtn4:checked + #list4 {display: block;}
+.roombtn5:checked + #list5 {display: block;}
+
 .room_grid p {
     position: relative;
     width: 100px;
@@ -502,9 +519,6 @@
     color: #FFFFFF;
 }
 
-#list{
-    display: none;
-}
 #btnCanAll{
     position: relative;
     margin-left: 15px;
