@@ -6,13 +6,22 @@ function room_change(value){
   document.getElementById(value).style.display="block";
 }
   //룸 상태 변경 버튼 제작
-  const button_list = document.getElementById("button_change");
-  const list = document.getElementById('list');
-  button_list.addEventListener('click',function(){
-    if (list.style.display == 'none'){
-      list.style.display = 'block';
-    }
-    else{
-      list.style.display = 'none';
-    }
-  })
+
+  function RoomList(num){
+    const button_list = document.getElementById("button_change"+num);
+    const list = document.getElementById('list'+num);
+    button_list.addEventListener('click',function(event){
+      const btnTakeTarget = event.target;
+      const btnSibling = btnTakeTarget.nextElementSibling;
+      if (btnSibling.style.display == 'none'){
+        btnSibling.style.display = 'block';
+      }
+      else{
+        btnSibling.style.display = 'none';
+      }
+    })
+  }
+
+for(let i = 1; i<11; i++){
+  RoomList(i);
+}
