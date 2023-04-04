@@ -181,9 +181,8 @@ function btnClickTakeAll(num,roomnum,count,keydata,valuedata){
           btnTakeAllTarget.remove();
           btnPre.remove();
           
-          //요청중에 있는 취소 버튼 삭제
-
-
+          //요청중에 있는 요소 삭제
+          
           //요청 카운트 다운, 처리중 카운트 업
           OrderCountingMinus();
           contiCounting();
