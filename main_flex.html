@@ -10,9 +10,6 @@
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
 </head>
-<script defer src="main_clock.js"></script>
-<script defer src="main_left.js"></script>
-<script defer src="main_service_order.js"></script>
 <body>
     <div class="header">
         <div class="none"></div>
@@ -35,17 +32,17 @@
                     <p class="all">전체 현황</p>
                 <div class="standby">
                     <div class="circle"></div>
-                    <div class="num"><p>71/150</p></div>
+                    <div class="num" ><p class="standbyNum" >20/20</p></div>
                     <p class="roomname">스탠바이 룸</p>
                 </div>
                 <div class="checkin">
                     <div class="circle"></div>
-                    <div class="num"><p>30/150</p></div>
+                    <div class="num"><p class="checkinNum" >0/20</p></div>
                     <p class="roomname" id="check">체크인 룸</p>
                 </div>
                 <div class="checkout">
                     <div class="circle"></div>
-                    <div class="num"><p>30/150</p></div>
+                    <div class="num"><p class="checkoutNum" >0/20</p></div>
                     <p class="roomname">체크아웃 룸</p>
                 </div>
             </div>
@@ -60,11 +57,11 @@
                             <div class="r1">
                                 <h1 class="room_name">101</h1>
                                 <h1 class="room_class">standard</h1>
-                                <button type="button" id="button_change1"><p>Stand-by</p>
+                                <button type="button" id="button_change1"><p class="standOne">Stand-by</p>
                                 <ul id="list1">
-                                    <li>stand-by</li>
-                                    <li>check-in</li>
-                                    <li>check-out</li>
+                                    <li id="stand-by" onclick="eventTargetStandby('standby')">stand-by</li>
+                                    <li id="check-in" onclick="eventTargetStandby('checkin')">check-in</li>
+                                    <li id="check-out" onclick="eventTargetStandby('checkout')">check-out</li>
                                 </ul></button>
                             </div>
                             <div class="r2">
@@ -72,9 +69,9 @@
                                 <h1 class="room_class">standard</h1>
                                 <button type="button"id="button_change2" ><p>Stand-by</p>
                                 <ul id="list2">
-                                    <li>stand-by</li>
-                                    <li>check-in</li>
-                                    <li>check-out</li>
+                                    <li id="stand-by">stand-by</li>
+                                    <li id="check-in">check-in</li>
+                                    <li id="check-out">check-out</li>
                                 </ul></button>
                             </div>
                             <div class="r3">
@@ -82,9 +79,9 @@
                                 <h1 class="room_class">standard</h1>
                                 <button type="button"id="button_change3"><p>Stand-by</p>
                                 <ul id="list3">
-                                    <li>stand-by</li>
-                                    <li>check-in</li>
-                                    <li>check-out</li>
+                                    <li id="stand-by">stand-by</li>
+                                    <li id="check-in">check-in</li>
+                                    <li id="check-out">check-out</li>
                                 </ul></button>
                             </div>
                             <div class="r4">
@@ -92,9 +89,9 @@
                                 <h1 class="room_class">standard</h1>
                                 <button type="button"id="button_change4"><p>Stand-by</p>
                                 <ul id="list4">
-                                    <li>stand-by</li>
-                                    <li>check-in</li>
-                                    <li>check-out</li>
+                                    <li id="stand-by">stand-by</li>
+                                    <li id="check-in">check-in</li>
+                                    <li id="check-out">check-out</li>
                                 </ul></button>
                             </div>
                             <div class="r5">
@@ -102,9 +99,9 @@
                                 <h1 class="room_class">standard</h1>
                                 <button type="button"id="button_change5"><p>Stand-by</p>
                                 <ul id="list5">
-                                    <li>stand-by</li>
-                                    <li>check-in</li>
-                                    <li>check-out</li>
+                                    <li id="stand-by">stand-by</li>
+                                    <li id="check-in">check-in</li>
+                                    <li id="check-out">check-out</li>
                                 </ul></button>
                             </div>
                             <div class="r6">
@@ -112,9 +109,9 @@
                                 <h1 class="room_class">standard</h1>
                                 <button type="button"id="button_change6"><p>Stand-by</p>
                                 <ul id="list6">
-                                    <li>stand-by</li>
-                                    <li>check-in</li>
-                                    <li>check-out</li>
+                                    <li id="stand-by">stand-by</li>
+                                    <li id="check-in">check-in</li>
+                                    <li id="check-out">check-out</li>
                                 </ul></button>
                             </div>
                             <div class="r7">
@@ -122,9 +119,9 @@
                                 <h1 class="room_class">standard</h1>
                                 <button type="button"id="button_change7"><p>Stand-by</p>
                                 <ul id="list7">
-                                    <li>stand-by</li>
-                                    <li>check-in</li>
-                                    <li>check-out</li>
+                                    <li id="stand-by">stand-by</li>
+                                    <li id="check-in">check-in</li>
+                                    <li id="check-out">check-out</li>
                                 </ul></button>
                             </div>
                             <div class="r8">
@@ -302,3 +299,6 @@
         // Initialize Firebase
         firebase.initializeApp(firebaseConfig);
         </script>
+        <script defer src="main_clock.js"></script>
+        <script defer src="main_left.js"></script>
+        <script defer src="main_service_order.js"></script>
