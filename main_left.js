@@ -51,34 +51,33 @@ for(let i = 1; i<11; i++){
 }
 
 function eventTargetStandby (str){
-const standby = document.getElementsByClassName('standOne')[0];
+const standbyButton = document.getElementsByClassName('standOne')[0];
 const StandbyNum = document.getElementsByClassName('standbyNum')[0];
 const CheckinNum = document.getElementsByClassName('checkinNum')[0];
 const CheckoutNum = document.getElementsByClassName('checkoutNum')[0];
     if( str == 'standby'){
-      console.log(State);
-      standby.innerHTML = 'Stand-by';
+      standbyButton.innerHTML = 'Stand-by';
       State = 'standby';
-      if(State != 'standby'){
-        if(State == 'checkin'){
-          standbyMinus();
-          checkinCounting();
-          StandbyNum.innerHTML = (StandbyCount+'/20');
-          CheckinNum.innerHTML = (CheckinCount+'/20');
+        switch(State) {
+          case 'checkin':
+            standbyMinus();
+            checkinCounting();
+            StandbyNum.innerHTML = (StandbyCount+'/20');
+            CheckinNum.innerHTML = (CheckinCount+'/20');
+            break;
+          case 'checkout':
+            standbyMinus();
+            checkoutCounting();
+            StandbyNum.innerHTML = (StandbyCount+'/20');
+            CheckoutNum.innerHTML = (CheckoutCount + '/20');
+            break;
+          default:
+            break;
         }
-        else if(State == 'checkout'){
-          standbyMinus();
-          checkoutCounting();
-          StandbyNum.innerHTML = (StandbyCount+'/20');
-          CheckoutNum.innerHTML = (CheckoutCount + '/20');
-        }
-        else{}
       }
-      else{}
-    }
 
     else if( str == 'checkin'){
-      standby.innerHTML = 'Check-in';
+      standbyButton.innerHTML = 'Check-in';
       State = 'checkin';
       if(State != 'checkin'){
         if(State == 'standby'){
@@ -99,7 +98,7 @@ const CheckoutNum = document.getElementsByClassName('checkoutNum')[0];
     }
 
     else {
-      standby.innerHTML = 'check-out'
+      standbyButton.innerHTML = 'check-out'
       State = 'checkout';
       if(State != 'checkout'){
         if(State == 'standby'){

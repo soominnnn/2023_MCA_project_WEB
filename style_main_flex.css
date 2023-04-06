@@ -267,7 +267,7 @@
 
 .service_main .tab .margin_on{
     display: inline-block;
-    margin-right: 15px;
+    margin-left: 35px;
     font-style: normal;
     font-weight: 400;
     font-size: 19px;
@@ -439,13 +439,7 @@
     color: #FFFFFF;
 
 }
-#rectang_all{
-    width: 383px;
-    height: 161px;
-    background-color: #060715;
-    border: 1px solid white;
-    border-radius: 10px;
-}
+
 #rectang_order{
     width: 383px;
     height: 161px;
@@ -489,20 +483,6 @@
     border: 1px solid #575757;
 }
 
-.room_number_all{
-    position: relative;
-    top:14px;
-    left:13px;
-    width: 147px;
-    height: 12px;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 24px;
-    line-height: 29px;
-    margin-bottom:54px;
-
-    color: #FFFFFF;
-}
 
 .room_number_order{
     position: relative;
@@ -547,21 +527,6 @@
     color: #FFFFFF;
 }
 
-#btnCanAll{
-    position: relative;
-    margin-left: 15px;
-    bottom: -26px;
-    width: 103px;
-    height: 30px;
-    background-color: white;
-    border: 0.2px solid white;
-    border-radius: 15px;
-}
-
-#btnCanAll:active{
-    box-shadow: 7px 6px 28px 1px rgba(0,0,0,0.24);
-    transform: translate(-0.5px,0.5px);
-}
 
 #btnCanOrder{
     position: relative;
@@ -579,22 +544,6 @@
     transform: translate(-0.5px,0.5px);
 }
 
-#btnTakeAll{
-    position:relative;
-    width: 209px;
-    height: 30px;
-    left:32px;
-    bottom: -26px;
-    background: #FF612F;
-    border: 0.1px solid #FFFFFF;
-    border-radius: 15px;
-    color: white;
-}
-
-#btnTakeAll:active{
-    box-shadow: 7px 6px 28px 1px rgba(0,0,0,0.24);
-    transform: translate(-0.5px,0.5px);
-}
 
 #btnTakeOrder{
     position:relative;
@@ -636,10 +585,9 @@
     height: 30px;
     left:32px;
     bottom:-26px;
-    background-color: #FF612F;
+    background-color: #FFFFFF;
     border:0.1px solid #FFFFFF;
     border-radius:  15px;
-    color: white;
 }
 
 #btnCancelAlltoComp {
