@@ -2,7 +2,7 @@ let StandbyCount = 20;
 let CheckinCount = 0;
 let CheckoutCount = 0;
 
-let State = '';
+let State = 'standby';
 
 
 
@@ -49,72 +49,69 @@ function room_change(value){
 for(let i = 1; i<11; i++){
   RoomList(i);
 }
-
-function eventTargetStandby (str){
-const standbyButton = document.getElementsByClassName('standOne')[0];
 const StandbyNum = document.getElementsByClassName('standbyNum')[0];
 const CheckinNum = document.getElementsByClassName('checkinNum')[0];
 const CheckoutNum = document.getElementsByClassName('checkoutNum')[0];
-    if( str == 'standby'){
-      standbyButton.innerHTML = 'Stand-by';
-      State = 'standby';
-        switch(State) {
-          case 'checkin':
-            standbyMinus();
-            checkinCounting();
-            StandbyNum.innerHTML = (StandbyCount+'/20');
-            CheckinNum.innerHTML = (CheckinCount+'/20');
-            break;
-          case 'checkout':
-            standbyMinus();
-            checkoutCounting();
-            StandbyNum.innerHTML = (StandbyCount+'/20');
-            CheckoutNum.innerHTML = (CheckoutCount + '/20');
-            break;
-          default:
-            break;
-        }
-      }
 
-    else if( str == 'checkin'){
-      standbyButton.innerHTML = 'Check-in';
-      State = 'checkin';
-      if(State != 'checkin'){
-        if(State == 'standby'){
-          standbyCounting();
-          checkinMinus();
-          StandbyNum.innerHTML = (StandbyCount+'/20');
-          CheckinNum.innerHTML = (CheckinNum+'/20');
-        }
-        else if(State == 'checkout'){
-          checkoutCounting();
-          checkinMinus();
-          CheckinNum.innerHTML = (CheckinNum+'/20');
-          CheckoutNum.innerHTML = (CheckoutNum+'/20');
-        }
-        else{}
-      }
-      else{}
+function eventTargetStandby (str,i){
+  const standbyButton = document.getElementsByClassName('buttonP'+i)[0];
+  const ButtonStyle = document.getElementById('button_change'+i);
+  if(str == 'standby'){
+    standbyButton.innerHTML = "Stand-by";
+    if(State = 'checkin'){
+      checkinMinus();
+      standbyCounting();
+      StandbyNum.innerHTML = StandbyCount+'/20';
+      CheckinNum.innerHTML = CheckinCount+'/20';
+      ButtonStyle.style.backgroundColor = '#017FC7';
+      State = "standby";
+      
     }
+    else if(State = 'checkout'){
+      checkoutMinus();
+      standbyCounting();
+      StandbyNum.innerHTML = StandbyCount+'/20';
+      CheckoutNum.innerHTML = CheckoutCount+'/20';
+      ButtonStyle.style.backgroundColor = '#FE6161';
+      State = "standby";
+    }
+    else{State = "standby";}
+  }
 
-    else {
-      standbyButton.innerHTML = 'check-out'
-      State = 'checkout';
-      if(State != 'checkout'){
-        if(State == 'standby'){
-          standbyCounting();
-          checkoutMinus();
-          StandbyNum.innerHTML = (StandbyCount+'/20');
-          CheckoutNum.innerHTML = (CheckoutNum+'/20');
-        }
-        else if(State = 'checkin'){
-          checkoutMinus();
-          checkinCounting();
-          CheckinNum.innerHTML = (CheckinNum+'/20');
-          CheckoutNum.innerHTML = (CheckoutNum+'/20');
-        }
-        else{}
-      }
-      else{}
+  else if (str == 'checkin'){
+    standbyButton.innerHTML = "Check-in";
+    if(State = 'standby'){
+      standbyMinus();
+      checkinCounting();
+      CheckinNum.innerHTML = CheckinCount+'/20';
+      StandbyNum.innerHTML = StandbyCount+'/20';
+      State = "checkin";
     }
+    else if(State = 'checkout'){
+      checkoutMinus();
+      checkinCounting();
+      CheckinNum.innerHTML = CheckinCount+'/20';
+      CheckoutNum.innerHTML = CheckoutCount+'/20';
+      State = "checkin";
+    }
+    else{State = "checkin";}
+  }
+  else{
+    standbyButton.innerHTML = "Check-out";
+    if(State = 'standby'){
+      standbyMinus();
+      checkoutCounting();
+      CheckoutNum.innerHTML = CheckoutCount+'/20';
+      StandbyNum.innerHTML = StandbyCount+'/20';
+      State = "checkout";
+    }
+    else if(State = 'checkin'){
+      checkinMinus();
+      checkoutCounting();
+      CheckoutNum.innerHTML = CheckoutCount+'/20';
+      CheckinNum.innerHTML = CheckinCount+'/20';
+      State = "checkout";
+    }
+    else{State = "checkout";}
+  }
 }
