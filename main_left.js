@@ -58,12 +58,12 @@ function eventTargetStandby (str,i){
   const ButtonStyle = document.getElementById('button_change'+i);
   if(str == 'standby'){
     standbyButton.innerHTML = "Stand-by";
+    ButtonStyle.style.backgroundColor = '#A6A6A6';
     if(State = 'checkin'){
       checkinMinus();
       standbyCounting();
       StandbyNum.innerHTML = StandbyCount+'/20';
       CheckinNum.innerHTML = CheckinCount+'/20';
-      ButtonStyle.style.backgroundColor = '#017FC7';
       State = "standby";
       
     }
@@ -72,7 +72,6 @@ function eventTargetStandby (str,i){
       standbyCounting();
       StandbyNum.innerHTML = StandbyCount+'/20';
       CheckoutNum.innerHTML = CheckoutCount+'/20';
-      ButtonStyle.style.backgroundColor = '#FE6161';
       State = "standby";
     }
     else{State = "standby";}
@@ -80,6 +79,7 @@ function eventTargetStandby (str,i){
 
   else if (str == 'checkin'){
     standbyButton.innerHTML = "Check-in";
+    ButtonStyle.style.backgroundColor = '#017FC7';
     if(State = 'standby'){
       standbyMinus();
       checkinCounting();
@@ -98,6 +98,7 @@ function eventTargetStandby (str,i){
   }
   else{
     standbyButton.innerHTML = "Check-out";
+    ButtonStyle.style.backgroundColor = '#FE6161';
     if(State = 'standby'){
       standbyMinus();
       checkoutCounting();
