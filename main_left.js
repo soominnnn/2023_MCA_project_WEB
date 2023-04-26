@@ -1,30 +1,3 @@
-let StandbyCount = 20;
-let CheckinCount = 0;
-let CheckoutCount = 0;
-
-let State = 'standby';
-
-
-
-function standbyCounting(){
-  StandbyCount++;
-};
-function standbyMinus(){
-  StandbyCount--;
-}
-function checkinCounting(){
-  CheckinCount++;
-};
-function checkinMinus(){
-  CheckinCount--;
-}
-function checkoutCounting(){
-  CheckoutCount++;
-};
-function checkoutMinus(){
-  CheckoutCount--;
-}
-
 function room_change(value){
   for( let i = 1; i<=2; i++){
     document.getElementById(i).style.display="none";
@@ -49,70 +22,153 @@ function room_change(value){
 for(let i = 1; i<11; i++){
   RoomList(i);
 }
+let State = 'standby';
 const StandbyNum = document.getElementsByClassName('standbyNum')[0];
 const CheckinNum = document.getElementsByClassName('checkinNum')[0];
 const CheckoutNum = document.getElementsByClassName('checkoutNum')[0];
 
-function eventTargetStandby (str,i){
-  const standbyButton = document.getElementsByClassName('buttonP'+i)[0];
-  const ButtonStyle = document.getElementById('button_change'+i);
-  if(str == 'standby'){
-    standbyButton.innerHTML = "Stand-by";
-    ButtonStyle.style.backgroundColor = '#A6A6A6';
-    if(State = 'checkin'){
-      checkinMinus();
-      standbyCounting();
-      StandbyNum.innerHTML = StandbyCount+'/20';
-      CheckinNum.innerHTML = CheckinCount+'/20';
-      State = "standby";
-      
+var buttons = [];
+for ( let i = 1; i < 21; i++){
+  const button = document.getElementById('buttonP'+i);
+  buttons.push(button);
+  buttons[i].addEventListener('click',function(event){
+    const btnTarget = event.target;
+    if( str == 'standby'){
+      switch (State) {
+        case 'standby':
+          btnTarget.className = 'standby';
+          btnTarget.innerHTML ="stand-by";
+          State = 'standby';
+          break;
+        case 'checkin':
+          btnTarget.className = 'standby';
+          btnTarget.innerHTML ="stand-by";
+          State = 'standby';
+          break;
+        case 'checkout':
+          btnTarget.innerHTML ="stand-by";
+          btnTarget.className = 'standby';
+          State = 'standby';
+          break;
+      }
+    
+    }  
+    else if (str == 'checkin'){
+      switch (State) {
+        case 'standby':
+          btnTarget.innerHTML ="check-in";
+          btnTarget.className = 'checkin';
+          State = 'checkin';
+          break;
+        case 'checkin':
+          btnTarget.className = 'checkin';
+          btnTarget.innerHTML ="check-in";
+          State = 'checkin';
+          break;
+        case 'checkout':
+          btnTarget.className = 'checkin';
+          btnTarget.innerHTML ="check-in";
+          State = 'checkin';
+          break;
+      }
     }
-    else if(State = 'checkout'){
-      checkoutMinus();
-      standbyCounting();
-      StandbyNum.innerHTML = StandbyCount+'/20';
-      CheckoutNum.innerHTML = CheckoutCount+'/20';
-      State = "standby";
+    else{
+      switch (State) {
+        case 'standby':
+          btnTarget.className = 'checkout';
+          btnTarget.innerHTML ="check-out";
+          State = 'checkout';
+          break;
+        case 'checkin':
+          btnTarget.className = 'checkout';
+          btnTarget.innerHTML ="check-out";
+          State = 'checkout';
+          break;
+        case 'checkout':
+          btnTarget.className = 'checkout';
+          State = 'checkout';
+          btnTarget.innerHTML ="check-out";
+          break;
+      }
     }
-    else{State = "standby";}
-  }
-
+    let standbyButtonLength = document.querySelectorAll('.standby').length;
+    let checkinButtonLength = document.querySelectorAll('.checkin').length;
+    let checkoutButtonLength = document.querySelectorAll('.checkout').length;
+  
+    StandbyNum.innerHTML = standbyButtonLength+"/20";
+    CheckinNum.innerHTML = checkinButtonLength+"/20";
+    CheckoutNum.innerHTML = checkoutButtonLength+"/20";
+  })
+}
+function eventTarget(str,event){
+  const btnTarget = event.target;
+  if( str == 'standby'){
+    switch (State) {
+      case 'standby':
+        btnTarget.className = 'standby';
+        btnTarget.innerHTML ="stand-by";
+        State = 'standby';
+        break;
+      case 'checkin':
+        btnTarget.className = 'standby';
+        btnTarget.innerHTML ="stand-by";
+        State = 'standby';
+        break;
+      case 'checkout':
+        btnTarget.innerHTML ="stand-by";
+        btnTarget.className = 'standby';
+        State = 'standby';
+        break;
+    }
+  
+  }  
   else if (str == 'checkin'){
-    standbyButton.innerHTML = "Check-in";
-    ButtonStyle.style.backgroundColor = '#017FC7';
-    if(State = 'standby'){
-      standbyMinus();
-      checkinCounting();
-      CheckinNum.innerHTML = CheckinCount+'/20';
-      StandbyNum.innerHTML = StandbyCount+'/20';
-      State = "checkin";
+    switch (State) {
+      case 'standby':
+        btnTarget.innerHTML ="check-in";
+        btnTarget.className = 'checkin';
+        State = 'checkin';
+        break;
+      case 'checkin':
+        btnTarget.className = 'checkin';
+        btnTarget.innerHTML ="check-in";
+        State = 'checkin';
+        break;
+      case 'checkout':
+        btnTarget.className = 'checkin';
+        btnTarget.innerHTML ="check-in";
+        State = 'checkin';
+        break;
     }
-    else if(State = 'checkout'){
-      checkoutMinus();
-      checkinCounting();
-      CheckinNum.innerHTML = CheckinCount+'/20';
-      CheckoutNum.innerHTML = CheckoutCount+'/20';
-      State = "checkin";
-    }
-    else{State = "checkin";}
   }
   else{
-    standbyButton.innerHTML = "Check-out";
-    ButtonStyle.style.backgroundColor = '#FE6161';
-    if(State = 'standby'){
-      standbyMinus();
-      checkoutCounting();
-      CheckoutNum.innerHTML = CheckoutCount+'/20';
-      StandbyNum.innerHTML = StandbyCount+'/20';
-      State = "checkout";
+    switch (State) {
+      case 'standby':
+        btnTarget.className = 'checkout';
+        btnTarget.innerHTML ="check-out";
+        State = 'checkout';
+        break;
+      case 'checkin':
+        btnTarget.className = 'checkout';
+        btnTarget.innerHTML ="check-out";
+        State = 'checkout';
+        break;
+      case 'checkout':
+        btnTarget.className = 'checkout';
+        State = 'checkout';
+        btnTarget.innerHTML ="check-out";
+        break;
     }
-    else if(State = 'checkin'){
-      checkinMinus();
-      checkoutCounting();
-      CheckoutNum.innerHTML = CheckoutCount+'/20';
-      CheckinNum.innerHTML = CheckinCount+'/20';
-      State = "checkout";
-    }
-    else{State = "checkout";}
   }
+  let standbyButtonLength = document.querySelectorAll('.standby').length;
+  let checkinButtonLength = document.querySelectorAll('.checkin').length;
+  let checkoutButtonLength = document.querySelectorAll('.checkout').length;
+
+  StandbyNum.innerHTML = standbyButtonLength+"/20";
+  CheckinNum.innerHTML = checkinButtonLength+"/20";
+  CheckoutNum.innerHTML = checkoutButtonLength+"/20";
 }
+
+//부모 버튼 요소 알아오기
+//li addeventlistener 사용하기
+//event target 사용하기

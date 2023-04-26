@@ -29,17 +29,17 @@
         <div class="wrapper">
             <div class="allstate">
                     <p class="all">전체 현황</p>
-                <div class="standby">
+                <div id="standby">
                     <div class="circle"><img src="/image/send.png"></div>
                     <div class="num" ><p class="standbyNum" >20/20</p></div>
                     <p class="roomname">스탠바이 룸</p>
                 </div>
-                <div class="checkin">
+                <div id="checkin">
                     <div class="circle"><img src="/image/confirmation.png"></div>
                     <div class="num"><p class="checkinNum" >0/20</p></div>
                     <p class="roomname" id="check">체크인 룸</p>
                 </div>
-                <div class="checkout">
+                <div id="checkout">
                     <div class="circle"><img src="/image/log-out.png"></div>
                     <div class="num"><p class="checkoutNum" >0/20</p></div>
                     <p class="roomname">체크아웃 룸</p>
@@ -56,102 +56,103 @@
                             <div class="r1">
                                 <h1 class="room_name">101</h1>
                                 <h1 class="room_class">standard</h1>
-                                <button type="button" id="button_change1"><p class="buttonP1">Stand-by</p>
+                                <button type="button" id="button_change1"><p id="buttonP1">Stand-by</p>
                                 <ul id="list1">
-                                    <li id="stand-by" onclick="eventTargetStandby('standby',1)">stand-by</li>
-                                    <li id="check-in" onclick="eventTargetStandby('checkin',1)">check-in</li>
-                                    <li id="check-out" onclick="eventTargetStandby('checkout',1)">check-out</li>
+                                    <li id="stand-by" onclick="eventTarget('standby')">stand-by</li>
+                                    <li id="check-in" onclick="eventTarget('checkin')">check-in</li>
+                                    <li id="check-out" onclick="eventTarget('checkout')">check-out</li>
                                 </ul></button>
                             </div>
                             <div class="r2">
                                 <h1 class="room_name">102</h1>
                                 <h1 class="room_class">standard</h1>
-                                <button type="button"id="button_change2" ><p class="buttonP2">Stand-by</p>
+                                <button type="button"id="button_change2" ><p id="buttonP2">Stand-by</p>
                                 <ul id="list2">
-                                    <li id="stand-by" onclick="eventTargetStandby('standby',2)">stand-by</li>
-                                    <li id="check-in" onclick="eventTargetStandby('checkin',2)">check-in</li>
-                                    <li id="check-out" onclick="eventTargetStandby('checkout',2)">check-out</li>
+                                    <li id="stand-by" onclick="eventTarget('standby')">stand-by</li>
+                                    <li id="check-in" onclick="eventTarget('checkin')">check-in</li>
+                                    <li id="check-out" onclick="eventTarget('checkout')">check-out</li>
                                 </ul></button>
                             </div>
                             <div class="r3">
                                 <h1 class="room_name">103</h1>
                                 <h1 class="room_class">standard</h1>
-                                <button type="button"id="button_change3"><p class="buttonP3"> Stand-by</p>
+                                <button type="button"id="button_change3"><p id="buttonP3"> Stand-by</p>
                                 <ul id="list3">
-                                    <li id="stand-by" onclick="eventTargetStandby('standby',3)">stand-by</li>
-                                    <li id="check-in" onclick="eventTargetStandby('checkin',3)">check-in</li>
-                                    <li id="check-out" onclick="eventTargetStandby('checkout',3)">check-out</li>
+                                    <li id="stand-by" onclick="eventTarget('standby')">stand-by</li>
+                                    <li id="check-in" onclick="eventTarget('checkin')">check-in</li>
+                                    <li id="check-out" onclick="eventTarget('checkout')">check-out</li>
                                 </ul></button>
                             </div>
                             <div class="r4">
                                 <h1 class="room_name">104</h1>
                                 <h1 class="room_class">standard</h1>
-                                <button type="button"id="button_change4"><p class="buttonP4">Stand-by</p>
+                                <button type="button"id="button_change4"><p id="buttonP4">Stand-by</p>
                                 <ul id="list4">
-                                    <li id="stand-by" onclick="eventTargetStandby('standby',4)">stand-by</li>
-                                    <li id="check-in" onclick="eventTargetStandby('checkin',4)">check-in</li>
-                                    <li id="check-out" onclick="eventTargetStandby('checkout',4)">check-out</li>
+                                    <li id="stand-by" onclick="eventTarget('standby')">stand-by</li>
+                                    <li id="check-in" onclick="eventTarget('checkin')"></li>
+                                    <li id="check-out" onclick="eventTarget('checkout')">check-out</li>
                                 </ul></button>
                             </div>
                             <div class="r5">
                                 <h1 class="room_name">105</h1>
                                 <h1 class="room_class">standard</h1>
-                                <button type="button"id="button_change5"><p class="buttonP5">Stand-by</p>
+                                <button type="button"id="button_change5"><p id="buttonP5">Stand-by</p>
                                 <ul id="list5">
-                                    <li id="stand-by" onclick="eventTargetStandby('standby',5)">stand-by</li>
-                                    <li id="check-in" onclick="eventTargetStandby('checkin',5)">check-in</li>
-                                    <li id="check-out" onclick="eventTargetStandby('checkout',5)">check-out</li>
+                                    <li id="stand-by" onclick="eventTarget('standby')">stand-by</li>
+                                    <li id="check-in" onclick="eventTarget('checkin')">check-in</li>
+                                    <li id="check-out" onclick="eventTarget('checkout')">check-out</li>
                                 </ul></button>
                             </div>
                             <div class="r6">
                                 <h1 class="room_name">106</h1>
                                 <h1 class="room_class">standard</h1>
-                                <button type="button"id="button_change6"><p class="buttonP6">Stand-by</p>
+                                <button type="button"id="button_change6"><p id="buttonP6">Stand-by</p>
                                 <ul id="list6">
-                                    <li id="stand-by" onclick="eventTargetStandby('standby',6)">stand-by</li>
-                                    <li id="check-in" onclick="eventTargetStandby('checkin',6)">check-in</li>
-                                    <li id="check-out" onclick="eventTargetStandby('checkout',6)">check-out</li>
+                                    <li id="stand-by" onclick="eventTarget('standby')">stand-by</li>
+                                    <li id="check-in" onclick="eventTarget('checkin')">check-in</li>
+                                    <li id="check-out" onclick="eventTarget('checkout')">check-out</li>
                                 </ul></button>
                             </div>
                             <div class="r7">
                                 <h1 class="room_name">107</h1>
                                 <h1 class="room_class">standard</h1>
-                                <button type="button"id="button_change7"><p class="buttonP7">Stand-by</p>
+                                <button type="button"id="button_change7"><p id="buttonP7">Stand-by</p>
                                 <ul id="list7">
-                                    <li id="stand-by" onclick="eventTargetStandby('standby',7)">stand-by</li>
-                                    <li id="check-in" onclick="eventTargetStandby('checkin',7)">check-in</li>
-                                    <li id="check-out" onclick="eventTargetStandby('checkout',7)">check-out</li>
+                                    <li id="stand-by" onclick="eventTarget('standby')">stand-by</li>
+                                    <li id="check-in" onclick="eventTarget('checkin')">check-in</li>
+                                    <li id="check-out" onclick="eventTarget('checkout')">check-out</li>
                                 </ul></button>
                             </div>
                             <div class="r8">
                                 <h1 class="room_name">108</h1>
                                 <h1 class="room_class">standard</h1>
-                                <button type="button"id="button_change8"><p class="buttonP8">Stand-by</p>
+                                <button type="button"id="button_change8"><p id="buttonP8">Stand-by</p>
                                 <ul id="list8">
-                                    <li id="stand-by" onclick="eventTargetStandby('standby',8)">stand-by</li>
-                                    <li id="check-in" onclick="eventTargetStandby('checkin',8)">check-in</li>
-                                    <li id="check-out" onclick="eventTargetStandby('checkout',8)">check-out</li>
+                                    <li id="stand-by" onclick="eventTarget('standby')">stand-by</li>
+                                    <li id="check-in" onclick="eventTarget('checkin')">check-in</li>
+                                    <li id="check-out" onclick="eventTarget('checkout')">check-out</li>
                                 </ul></button>
                             </div>
                             <div class="r9">
                                 <h1 class="room_name">109</h1>
                                 <h1 class="room_class">standard</h1>
-                                <button type="button"id="button_change9"><p class="buttonP9">Stand-by</p>
+                                <button type="button"id="button_change9"><p id="buttonP9">Stand-by</p>
                                 <ul id="list9">
-                                    <li id="stand-by" onclick="eventTargetStandby('standby',9)">stand-by</li>
-                                    <li id="check-in" onclick="eventTargetStandby('checkin',9)">check-in</li>
-                                    <li id="check-out" onclick="eventTargetStandby('checkout',9)">check-out</li>
+                                    <li id="stand-by" onclick="eventTarget('standby')">stand-by</li>
+                                    <li id="check-in" onclick="eventTarget('checkin')">check-in</li>
+                                    <li id="check-out" onclick="eventTarget('checkout')">check-out</li>
                                 </ul></button>
                             </div>
                             <div class="r10">
                                 <h1 class="room_name">110</h1>
                                 <h1 class="room_class">standard</h1>
-                                <button type="button"id="button_change10" class="buttonP10"><p>Stand-by</p>
+                                <button type="button"id="button_change10" id="buttonP10"><p>Stand-by</p>
                                     <ul id="list10">
-                                        <li id="stand-by" onclick="eventTargetStandby('standby',10)">stand-by</li>
-                                        <li id="check-in" onclick="eventTargetStandby('checkin',10)">check-in</li>
-                                        <li id="check-out" onclick="eventTargetStandby('checkout',10)">check-out</li>
-                                </ul></button>
+                                        <li id="stand-by" onclick="eventTarget('standby')">stand-by</li>
+                                        <li id="check-in" onclick="eventTarget('checkin')">check-in</li>
+                                        <li id="check-out" onclick="eventTarget('checkout')">check-out</li>
+                                </ul>
+                                </button>
                             </div>
                         </div>
                     </div>
