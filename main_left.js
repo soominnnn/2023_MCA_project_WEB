@@ -108,7 +108,3 @@ function eventTarget(str,num){
   CheckoutNum.innerHTML = checkoutButtonLength+"/20";
 
 }
-
-//부모 버튼 요소 알아오기
-//li addeventlistener 사용하기
-//event target 사용하기

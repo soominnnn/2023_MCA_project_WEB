@@ -15,7 +15,7 @@
   
   .joinForm {
     position:absolute;
-    width:400px;
+    width:350px;
     height:400px;
     padding: 30px, 20px;
     background-color:#FFFFFF;
@@ -32,70 +32,58 @@
   }
   
   .textForm {
-    border-bottom: 2px solid #adadad;
     margin: 30px;
-    padding: 10px 10px;
   }
-  
-  
-  .id {
+  .textForm .input-data{
+    height: 40px;
     width: 100%;
-    border:none;
-    outline:none;
-    color: #636e72;
-    font-size:16px;
-    height:25px;
-    background: none;
+    position: relative;
+    border: none;
   }
-  
-  .pw {
+  .textForm .input-data input{
+    height: 100%;
     width: 100%;
-    border:none;
-    outline:none;
-    color: #636e72;
-    font-size:16px;
-    height:25px;
-    background: none;
+    border: none;
+    font-size: 17px;
+    border-bottom: 2px solid silver;
   }
-  
-  .name {
-    width: 100%;
-    border:none;
-    outline:none;
-    color: #636e72;
-    font-size:16px;
-    height:25px;
-    background: none;
+  .textForm .input-data input:focus{
+    outline: none;
   }
-  
-  .email {
-    width: 100%;
-    border:none;
-    outline:none;
-    color: #636e72;
-    font-size:16px;
-    height:25px;
-    background: none;
+  .input-data input:focus ~ label,
+  .input-data input:valid ~ label{
+    transform: translateY(-20px);
+    font-size: 15px;
+    color: #4158d0;
   }
-  
-  .TEAM {
-    width: 100%;
-    border:none;
-    outline:none;
-    color: #636e72;
-    font-size:16px;
-    height:25px;
-    background: none;
+  .textForm .input-data label{
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    color: grey;
+    pointer-events: none;
+    transition: all 0.3s ease;
   }
-  
-  .cellphoneNo {
+  .input-data .underline{
+    position: absolute;
+    height: 2px;
     width: 100%;
-    border:none;
-    outline:none;
-    color: #636e72;
-    font-size:16px;
-    height:25px;
-    background: none;
+    bottom: 0;
+  }
+  .input-data .underline:before{
+    position: absolute;
+    content: "";
+    height: 100%;
+    width: 100%;
+    left: 0px;
+    background: #4158d0;
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform 0.3s ease;
+  }
+  .input-data input:focus ~ .underline:before,
+  .input-data input:valid ~ .underline:before{
+    transform: scaleX(1);
   }
   
   .btn-hover {

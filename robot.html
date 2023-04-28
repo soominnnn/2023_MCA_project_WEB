@@ -5,7 +5,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style_robot.css">
-    <script defer src="robot.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/roslibjs/1.1.0/roslib.js"></script>
     <title>robot management page</title>
 </head>
@@ -32,19 +31,46 @@
                 <div class="pluss"></div>
             </button>
             <div class="search"></div>
-            <div class="line">
-                <p class="name">이름</p>
-                <div class="nameline"></div>
-                <p class="ip">IP주소</p>
-                <div class="ipline"></div>
-                <p class="state">상태</p>
-                <div class="stateline"></div>
-                <p class="battery">배터리 잔량</p>
-                <div class="batteryline"></div>
-                <p class="kind">기능부 종류</p>
-                <div class="kindline"></div>
+            <div id="line", class="line1">
+                <p id="name">이름</p>
+                <div id="nameline"></div>
+                <p id="ip">IP주소</p>
+                <div id="ipline"></div>
+                <p id="state">상태</p>
+                <div id="stateline"></div>
+                <p id="battery">배터리 잔량</p>
+                <div id="batteryline"></div>
+                <p id="kind">기능부 종류</p>
+                <div id="kindline"></div>
+            </div>
+            
+            <div id="modal" class="modal-overlay">
+                <div class="modal-window">
+                    <div class="title">
+                        <h2>로봇 추가하기</h2>
+                    </div>
+                    <div class="close-area">X</div>
+                    <div class="content">
+                        <div class="textForm">
+                            <div class="input-data">
+                                <input type="text" id = "Name" required>
+                                <div class="underline"></div>
+                                <label>이름</label>
+                            </div>
+                        </div>
+                        <div class="textForm">
+                            <div class="input-data">
+                                <input type="text" id = "IP" required>
+                                <div class="underline"></div>
+                                <label>IP</label>
+                            </div>
+                        </div>
+                        <button class="btn-hover color-black" type="button" id ="robotcreate" onclick="plus()"><span>추가하기</span></button>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
+    <script defer src="robot.js"></script>
 </body>
 </html>

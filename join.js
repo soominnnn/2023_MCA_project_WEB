@@ -4,8 +4,17 @@ function data(){
     const passreValue = document.getElementById("passre").value;
     const nameeValue = document.getElementById("namee").value;
     const emailValue = document.getElementById("email").value;
-    const teamValue = document.getElementById("team").value;
     const phonenumValue = document.getElementById("phonenum").value;
+    
+    function fire(pushID){
+      firebase.database().ref('join/'+pushID).set({
+        id:idValue,
+        pass:passValue,
+        name:nameeValue,
+        email:emailValue,
+        phonenum:phonenumValue
+      });
+    }
 
     if (idValue =="")
     {
@@ -34,11 +43,7 @@ function data(){
     }
     if(emailValue == "")
     {
-      return false;
-    }
-    if(teamValue == "")
-    {
-      alert("팀명을 입력해주세요.");
+      alert("이메일을 입력해주세요.");
       return false;
     }
     if(phonenumValue == "")
@@ -46,17 +51,7 @@ function data(){
       alert("전화번호를 입력해주세요.")
       return false;
     }
-    if(idValue != "" && passValue != "" && nameeValue !="" && emailValue != "" && teamValue != "" && phonenumValue != "" ){
-      function fire(pushID){
-        firebase.database().ref('join/'+pushID).set({
-          id:idValue,
-          pass:passValue,
-          name:nameeValue,
-          email:emailValue,
-          team:teamValue,
-          phonenum:phonenumValue
-        });
-      };
+    if(idValue != "" && passValue != "" && nameeValue !="" && emailValue != "" && phonenumValue != "" ){
       fire(idValue);
       alert("회원가입이 정상적으로 되었습니다. 반갑습니다 " +nameeValue +"님");
     }

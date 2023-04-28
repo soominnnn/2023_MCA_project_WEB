@@ -12,26 +12,46 @@
     <form class="joinForm" id="issueInputForm">                                                                                 
         <h2>회원가입</h2>
         <div class="textForm">
-          <input id="idd" name="loginId" type="text" class="id" placeholder="아이디">
-          </input>
+          <div class="input-data">
+            <input type="text" id = "idd" required>
+            <div class="underline"></div>
+            <label>ID</label>
+          </div>
         </div>
         <div class="textForm">
-          <input id="pass" name="loginPw" type="password" class="pw" placeholder="비밀번호">
+          <div class="input-data">
+            <input type="text" id = "pass" required>
+            <div class="underline"></div>
+            <label>Password</label>
+          </div>
         </div>
          <div class="textForm">
-          <input id="passre" name="loginPwConfirm" type="password" class="pw" placeholder="비밀번호 확인">
+          <div class="input-data">
+            <input type="text" id = "passre" required>
+            <div class="underline"></div>
+            <label>Re:Password</label>
+          </div>
         </div>
         <div class="textForm">
-          <input id="namee" name="name" type="text" class="name" placeholder="이름">
+          <div class="input-data">
+            <input type="text" id = "namee" required>
+            <div class="underline"></div>
+            <label>Name</label>
+          </div>
         </div>
          <div class="textForm">
-          <input id="email" name="email" type="text" class="email" placeholder="이메일">
+          <div class="input-data">
+            <input type="text" id = "email" required>
+            <div class="underline"></div>
+            <label>E-mail</label>
+          </div>
         </div>
         <div class="textForm">
-          <input id="team" name="TEAM" type="text" class="TEAM" placeholder="소속">
-        </div>
-        <div class="textForm">
-          <input id="phonenum" name="cellphoneNo" type="number" class="cellphoneNo" placeholder="전화번호">
+          <div class="input-data">
+            <input type="text" id = "phonenum" required>
+            <div class="underline"></div>
+            <label>PhoneNumber</label>
+          </div>
         </div>
         <button class="btn-hover color-black" type="button" onclick="data()"><span>Join</span></button>
       </form>

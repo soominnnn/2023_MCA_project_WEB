@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/roslibjs/1.1.0/roslib.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <button>ros map</button>
+    <div id="map"></div>
+    <script>
+        const ros = new ROSLIB.Ros({
+        url: 'ws://172.20.10.3:9090'
+        });
+
+        ros.on("connection", function() {
+        console.log("Connected to ROS Bridge");
+        });
+
+        ros.on("error", function(error) {
+        console.log("Error connecting to ROS Bridge: ", error);
+        });
+
+        ros.on("close", function() {
+        console.log("Disconnected from ROS Bridge");
+        });
+    </script>
+</body>
+</html>
