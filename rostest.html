@@ -4,12 +4,19 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/roslibjs/1.1.0/roslib.js"></script>
+    <!-- roslibjs -->
+    <script src="https://cdn.jsdelivr.net/npm/roslib@1/build/roslib.min.js"></script>
+    
+    <!-- ros2djs -->
+    <script src="https://cdn.jsdelivr.net/npm/ros2d@0/build/ros2d.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/eventemitter2@6/lib/eventemitter2.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/easeljs@1/lib/easeljs.min.js"></script>
     <title>Document</title>
 </head>
 <body>
     <button>ros map</button>
     <div id="map"></div>
+    <div id="nav"></div>
     <script>
         const ros = new ROSLIB.Ros({
         url: 'ws://172.20.10.3:9090'
@@ -26,6 +33,37 @@
         ros.on("close", function() {
         console.log("Disconnected from ROS Bridge");
         });
+
+        //map view
+
+        let viewer = new ROS2D.Viewer({
+            divID : 'map',
+            width : 700,
+            height : 700,
+        });
+        
+        let gridClient = new ROS2D.OccupancyGridClient({
+            ros : ros,
+            rootObject : viewer.scene,
+            continuous: true
+        });
+
+        let robotMarker = new ROS2D.ArrowShape({
+            size : 0.7,
+            strokeSize : 0.01,
+            pulse : true,
+            fillColor : createjs.Graphics.getRGB(255,0,0,0.9),
+        });
+
+        let pathShape = new ROS2D.PathShape({
+            strokeSize : 0.03,
+            strokeColor: createjs.Graphics.getRGB(0,244, 0,1),
+        });
+
+        gridClient.rootObject.addChild(pathShape);
+        gridClient.rootObject.addChild(traceShape);
+        gridClient.rootObject.addChild(robotMarker);
+
     </script>
 </body>
 </html>
