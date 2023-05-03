@@ -13,166 +13,54 @@
     font-family: 'Pretendard-Regular';
 }
 .header{
-    height: 50px;
+    height: 60px;
     width: 390px;
-    margin: 0 auto;
-    position: absolute;
-    border-bottom: 2px solid #818181;
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.25);
-    display: grid;
-    grid-template-columns: auto 240px 130px auto;
-    grid-template-rows: 50px;
-    grid-template-areas:
-        "none h1 nav non";
-}
-.htag{
-    grid-area: h1;
-}
-.none{
-    grid-area:none;
-    justify-content: left;
-}
-.non{
-    grid-area:non;
-    justify-content: right;
-}
-.nav{
-    grid-area: nav;
-}
-
-
-.header .htag h1 a{
-    position:relative;
-    text-decoration: none;
-    color:black;
-    font-family: 'Pretendard-Regular';
-    font-size:19px;
-    margin-left: 15px;
-    margin-top: 15px;
-}
-.header .nav ul li img{
-    width: 20px;
-    height: 20px;
-}
-
-.header .nav ul li{
-    display: inline-block;
-    margin :0 10px;
-    font-family: 'Pretendard-Regular';
-    text-align: center;
-    align-content: center;
-    font-size: 19px;
-    margin-top: 15px;
-}
-
-.header .nav ul li a{
-    text-decoration: none;
-    color: black;
-    font-family: 'Pretendard-Regular';
-    font-size: 19px;
-    margin-top: 10px;
-}
-
-.nav ul li a:hover{
-    color:orange;
-}
-.main{
+    padding-left:32px;
+    padding-right: 32px;
     display: flex;
-    position: absolute;
-    height: -webkit-calc(100% - 50px);
-    justify-content: center;
-    margin:50px auto;
+    justify-content: space-between;
+    align-items: center;
 }
-.inline{
+.header img{
+    height: 15px;
+    width: 19.5px;
+}
+.header ul{
+    padding:0;
+}
+.header ul li {
     display: inline-block;
+    margin-left: 16px;
 }
-.box{
-    box-sizing: border-box;
-    position:relative;
-    width: 180px;
-    height: 180px;
-    margin-left:10px;
-    margin-right:0px;
-    margin-top:10px;
-    background-color: #F8F8F8;
-    box-shadow: 5px 5px 10px rgba(15,41,107,0.12);
-    border-radius:5px;
-    border: 1px solid #FFFFFF;
+main{
+    padding:32px;
 }
-.box img{
-    width: 80px;
-    height: 80px;
+.banner{
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
     position: relative;
-    margin-left: 10px;
-    margin-top:20px;
+    width: 390px;
+    height: 218px;
+    background: #4A433B;
 }
-.box p{
-    width: 60px;
-    height:12px;
-    font-size: 15px;
-    display: flex;
-    align-items: center;
-    margin-left:4px;
-    margin-top:20px;
-    font-family: 'Pretendard';
-    font-style: normal;
-    font-weight: 600;
-    font-size: 18px;
-    line-height: 21px;
-    color: #000000;
+.banner ul li{
+    display: block;
+    float: left;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    width:390px;
 }
-.box .line{
-    width: 164px;
-    height: 1px;
-    margin-left:8px;
-    margin-top: 20px;
-    border: 1px solid #C5C7D8;
+.banner1 {
+    background-image: "banner1.png";
 }
-.box h4{
-    margin-left:9px;
-    margin-top: 4px;
-    font-family: 'Pretendard';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 11px;
-    line-height: 13px;
-    color: #C5C7D8;
+.banner2 {
+    background-image: "banner2.png";
 }
-.box .incart{
-    position:relative;
-    width: 48px;
-    height: 30px;
-    margin-top: 9px;
-    margin-left:8px;
-    background: #597BF1;
-    border: 0.2px solid #FFFFFF;
-    border-radius: 15px;
+.banner3 {
+    background-image: "banner3.png";
 }
-.box .incart p {
-    position:relative;
-    width: 30px;
-    height: 12px;
-    margin-left: 10px;
-    margin-top: 1.5px;
-    font-family: 'Pretendard';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 15px;
-    line-height: 18px;
-    display: flex;
-    align-items: center;
-    text-align: center;
-    color: #FFFFFF;
-    display: inline-block;
-}
-.box .count{
-    position:relative;
-    width: 108px;
-    height: 30px;
-    margin-left:8px;
-    margin-top:1px;
-    background: #C5C7D8;
-    border: 0.2px solid #F0EFF8;
-    border-radius: 15px;
-    display: inline-block;
+.banner4 {
+    background-image: "banner4.png";
 }
