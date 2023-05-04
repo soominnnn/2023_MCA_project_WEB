@@ -64,3 +64,50 @@ main{
 .banner4 {
     background-image: "banner4.png";
 }
+
+.search{
+    box-sizing: border-box;
+    position: absolute;
+    width: 289px;
+    height: 43px;
+    left: 47px;
+    top: 253px;
+    background: #ffffff;
+    border: 1px solid #4A433B;
+    border-radius: 16px;
+}
+
+.bathBanner{
+    position: absolute;
+    width: 173px;
+    height: 32px;
+    left: 23px;
+    top: 318px;
+    background: #4A433B;
+    border-radius: 5px 5px 0px 0px;
+}
+
+.bathBanner p{
+    position: absolute;
+width: 57px;
+height: 17px;
+left: 89px;
+top: 325px;
+
+font-family: 'Pretendard';
+font-style: normal;
+font-weight: 500;
+font-size: 14px;
+line-height: 17px;
+/* identical to box height */
+
+text-align: center;
+
+color: #FFFFFF;
+}
+.bathBanner img{
+    width: 9.23px;
+    height: 15px;
+    left: 51px;
+    top:8px;
+}
