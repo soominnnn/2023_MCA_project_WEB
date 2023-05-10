@@ -188,3 +188,140 @@ function database_room_all(roomnum,num){
     database_room_all("10"+i,i);
     database_room_order("10"+i,"10"+i);
   }
+
+
+
+  <div class="inline">
+                            <div class = "One">
+                                <img class="img" src="/image/set.jpg">
+                                <p class="set text_brown">칫솔/치약 세트</p>
+                                <p class="won text_brown">원산지 : 중국</p>
+                                <button></button>
+                            </div>
+                            <div class="Two">
+                                <img class="img" src="/UserImage/RoomItem.jpg">
+                                <p class="set text_brown">면도기 세트</p>
+                                <p class="won text_brown">원산지 : 중국</p>
+                                <button></button>
+                            </div>
+                        </div>
+                        <div class="One">
+                            <img class="img" src="/UserImage/ObathSoap.jpg">
+                            <p class="set text_brown">O'bath 비누</p>
+                            <p class="won text_brown">원산지 : </p>
+                            <button></button>
+                        </div>
+                        <div class="Two">
+                            <img class="img" src="/UserImage/ObathBodyrotion.jpg">
+                            <p class="set text_brown">O'bath 바디로션</p>
+                            <p class="won text_brown">원산지 : </p>
+                            <button></button>
+                        </div>
+                        <div class="inline">
+                            <div class="One">
+                                <img class="img" src="/UserImage/ObathBodywash.jpg">
+                                <p class="set text_brown">O'bath 바디워시</p>
+                                <p class="won text_brown">원산지 : </p>
+                                <button></button>
+                            </div>
+                            <div class="Two">
+                                <img class="img" src="/UserImage/ObathConditioner.jpg">
+                                <p class="set text_brown">O'bath 컨디셔너</p>
+                                <p class="won text_brown">원산지 : </p>
+                                <button></button>
+                            </div>
+                        </div>
+                        <div class="One">
+                            <img class="img" src="/UserImage/ObathShampoo.jpg">
+                            <p class="set text_brown">O'bath 샴푸</p>
+                            <p class="won text_brown">원산지 : </p>
+                            <button></button>
+                        </div>
+                        <div class="Two">
+                            <img class="img" src="/UserImage/mouthwasher.jpg">
+                            <p class="set text_brown">알로알로 마우스워시</p>
+                            <p class="won text_brown">원산지 : </p>
+                            <button></button>
+                        </div>
+                        <div class="inline">
+                            <div class="One">
+                                <img class="img" src="/UserImage/RoomItem3.jpg">
+                                <p class="set text_brown">스크럽 샤워타올</p>
+                                <p class="won text_brown">원산지 : </p>
+                                <button></button>
+                            </div>
+                            <div class="Two">
+                                <img class="img" src="/UserImage/BathTowel.jpg">
+                                <p class="set text_brown">바스 타올</p>
+                                <p class="won text_brown">원산지 : </p>
+                                <button></button>
+                            </div>
+                        </div>
+                    <div class="contentBad">
+                    <div class="inline">
+                        <div class = "One">
+                            <img class="img" src="/image/set.jpg">
+                            <p class="set text_brown">칫솔/치약 세트</p>
+                            <p class="won text_brown">원산지 : 중국</p>
+                            <button></button>
+                        </div>
+                        <div class="Two">
+                            <img class="img" src="/UserImage/RoomItem.jpg">
+                            <p class="set text_brown">면도기 세트</p>
+                            <p class="won text_brown">원산지 : 중국</p>
+                            <button></button>
+                        </div>
+                    </div>
+                    <div class="One">
+                        <img class="img" src="/UserImage/ObathSoap.jpg">
+                        <p class="set text_brown">O'bath 비누</p>
+                        <p class="won text_brown">원산지 : </p>
+                        <button></button>
+                    </div>
+                    <div class="Two">
+                        <img class="img" src="/UserImage/ObathBodyrotion.jpg">
+                        <p class="set text_brown">O'bath 바디로션</p>
+                        <p class="won text_brown">원산지 : </p>
+                        <button></button>
+                    </div>
+                    <div class="inline">
+                        <div class="One">
+                            <img class="img" src="/UserImage/ObathBodywash.jpg">
+                            <p class="set text_brown">O'bath 바디워시</p>
+                            <p class="won text_brown">원산지 : </p>
+                            <button></button>
+                        </div>
+                        <div class="Two">
+                            <img class="img" src="/UserImage/ObathConditioner.jpg">
+                            <p class="set text_brown">O'bath 컨디셔너</p>
+                            <p class="won text_brown">원산지 : </p>
+                            <button></button>
+                        </div>
+                    </div>
+                    <div class="One">
+                        <img class="img" src="/UserImage/ObathShampoo.jpg">
+                        <p class="set text_brown">O'bath 샴푸</p>
+                        <p class="won text_brown">원산지 : </p>
+                        <button></button>
+                    </div>
+                    <div class="Two">
+                        <img class="img" src="/UserImage/mouthwasher.jpg">
+                        <p class="set text_brown">알로알로 마우스워시</p>
+                        <p class="won text_brown">원산지 : </p>
+                        <button></button>
+                    </div>
+                    <div class="inline">
+                        <div class="One">
+                            <img class="img" src="/UserImage/RoomItem3.jpg">
+                            <p class="set text_brown">스크럽 샤워타올</p>
+                            <p class="won text_brown">원산지 : </p>
+                            <button></button>
+                        </div>
+                        <div class="Two">
+                            <img class="img" src="/UserImage/BathTowel.jpg">
+                            <p class="set text_brown">바스 타올</p>
+                            <p class="won text_brown">원산지 : </p>
+                            <button></button>
+                        </div>
+                    </div>
+                </div>

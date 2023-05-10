@@ -10,7 +10,7 @@
     padding:0;
     box-sizing: border-box;
     list-style: none;
-    font-family: 'Pretendard-Regular';
+    font-family: 'Pretendard-Regular'!important;
 }
 .header{
     height: 60px;
@@ -34,6 +34,7 @@
 }
 main{
     margin-bottom:60px;
+    height: 1395px;
 }
 .banner{
     padding: 0;
@@ -43,38 +44,40 @@ main{
     width: 390px;
     height: 218px;
     background: #4A433B;
+    user-select: none;
 }
-.banner ul li{
-    display: block;
-    float: left;
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: cover;
-    width:390px;
+.container{
+    position: relative;
+    width: 390px;
+    height: 218px;
+    background: #4A433B;
 }
-.banner1 {
-    background-image: "banner1.png";
+.displayWrap{
+    width: 390px;
+    height: 218px;
+    margin: 0 auto;
+    overflow: hidden;
+    position: relative;
 }
-.banner2 {
-    background-image: "banner2.png";
+.slideWrap{
+    height: 100%;
+    display: flex;
+    position: absolute;
+    left: 0; top: 0;
 }
-.banner3 {
-    background-image: "banner3.png";
-}
-.banner4 {
-    background-image: "banner4.png";
-}
-.scrollPage{
-    margin-top:80px;
-}
-
+  .slideWrap .slide{
+    width: 390px; height: 100%;
+    font-size: 50px;
+    display: flex;
+    justify-content: center; align-items: center;
+  }
 .search{
     box-sizing: border-box;
-    position: absolute;
+    position: relative;
     width: 289px;
     height: 43px;
     left: 47px;
-    top: 253px;
+    top: -18px;
     background: #ffffff;
     border: 1px solid #4A433B;
     border-radius: 16px;
@@ -132,10 +135,9 @@ color: rgba(0, 0, 0, 0.5);
 }
 .bathBanner_under{
     position: relative;
-    width: 343px;
+    width: 347px;
     height: 2px;
-    left: 23px;
-    top: 72px;
+    top:-5px;
     background-color: #4A433B;
 }
 
@@ -159,9 +161,6 @@ color: rgba(0, 0, 0, 0.5);
     line-height: 18px;
 
 }
-.inline{
-    display: inline-block;
-}
 .text_brown{
     font-family: 'Pretendard';
     font-style: normal;
@@ -178,6 +177,9 @@ color: rgba(0, 0, 0, 0.5);
     font-size: 8px;
     line-height: 10px;
 }
+.Menu{
+    width: 390px;
+}
 .scrollPage{
     overflow: auto;
 }
@@ -188,10 +190,12 @@ color: rgba(0, 0, 0, 0.5);
     position:relative;
     float: left;
     margin-right: 10px;
+    margin-top: 22px;
 }
 .Two{
     position:relative;
     float: left;
+    margin-top: 22px;
 }
 
 footer{
@@ -200,6 +204,7 @@ footer{
     height: 60px;
     background: #4A433B;
     bottom:0;
+    margin-top: 80px;
 }
 footer img {
     margin-top:14px;
@@ -229,13 +234,42 @@ input[type=radio]{
 .tab{
     margin-left:23px;
     height: 32px;
+    display: inline-block;
+    margin-top:22px;
+}
+
+.margin_on{
+    display: inline-block;
+    height: 32px;
+    width: 173px;
+    background: #ffffff;
+    border-radius: 5px 5px 0px 0px;
+
+}
+.margin_on img{
+    float: left;
+    margin-left: 51px;
+    margin-top:7px;
+}
+.margin_on p{
+    float: left;
+    margin-left:6px;
+    margin-top:7px;
+}
+
+.bathTab img{
+    margin-top:10px !important;
+    width: 17.6px;
+    height: 11px;
+}
+.bathTab{
+    position:relative;
+    left:-3px;
 }
 #tab-1:checked ~ .tab label:nth-child(1),
 #tab-2:checked ~ .tab label:nth-child(2){
-    width: 173px;
-    height: 32px;
     background: #4A433B;
-    border-radius: 5px 5px 0px 0px;
+    color: white;
 }
 
 .content > div{
@@ -243,6 +277,54 @@ input[type=radio]{
 }
 
 #tab-1:checked ~ .content div:nth-child(1),
-#tab-1:checked ~ .content div:nth-child(2){
+#tab-2:checked ~ .content div:nth-child(2){
     display: block;
+}
+
+.content{
+    position:relative;
+    width: 347px;
+    margin-bottom:60px;
+}
+
+.One button{
+    float: left;
+    width: 25px;
+    height: 25px;
+    border: 1px solid #4A433B;
+    background-color: white;
+    position:relative;
+}
+.Two button{
+    float: left;
+    position:relative;
+    width: 25px;
+    height: 25px;
+    border: 1px solid #4A433B;
+    background-color: white;
+}
+.number{
+    position:relative;
+    float:left;
+    left:114px;
+    width: 25px;
+    height: 25px;
+    border: 1px solid #4A433B;
+    background-color: white;
+}
+.plus{
+    position:relative;
+    left:115px;
+}
+.plus img{
+    width:10px;
+    height:10px;
+}
+.minus{
+    position:relative;
+    left:113px;
+}
+.minus img{
+    width: 10px;
+    height: 10px;
 }
