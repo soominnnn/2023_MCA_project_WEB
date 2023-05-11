@@ -4,15 +4,15 @@ var ros = new ROSLIB.Ros({
   });
 
   ros.on('connection', function() {
-    document.getElementById("status").innerHTML = "Connected";
+
   });
 
   ros.on('error', function(error) {
-    document.getElementById("status").innerHTML = "Error";
+
   });
 
   ros.on('close', function() {
-    document.getElementById("status").innerHTML = "Closed";
+
   });
 
 // 로스 토픽 받아오기
@@ -215,15 +215,15 @@ function mapLoad() {
         viewer.shift(gridClient.currentGrid.pose.position.x, gridClient.currentGrid.pose.position.y);
       });
     }
-    
+    mapLoad();
    const btn = document.getElementById("btn");
    const div = document.getElementById("isShow");
+   div.style.display = 'none';
    btn.addEventListener('click',function(){
     if(div.style.display == 'block'){
         div.style.display = 'none';
     }
     else{
         div.style.display = 'block';
-        mapLoad();
     }
    }) 
