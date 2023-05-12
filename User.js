@@ -1,3 +1,5 @@
+
+// 배너 제작
 const slideWrap = document.querySelector('.slideWrap');
 const slide = document.querySelectorAll('.slide');
 
@@ -30,3 +32,32 @@ function move(){
         },550);
       }
 }
+
+// 클래스 선언
+
+class item{
+  constructor({name}){
+    this.name = name;
+    this.count = 0;
+  }
+
+  countUp(){
+    return this.count++;
+  }
+  countDown(){
+    return this.count--;
+  }
+  getCount(){
+    return this.count;
+  }
+}
+
+const i = new item('soap');
+const text = document.getElementById('number1');
+const testbtn = document.querySelector('#test');
+testbtn.addEventListener('click',function(){
+  i.countUp();
+  text.innerHTML = i.getCount();
+})
+
+

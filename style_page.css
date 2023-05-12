@@ -328,3 +328,23 @@ input[type=radio]{
     width: 10px;
     height: 10px;
 }
+.number p {
+    position: relative;
+    width: 9px;
+    height: 18px;
+    left: 7px;
+    top: 3px;
+
+    font-family: 'Pretendard-Regular';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 15px;
+    line-height: 18px;
+    /* identical to box height */
+
+    display: flex;
+    align-items: center;
+
+    color: #4A433B;
+
+}

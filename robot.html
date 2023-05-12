@@ -6,12 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style_robot.css">
     <!-- roslibjs -->
-    <script src="https://cdn.jsdelivr.net/npm/roslib@1/build/roslib.min.js"></script>
     
-    <!-- ros2djs -->
-    <script src="https://cdn.jsdelivr.net/npm/ros2d@0/build/ros2d.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/eventemitter2@6/lib/eventemitter2.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/easeljs@1/lib/easeljs.min.js"></script>
+    <!-- ROSLIB.js and Canvas -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/createjs@1.0.1/builds/1.0.0/createjs.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/eventemitter2@6.4.9/lib/eventemitter2.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/ros2d@0.10.0/build/ros2d.min.js"></script>
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/roslibjs/1.1.0/roslib.js"></script>
+
+    <script type="text/javascript" src="./nav2d.js"></script>
     <title>robot management page</title>
 </head>
 <body>
@@ -48,8 +51,15 @@
                 <div id="batteryline"></div>
                 <p id="kind">기능부 종류</p>
                 <div id="kindline"></div>
+                <button id="mapline" class="mapView">현재 로봇 위치 보기</button>
             </div>
-            
+            <div id="modal2" class="modal-overlay">
+                <div class="modal-window">
+                    <div id="map"></div>
+                    <div id="nav"></div>
+                </div>
+            </div>
+
             <div id="modal" class="modal-overlay">
                 <div class="modal-window">
                     <div class="title">
@@ -78,5 +88,6 @@
         </div>
     </div>
     <script defer src="robot.js"></script>
+    <script type="text/javascript" src="./lisb.js"></script>
 </body>
 </html>

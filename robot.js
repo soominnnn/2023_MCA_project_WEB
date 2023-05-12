@@ -76,22 +76,6 @@ function createRobotLine(){
   parentDiv.appendChild(createKindDiv);
 }
 
-const ros = new ROSLIB.Ros({
-  url: 'ws://172.20.10.4:9090'
-});
-
-ros.on("connection", function() {
-  console.log("Connected to ROS Bridge");
-});
-
-ros.on("error", function(error) {
-  console.log("Error connecting to ROS Bridge: ", error);
-});
-
-ros.on("close", function() {
-  console.log("Disconnected from ROS Bridge");
-});
-
 const modal = document.getElementById("modal");
 function modalOn() {
     modal.style.display = "flex";
@@ -139,3 +123,17 @@ function plus(){
     createRobotLine();
   }
 }
+const modal2 = document.getElementById("modal2");
+function modalOn2() {
+  modal2.style.display = "flex";
+}
+function isModalOn2() {
+  return modal2.style.display === "flex";
+}
+function modalOff2() {
+  modal2.style.display = "none";
+}
+const mapView = document.getElementsByClassName('mapView')[0];
+mapView.addEventListener("click", e => {
+    modalOn2();
+})
