@@ -52,9 +52,10 @@ class item{
   }
 }
 
-const i = new item('soap');
+const soap = new item('soap');
 const text = document.getElementById('number1');
-const testbtn = document.querySelector('#test');
+const btn = document.p
+
 testbtn.addEventListener('click',function(){
   i.countUp();
   text.innerHTML = i.getCount();
