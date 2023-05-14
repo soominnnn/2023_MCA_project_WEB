@@ -78,23 +78,19 @@ main{
     height: 43px;
     left: 47px;
     top: -18px;
-    background: #ffffff;
-    border: 1px solid #4A433B;
-    border-radius: 16px;
 }
 
 .search p {
     position: absolute;
-width: 128px;
-height: 18px;
-left: 17px;
-top: 13px;
-
-font-family: 'Pretendard';
-font-style: normal;
-font-weight: 400;
-font-size: 15px;
-line-height: 18px;
+    width: 128px;
+    height: 18px;
+    left: 17px;
+    top: 13px;
+    font-family: 'Pretendard';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 18px;
 /* identical to box height */
 
 display: flex;
@@ -341,10 +337,26 @@ input[type=radio]{
     font-size: 15px;
     line-height: 18px;
     /* identical to box height */
-
     display: flex;
     align-items: center;
-
     color: #4A433B;
+}
 
+.hide{
+    display: none !important;
+}
+
+.pop_rel_keywords {
+    margin-right: 30%;
+}
+.pop_rel_keywords > li{
+    line-height: 250%;
+}
+
+.inputSearch{
+    width: 289px;
+    height: 43px;
+    background: #ffffff;
+    border: 1px solid #4A433B;
+    border-radius: 16px;
 }
