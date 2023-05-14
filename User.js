@@ -40,7 +40,6 @@ class item{
     this.name = name;
     this.count = 0;
   }
-
   countUp(){
     return this.count++;
   }
@@ -51,35 +50,78 @@ class item{
     return this.count;
   }
 }
-const text = document.getElementById('number1');
-const btn = document.p
+let PlusBtn = document.querySelectorAll(".plus");
+let Item_Count = document.querySelectorAll("#number");
+let MinusBtn  = document.querySelectorAll(".minus");
+var btnItemArr = Array.from(Item_Count);
+var btnsArr = Array.from(PlusBtn);
+var btnMinusArr = Array.from(MinusBtn);
 
-testbtn.addEventListener('click',function(){
-  i.countUp();
-  text.innerHTML = i.getCount();
-})
+const item0 = new item('tooth');
+const item1 = new item('Shaver');
+const item2 = new item('soap');
+const item3 = new item('bodyrotion');
+const item4 = new item('bodywash');
+const item5 = new item('conditioner');
+const item6 = new item('shampoo');
+const item7 = new item('mouthwash');
+const item8 = new item('showertowel');
+const item9 = new item('bathtowel');
+const item10 = new item('slipper');
+const item11 = new item('hanger');
+const item12 = new item('benitykit');
+const item13 = new item('bathClear');
+const item14 = new item('pillowClear');
 
-const tooth = new item('tooth');
-const Shaver = new item('Shaver');
-const soap = new item('soap');
-const bodyrotion = new item('bodyrotion');
-const bodywash = new item('bodywash');
-const conditioner = new item('conditioner');
-const shampoo = new item('shampoo');
-const mouthwash = new item('mouthwash');
-const showertowel = new item('showertowel');
-const bathtowel = new item('bathtowel');
-const slipper = new item('slipper');
-const hanger = new item('hanger');
-const benitykit = new item('benitykit');
-const bathClear = new item('bathClear');
-const pillowClear = new item('pillowClear');
+const itemArr = [
+  item0,
+  item1,
+  item1,
+  item2,
+  item3,
+  item4,
+  item5,
+  item6,
+  item7,
+  item8,
+  item9,
+  item10,
+  item11,
+  item12,
+  item13,
+  item14
+]
+
+const btnPlusCreate = (btnArr,item,itemText) => {
+  btnArr.addEventListener('click',function(){
+    item.countUp();
+    itemText.innerHTML = item.getCount();
+  })
+}
+const btnMinusCreate = (btnMinusArr,item,itemText) => {
+  btnMinusArr.addEventListener('click',function(){
+    if(item.getCount() == 0){
+      alert("수량은 0개 이상이어야합니다.");
+    }
+    else{
+      item.countDown();
+      itemText.innerHTML = item.getCount();
+    }
+  })
+}
+for(var i = 0; i<16; i++ ){
+  btnPlusCreate(btnsArr[i],itemArr[i],btnItemArr[i]);
+  btnMinusCreate(btnMinusArr[i],itemArr[i],btnItemArr[i]);
+}
+
+
+
 
 
 
 const ul = document.querySelector(".pop_rel_keywords");
 const searchInput = document.querySelector(".search");
-const relContainer = document.querySelector(".rel_search");
+
 
 const data = [
   '칫솔/치약 세트',
@@ -125,7 +167,7 @@ else{
 })
 const searchP = document.querySelector(".searchP");
 searchInput.addEventListener('click',function(event){
-  searchP.innerHTML = event.value;
+  searchP.innerHTML = searchInput.value;
 })
 
 
