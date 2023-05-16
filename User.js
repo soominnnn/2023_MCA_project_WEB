@@ -119,7 +119,6 @@ for(var i = 0; i<16; i++ ){
 
 
 
-const ul = document.querySelector(".pop_rel_keywords");
 const searchInput = document.querySelector(".search");
 
 
@@ -145,30 +144,29 @@ const data = [
   '키친 타올',
   '핫팩'
 ]
-searchInput.addEventListener('input', function(event) {
+
+const menuDiv = document.querySelector('.Menu');
+const ul = document.querySelector('.searchLi')
+
+const search = (event) => {
   const filteredData = data.filter(function(item){
+    menuDiv.style.display = 'none';
     return item.includes(event.target.value);
   });
-
-  ul.innerHTML = '';
-
   if(filteredData.length > 0){
     filteredData.forEach(function(item){
+      const li = document.createElement('li');
+      li.textContent = item;
+      ul.appendChild(li);
+    });
+  }
+  else{
     const li = document.createElement('li');
-    li.textContent = item;
+    li.textContent = '일치하는 결과가 없습니다.';
     ul.appendChild(li);
-  });
-}
-else{
-  const li = document.createElement('li');
-  li.textContent = '일치하는 결과가 없습니다.';
-  ul.appendChild(li);
-}
-})
-const searchP = document.querySelector(".searchP");
-searchInput.addEventListener('click',function(event){
-  searchP.innerHTML = searchInput.value;
-})
+  }
+  console.log(filteredData);
 
+}
 
 
