@@ -1,4 +1,3 @@
-
 // 배너 제작
 const slideWrap = document.querySelector('.slideWrap');
 const slide = document.querySelectorAll('.slide');
@@ -15,15 +14,15 @@ slideWrap.style.width = `${100*(slide.length+2)}%`;
 slideWrap.style.left = '-100%';
 
 let current = 0;
-setInterval(()=>move(),2000);
+setInterval(()=>move(),4000);
 function move(){
     if(current < slide.length - 1){
         current++;
-        slideWrap.style.transition = '500ms';
+        slideWrap.style.transition = '1000ms';
         slideWrap.style.left = `-${100 * (current + 1)}%`;
       }else{
         current++;
-        slideWrap.style.transition = '500ms';
+        slideWrap.style.transition = '1000ms';
         slideWrap.style.left = `-${100 * (current + 1)}%`;
         current = 0;
         setTimeout(function(){
@@ -32,6 +31,24 @@ function move(){
         },550);
       }
 }
+
+//tab 클릭 시, 이미지 전환
+const tab1 = document.querySelector('#tab-1');
+const tab2 = document.querySelector('#tab-2');
+const bathimg = document.querySelector('.rainImg');
+const badimg = document.querySelector('.RoomImg');
+
+
+tab1.addEventListener('click',function(){
+    bathimg.style.content = 'url(/Image/rain.png)';
+    badimg.style.content = 'url(/Image/Vector.png)';
+})
+tab2.addEventListener('click',function(){
+  bathimg.style.content = 'url(/Image/rainn.png)';
+  bathimg.style.width = '9.23px';
+  bathimg.style.height = '15px';
+  badimg.style.content = 'url(/Image/bad_white.png)';
+})
 
 // 클래스 선언
 
@@ -109,19 +126,21 @@ const btnMinusCreate = (btnMinusArr,item,itemText) => {
     }
   })
 }
+let CartNumber = 0;
+const orderNum = document.querySelector('.orderNum');
+
 for(var i = 0; i<16; i++ ){
   btnPlusCreate(btnsArr[i],itemArr[i],btnItemArr[i]);
   btnMinusCreate(btnMinusArr[i],itemArr[i],btnItemArr[i]);
+  btnsArr[i].addEventListener('click',function(){
+    if(itemArr[i].getCount != 0){
+      CartNumber ++;
+      orderNum.innerHTML = '총' + CartNumber + '개';
+    }
+  })
 }
 
-
-
-
-
-
 const searchInput = document.querySelector(".search");
-
-
 const data = [
   '칫솔/치약 세트',
   '면도기 세트',
@@ -153,20 +172,25 @@ const search = (event) => {
     menuDiv.style.display = 'none';
     return item.includes(event.target.value);
   });
-  if(filteredData.length > 0){
-    filteredData.forEach(function(item){
-      const li = document.createElement('li');
-      li.textContent = item;
-      ul.appendChild(li);
-    });
+  if( event.target.value == null){
+    const li = document.createElement('li');
+    li.textContent = '검색어가 없습니다.';
   }
   else{
-    const li = document.createElement('li');
-    li.textContent = '일치하는 결과가 없습니다.';
-    ul.appendChild(li);
+    if(filteredData.length > 0){
+      filteredData.forEach(function(item){
+        const li = document.createElement('li');
+        li.textContent = item;
+        ul.appendChild(li);
+      });
+    }
+    else{
+      const li = document.createElement('li');
+      li.textContent = '일치하는 결과가 없습니다.';
+      ul.appendChild(li);
+    }
+    console.log(filteredData);
   }
-  console.log(filteredData);
-
 }
 
 

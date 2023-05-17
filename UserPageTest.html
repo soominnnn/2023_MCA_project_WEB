@@ -27,14 +27,14 @@
             <ul class="searchLi"></ul>
         </div>
         <div class="Menu">
-            <input type="radio" id="tab-1" class="Bathroom" name="show" checked>
-            <input type="radio" id="tab-2" class="Bedroom" name="show">
+            <input type="radio" id="tab-1" class="Bathroom" name="show" value="1"checked>
+            <input type="radio" id="tab-2" class="Bedroom" value="2"name="show">
             <div class="tab">
-                <label for="tab-1" class="margin_on">
-                    <img src="/image/rain.png"/><p>욕실 용품</p>
+                <label for="tab-1" class="margin_on bathTab">
+                    <img src="/image/rain.png" class="rainImg"/><p>욕실 용품</p>
                 </label>
-                <label for="tab-2" class="margin_on bathTab">
-                    <img src="/image/Vector.png"><p>객실 용품</p>
+                <label for="tab-2" class="margin_on badTab">
+                    <img src="/image/Vector.png" class="RoomImg"><p>객실 용품</p>
                 </label>
                 <div class="bathBanner_under"></div>
             </div>
@@ -213,7 +213,8 @@
     </main>
     <footer>
         <img src="image/cart.png">
-        <p>장바구니 보기</p>
+        <p class="order orderP">장바구니 보기</p>
+        <p class="order orderNum">총 0개</p>
     </footer>
 </body>
 </html>

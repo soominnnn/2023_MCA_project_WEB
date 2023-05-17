@@ -220,21 +220,27 @@ footer img {
     margin-left: 120px;
     float: left;
 }
-footer p{
+footer .order{
     float: left;
     position:absolute;
+    top:18px;
     width: 109px;
     height: 24px;
-    left:163px;
-    top:18px;
     font-family: 'Pretendard';
     font-style: normal;
     font-weight: 400;
     font-size: 20px;
     line-height: 24px;
-    text-align: center;
     color: #FFFFFF;
 }
+.orderP{
+    left:163px;
+    text-align: center;
+}
+.orderNum{
+    left:322px;
+}
+
 input[type=radio]{
     display: none;
 }
@@ -264,12 +270,12 @@ input[type=radio]{
     margin-top:7px;
 }
 
-.bathTab img{
+.badTab img{
     margin-top:10px !important;
     width: 17.6px;
     height: 11px;
 }
-.bathTab{
+.badTab{
     position:relative;
     left:-3px;
 }
@@ -357,10 +363,10 @@ input[type=radio]{
     display: none !important;
 }
 
-.pop_rel_keywords {
+.searchLi {
     margin-right: 30%;
 }
-.pop_rel_keywords > li{
+.searchLi > li{
     line-height: 250%;
 }
 
