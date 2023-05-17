@@ -364,10 +364,18 @@ input[type=radio]{
 }
 
 .searchLi {
-    margin-right: 30%;
+    box-sizing: border-box;
+    position: relative;
+    width: 289px;
+    height: auto;
+    background: #F8F8F8;
+    border: 1px solid #4A433B;
+    box-shadow: 3px 3px 7px rgba(15, 41, 107, 0.12);
+    border-radius: 5px;
 }
 .searchLi > li{
     line-height: 250%;
+    margin-left:16px;
 }
 
 .inputSearch{

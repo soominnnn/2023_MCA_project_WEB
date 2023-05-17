@@ -97,8 +97,6 @@ function btnClickCancelOrder(num,roomnum,count,keydata,valuedata){
           
           //카운트 재생성
           const contentOrderNum = document.getElementById('content_order');
-          const contentAllNum = document.getElementById('content_all');
-          contentAllNum.innerHTML = '전체'+'\u00a0'+'\u00a0'+allCount+'건';
           contentOrderNum.innerHTML = '요청'+'\u00a0'+'\u00a0'+orderCount+'건';
         })
 }
@@ -168,6 +166,7 @@ function database_roomAllOrder(roomnum,num){
         contentContiNum.innerHTML = '처리중'+'\u00a0'+'\u00a0'+contiCount+'건';
   const contentCompNum = document.getElementById('content_comp');
         contentCompNum.innerHTML = '완료'+'\u00a0'+'\u00a0'+compCount+'건';
+        
     firebase.database().ref('service/장바구니/'+roomnum).on('value',function(getData){
       //데이터 가져오기
         const test = getData.val();

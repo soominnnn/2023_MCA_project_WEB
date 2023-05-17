@@ -16,6 +16,7 @@ function getClock(){
   }
 setInterval(getClock, 1000);
 
+
 let nameValue = document.getElementById('Name');
 let IpValue = document.getElementById('IP');
 
@@ -25,7 +26,16 @@ function createTagOnlyId(tag,ids){
   parentDiv.appendChild(createBorderline);
 }
 const parentLine = document.getElementsByClassName('wrapper')[0];
+
 function createRobotLine(){
+
+  var ros = new ROSLIB.Ros({
+    url : 'ws://'+IpValue.value+':9090'
+  });
+
+  ros.on('connection', function() {
+
+  });
   let createLine = document.createElement('div');
   createLine.setAttribute('id','line1');
   createLine.setAttribute('class','line2');
@@ -54,6 +64,15 @@ function createRobotLine(){
   let createStateP = document.createElement('p');
   createStateP.setAttribute('id','state');
   parentDiv.appendChild(createStateP);
+
+  let createState = document.createElement('span');
+  createState.setAttribute('id','stateCircle');
+  parentDiv.appendChild(createState);
+  
+  let createStateH = document.createElement('h4');
+  createStateH.setAttribute('id', 'h4');
+  createStateH.innerHTML = "연결안됨"
+  parentDiv.appendChild(createStateH);
 
   let createStateDiv = document.createElement('div');
   createStateDiv.setAttribute('id','stateline');
@@ -123,17 +142,3 @@ function plus(){
     createRobotLine();
   }
 }
-const modal2 = document.getElementById("modal2");
-function modalOn2() {
-  modal2.style.display = "flex";
-}
-function isModalOn2() {
-  return modal2.style.display === "flex";
-}
-function modalOff2() {
-  modal2.style.display = "none";
-}
-const mapView = document.getElementsByClassName('mapView')[0];
-mapView.addEventListener("click", e => {
-    modalOn2();
-})

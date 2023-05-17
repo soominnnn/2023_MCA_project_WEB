@@ -47,6 +47,7 @@
     color:black;
     font-family: 'Pretendard-Regular';
     margin-left: 20px;
+    top:4px;
 }
 
 .header .nav ul li{
@@ -416,4 +417,30 @@
     position:relative;
     left:920px;
     top: 0;
+}
+
+#stateCircle{
+    position: relative;
+    width: 8px;
+    height: 8px;
+    border-radius: 8px;
+    left: 490px;
+    top: 21px;
+    background: #D22121;
+}
+#h4{
+    position: relative;
+    width: 62px;
+    height: 31px;
+    left: 280px;
+    font-family: 'Pretendard';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 19px;
+    display: flex;
+    align-items: center;
+    top:10px;
+    color: #000000;
+
 }

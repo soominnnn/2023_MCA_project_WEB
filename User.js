@@ -140,7 +140,7 @@ for(var i = 0; i<16; i++ ){
   })
 }
 
-const searchInput = document.querySelector(".search");
+
 const data = [
   '칫솔/치약 세트',
   '면도기 세트',
@@ -165,32 +165,36 @@ const data = [
 ]
 
 const menuDiv = document.querySelector('.Menu');
-const ul = document.querySelector('.searchLi')
+const searchInput = document.querySelector(".inputSearch");
+const resultsContainer = document.querySelector('.searchLi');
 
-const search = (event) => {
-  const filteredData = data.filter(function(item){
+// 검색어 입력 시 결과를 업데이트하는 함수
+function updateResults() {
+  const searchTerm = searchInput.value.toLowerCase();
+  resultsContainer.style.display = 'none';
+  menuDiv.style.display = 'block';
+  resultsContainer.innerHTML = ""; // 이전 결과 초기화
+
+  // 검색어와 일치하는 항목을 찾아 결과에 추가
+  const matchingItems = data.filter(item => item.toLowerCase().includes(searchTerm));
+  matchingItems.forEach(item => {
     menuDiv.style.display = 'none';
-    return item.includes(event.target.value);
+    resultsContainer.style.display = 'block';
+    const li = document.createElement("li");
+    li.textContent = item;
+    resultsContainer.appendChild(li);
   });
-  if( event.target.value == null){
-    const li = document.createElement('li');
-    li.textContent = '검색어가 없습니다.';
-  }
-  else{
-    if(filteredData.length > 0){
-      filteredData.forEach(function(item){
-        const li = document.createElement('li');
-        li.textContent = item;
-        ul.appendChild(li);
-      });
-    }
-    else{
-      const li = document.createElement('li');
-      li.textContent = '일치하는 결과가 없습니다.';
-      ul.appendChild(li);
-    }
-    console.log(filteredData);
+
+  if (matchingItems.length === 0) {
+    menuDiv.style.display = 'none';
+    const li = document.createElement("li");
+    resultsContainer.style.display = 'block';
+    li.textContent = "일치하는 결과가 없습니다.";
+    resultsContainer.appendChild(li);
   }
 }
+
+// 검색어 입력 시 결과 업데이트
+searchInput.addEventListener("input", updateResults);
 
 
