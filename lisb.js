@@ -29,6 +29,18 @@ ros : ros,
 name : '/move_base/feedback',
 messageType : 'move_base_msgs/MoveBaseActionFeedback'
 });
+var battery = new ROSLIB.Topic ({
+  ros : ros,
+  name : '/battery_state',
+  messageType : 'sensor_msgs/BatteryState'
+})
+battery.subscribe((message)=> {
+  if(message){
+    console.log(Math.floor(message.percentage));
+    document.getElementsByClassName('percent')[0].innerHTML =message.percentage.toFixed(1) +'%';
+  }
+  // listenerforPath.unsubscribe();
+});
 
 
 
