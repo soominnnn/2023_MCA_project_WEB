@@ -179,14 +179,15 @@
     color: #000000;
     top: 10px;
 }
-#line div{
+#line .line{
     position: absolute;
     width: 1px;
     height:24px;
     border: 1px solid #E1E1E1;
     top: 13px;
 }
-#line1 div{
+
+#line1 .line{
     position: absolute;
     width: 1px;
     height:24px;
@@ -442,5 +443,32 @@
     align-items: center;
     top:10px;
     color: #000000;
+}
 
+.isShow{
+    display: none;
+}
+#line1 #mapline{
+    position:relative;
+    left:690px;
+    top: 0;
+    width: 130px;
+    border: none;
+    background-color: transparent;
+    font-family: 'Pretendard-Regular';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 19px;
+    display: flex;
+    align-items: center;
+    color: #000000;
+}
+.isShow #map{
+    position:relative;
+    top:100px;
+}
+#map canvas{
+    width: 300px;
+    height: 300px;
 }
