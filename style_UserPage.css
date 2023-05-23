@@ -372,6 +372,7 @@ input[type=radio]{
     border: 1px solid #4A433B;
     box-shadow: 3px 3px 7px rgba(15, 41, 107, 0.12);
     border-radius: 5px;
+    display: none;
 }
 .searchLi > li{
     line-height: 250%;

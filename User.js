@@ -51,7 +51,6 @@ tab2.addEventListener('click',function(){
 })
 
 // 클래스 선언
-
 class item{
   constructor({name}){
     this.name = name;
@@ -126,18 +125,10 @@ const btnMinusCreate = (btnMinusArr,item,itemText) => {
     }
   })
 }
-let CartNumber = 0;
-const orderNum = document.querySelector('.orderNum');
 
 for(var i = 0; i<16; i++ ){
   btnPlusCreate(btnsArr[i],itemArr[i],btnItemArr[i]);
   btnMinusCreate(btnMinusArr[i],itemArr[i],btnItemArr[i]);
-  btnsArr[i].addEventListener('click',function(){
-    if(itemArr[i].getCount != 0){
-      CartNumber ++;
-      orderNum.innerHTML = '총' + CartNumber + '개';
-    }
-  })
 }
 
 
@@ -182,6 +173,10 @@ function updateResults() {
     resultsContainer.style.display = 'block';
     const li = document.createElement("li");
     li.textContent = item;
+    li.addEventListener('click',function(e){
+      resultsContainer.style.display = 'none'; 
+      menuDiv.style.display = 'block';
+    })
     resultsContainer.appendChild(li);
   });
 
@@ -194,7 +189,21 @@ function updateResults() {
   }
 }
 
+const orderNum = document.querySelector('.orderNum');
 // 검색어 입력 시 결과 업데이트
 searchInput.addEventListener("input", updateResults);
+
+let cartNum = 0;
+let cartInCount = 0;
+const CartIn = (str) => {
+  if( cartInCount == 0 ){
+    cartInCount++;
+    cartNum ++;
+    orderNum.innerHTML = '총' + cartNum + '개';
+    window.name = str;
+  }
+}
+
+
 
 
