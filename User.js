@@ -114,6 +114,7 @@ const btnPlusCreate = (btnArr,item,itemText) => {
     itemText.innerHTML = item.getCount();
   })
 }
+
 const btnMinusCreate = (btnMinusArr,item,itemText) => {
   btnMinusArr.addEventListener('click',function(){
     if(item.getCount() == 0){
@@ -193,16 +194,18 @@ const orderNum = document.querySelector('.orderNum');
 // 검색어 입력 시 결과 업데이트
 searchInput.addEventListener("input", updateResults);
 
-let cartNum = 0;
-let cartInCount = 0;
-const CartIn = (str) => {
-  if( cartInCount == 0 ){
-    cartInCount++;
-    cartNum ++;
-    orderNum.innerHTML = '총' + cartNum + '개';
-    window.name = str;
-  }
+const NoZeroNum = document.querySelector('#number').innerText;
+console.log(NoZeroNum);
+let itemCount = 0;
+if(NoZeroNum == 0){
+  itemCount++;
+  orderNum.innerHTML = '총 ' + itemCount + '개';
 }
+else{
+  itemCount--;
+  orderNum.innerHTML = '총 ' + itemCount + '개';
+}
+
 
 
 
