@@ -194,17 +194,6 @@ const orderNum = document.querySelector('.orderNum');
 // 검색어 입력 시 결과 업데이트
 searchInput.addEventListener("input", updateResults);
 
-const NoZeroNum = document.querySelector('#number').innerText;
-console.log(NoZeroNum);
-let itemCount = 0;
-if(NoZeroNum == 0){
-  itemCount++;
-  orderNum.innerHTML = '총 ' + itemCount + '개';
-}
-else{
-  itemCount--;
-  orderNum.innerHTML = '총 ' + itemCount + '개';
-}
 
 
 
