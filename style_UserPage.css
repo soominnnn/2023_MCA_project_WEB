@@ -497,7 +497,7 @@ input[type=radio]{
     width: 345px;
     height: 130px;
     left:23px;
-    top:71px;
+    margin-top:16px;
     background: #F8F8F8;
     border: 1px solid #4A433B;
     box-shadow: 3px 3px 7px rgba(15, 41, 107, 0.12);
