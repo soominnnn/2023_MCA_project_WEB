@@ -200,6 +200,7 @@ const orderNum = document.querySelector('.orderNum');
 // 검색어 입력 시 결과 업데이트
 searchInput.addEventListener("input", updateResults);
 
+// 모달 페이지
 var closeModalBtn = document.getElementsByClassName('arrow')[0];
 var modalContainer = document.getElementById('modalContainer');
 
@@ -214,6 +215,8 @@ document.querySelector('.modalBTN').addEventListener('click',function(){
 closeModalBtn.addEventListener('click',function(){
   modalContainer.style.display='none';
 })
+
+
 const parentEl = document.querySelector('.main');
 const CartDiv = (firImg,P1Name,price) => {
   const Boxdiv = document.createElement('div');
