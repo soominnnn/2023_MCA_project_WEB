@@ -212,9 +212,36 @@
             </div>
         </div>
     </main>
-    <footer>
+    <footer class="modalBTN">
         <img src="image/cart_white.png">
         <p class="order orderP">장바구니 보기</p>
     </footer>
+    <div id="modalContainer">
+        <div id="modalContent">
+            <header>
+                <img src="/image/arrow-small-left.png" class ="arrow">
+                <img src="/image/cart.png" class="cart">
+                <p>장바구니</p>
+                <img src="/image/circle-user.png" class="user">
+            </header>
+            <div class="main">
+                <div class="CartBox">
+                    <img src="/image/set.jpg" class="itemImg">
+                    <p class="itemName">칫솔 치약 세트</p>
+                    <p class="itemWon">원산지 : 중국</p>
+                    <div class="LineDiv"></div>
+                    <button class="CartPlus"><img src="/UserImage/plus.png"></button>
+                    <div class="CartNum"><p>0</p></div>
+                    <button class="CartMinus"><img src="/UserImage/minus.png"></button>
+                </div>
+            </div>
+            <footer>
+                <img src="/image/order.png" alt="">
+                <p>주문하기</p>
+                <h4>총 0개</h4>
+            </footer>
+        </div>
+      </div>
+    <script defer src="userCart.js"></script>
 </body>
 </html>

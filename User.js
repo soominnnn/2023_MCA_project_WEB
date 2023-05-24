@@ -194,6 +194,62 @@ const orderNum = document.querySelector('.orderNum');
 // 검색어 입력 시 결과 업데이트
 searchInput.addEventListener("input", updateResults);
 
+var closeModalBtn = document.getElementsByClassName('arrow')[0];
+var modalContainer = document.getElementById('modalContainer');
+
+document.querySelector('.modalBTN').addEventListener('click',function(){
+    modalContainer.style.display = 'block';
+    for(var i = 0; i < itemArr.length; i++){
+      if(itemArr.getCount != 0){
+        
+      }
+    }
+})
+closeModalBtn.addEventListener('click',function(){
+  modalContainer.style.display='none';
+})
+const parentEl = document.querySelector('.main');
+const CartDiv = (firImg,P1Name,price) => {
+  const Boxdiv = document.createElement('div');
+  Boxdiv.className ='CartBox';
+
+  const BoxImg = document.createElement('img');
+  BoxImg.src = '/image/' + firImg + '.png';
+
+  const BoxP1 = document.createElement('p');
+  BoxP1.textContent = P1Name;
+
+  const BoxP2 = document.createElement('p');
+  BoxP2.textContent = price;
+
+  const linediv = document.createElement('div');
+  linediv.className = 'CartBoxLine';
+
+  const btn1 = document.createElement('button');
+  const btn1Img = document.createElement('img');
+  btn1Img.src ='/image/plus.png';
+  btn1.appendChild(btn1Img);
+
+  const numberDiv = document.createElement('div');
+  const numberP = document.createElement('p');
+
+  numberP.textContent = '';
+  numberDiv.appendChild(numberP);
+
+  const btn2 = document.createElement('button');
+  const btn2Img = document.createElement('img');
+  btn2Img.src ='/image/Vector.png';
+  btn2.appendChild(btn2Img);
+
+  Boxdiv.appendChild(BoxImg);
+  Boxdiv.appendChild(BoxP1);
+  Boxdiv.appendChild(BoxP2);
+  Boxdiv.appendChild(linediv);
+  Boxdiv.appendChild(btn1);
+  Boxdiv.appendChild(btn2);
+
+}
+
 
 
 
