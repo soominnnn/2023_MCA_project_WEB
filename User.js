@@ -110,8 +110,14 @@ const itemArr = [
 
 const btnPlusCreate = (btnArr,item,itemText) => {
   btnArr.addEventListener('click',function(){
-    item.countUp();
-    itemText.innerHTML = item.getCount();
+    if(item.getCount() < 9){
+      item.countUp();
+      itemText.innerHTML = item.getCount();
+    }
+    else{
+      alert("9개까지 주문 가능합니다.");
+    }
+
   })
 }
 
@@ -215,30 +221,37 @@ const CartDiv = (firImg,P1Name,price) => {
 
   const BoxImg = document.createElement('img');
   BoxImg.src = '/image/' + firImg + '.png';
+  BoxImg.className='itemImg';
 
   const BoxP1 = document.createElement('p');
   BoxP1.textContent = P1Name;
+  BoxP1.className = 'itemName';
 
   const BoxP2 = document.createElement('p');
   BoxP2.textContent = price;
+  BoxP2.className = 'itemWon';
 
   const linediv = document.createElement('div');
-  linediv.className = 'CartBoxLine';
+  linediv.className = 'LineDiv';
+  
 
   const btn1 = document.createElement('button');
+  btn1.className = 'CartPlus';
   const btn1Img = document.createElement('img');
-  btn1Img.src ='/image/plus.png';
+  btn1Img.src ='/UserImage/plus.png';
   btn1.appendChild(btn1Img);
 
   const numberDiv = document.createElement('div');
+  numberDiv.className = 'CartNum';
   const numberP = document.createElement('p');
 
   numberP.textContent = '';
   numberDiv.appendChild(numberP);
 
   const btn2 = document.createElement('button');
+  btn2.className = 'CartMinus';
   const btn2Img = document.createElement('img');
-  btn2Img.src ='/image/Vector.png';
+  btn2Img.src ='/UserImage/minus.png';
   btn2.appendChild(btn2Img);
 
   Boxdiv.appendChild(BoxImg);
@@ -247,7 +260,6 @@ const CartDiv = (firImg,P1Name,price) => {
   Boxdiv.appendChild(linediv);
   Boxdiv.appendChild(btn1);
   Boxdiv.appendChild(btn2);
-
 }
 
 
