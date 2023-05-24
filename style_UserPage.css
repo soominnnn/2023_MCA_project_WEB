@@ -506,7 +506,6 @@ input[type=radio]{
     position:relative;
     width: 130px;
     height: 130px;
-    background: url(image.png);
     border-width: 1px 0px 1px 1px;
     border-style: solid;
     border-color: #4A433B;
@@ -560,7 +559,7 @@ input[type=radio]{
     width: 25px;
     height: 25px;
     border: 1px solid #4A433B;
-    background-color: #ffffff;
+    background-color: transparent;
 }
 .CartPlus img{
     width: 10px;
