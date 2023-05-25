@@ -54,6 +54,7 @@ class Item {
   constructor({ name }) {
     this.name = name;
     this.count = 0;
+    this.create = false;
   }
   countUp() {
     return this.count++;
@@ -91,7 +92,7 @@ const data = [
 ];
 const ImageFile = [
   './image/set',
-  './UserImage/RoomItem1',
+  './UserImage/RoomItem',
   './UserImage/ObathSoap',
   './UserImage/ObathBodyrotion',
   './UserImage/ObathBodywash',
@@ -146,15 +147,20 @@ const modalContainer = document.getElementById('modalContainer');
 const BoxSelect = document.querySelectorAll('.CartBox').length;
 document.querySelector('.modalBTN').addEventListener('click', () => {
   modalContainer.style.display = 'block';
+  document.body.style.overflow = 'hidden';
   itemArr.forEach((item, index) => {
     if (item.getCount() > 0) {
-      CartDiv(ImageFile[index]+'.png', item.name, item.count);
+      if( item.create == false){
+        CartDiv(ImageFile[index]+'.png', item.name, item.count);
+        item.create = true;
+      }
     }
   });
 });
 
 closeModalBtn.addEventListener('click', () => {
   modalContainer.style.display = 'none';
+  document.body.style.removeProperty('overflow');
 });
 
 const CartDiv = (firImg, P1Name, ItemCount) => {
@@ -204,6 +210,20 @@ const CartDiv = (firImg, P1Name, ItemCount) => {
   Boxdiv.appendChild(btn2);
   document.querySelector('.main').appendChild(Boxdiv);
 };
+
+document.querySelector('.orderFire').addEventListener('click', () => {
+  let itemArray = [];
+  itemArr.forEach((item) => {
+    if (item.getCount() > 0) {
+      itemArray.push(item.name, item.count);
+      console.log(itemArray);
+      firebase.database().ref('service/장바구니/101').update({
+        name : itemArray[0],
+        count : itemArray[1]
+      })
+    }
+  })
+})
 
 
 
