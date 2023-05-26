@@ -458,21 +458,7 @@
 
 }
 
-#rectang_order{
-    width: 320px;
-    height: 161px;
-    background-color: #060715;
-    border: 1px solid white;
-    border-radius: 10px;
-}
-#rectang_conti{
-    width: 320px;
-    height: 161px;
-    background-color: #060715;
-    border: 1px solid white;
-    border-radius: 10px;
-}
-#rectang_comp{
+#rectang{
     width: 320px;
     height: 161px;
     background-color: #060715;
@@ -502,7 +488,7 @@
 }
 
 
-.room_number_order{
+.room_number{
     position: relative;
     top:14px;
     left:13px;
@@ -516,35 +502,6 @@
 
     color: #FFFFFF;
 }
-.room_number_comp{
-    position: relative;
-    top:14px;
-    left:13px;
-    width: 147px;
-    height: 12px;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 24px;
-    line-height: 29px;
-    margin-bottom:43px;
-
-    color: #FFFFFF;
-}
-.room_number_conti{
-    position: relative;
-    top:14px;
-    left:13px;
-    width: 147px;
-    height: 12px;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 24px;
-    line-height: 29px;
-    margin-bottom:43px;
-
-    color: #FFFFFF;
-}
-
 
 #btnCanOrder{
     position: relative;

@@ -1,0 +1,96 @@
+@font-face {
+    font-family: 'Pretendard-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+    list-style: none;
+    font-family: 'Pretendard-Regular'!important;
+}
+
+header{
+    width:390px;
+    height: 50px;
+    border-bottom: 5px solid rgba(74, 67, 59, 0.5);
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.arrow{
+    position:relative;
+    width: 30px;
+    height: 30px;
+    left:-100px;
+}
+header .cart{
+    width: 28px;
+    height: 28px;
+}
+header p {
+    width: 100px;
+    height: 24px;
+    font-family: 'Pretendard';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+    color: #4A433B;
+}
+header .user{
+    width: 25px;
+    height: 25px;
+    position:relative;
+    left: 92px;
+}
+header .order{
+    width: 25px;
+    height: 25px;
+
+}
+.main{
+}
+
+footer .bottomLine{
+    position:relative;
+    width: 390px;
+    height: 5px;
+    background: rgba(74, 67, 59, 0.5);
+    margin-top:473px;
+}
+footer .roomnum{
+    position:relative;
+    width: 80px;
+    height: 36px;
+    margin-left: 160px;
+    margin-top: 44px;
+    font-family: 'Pretendard';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 30px;
+    line-height: 36px;
+    display: flex;
+    align-items: center;
+    color: #4A433B;
+}
+footer .alt{
+    position:relative;
+    width: 379px;
+    height: 24px;
+    font-family: 'Pretendard';
+    margin-left:10px;
+    margin-top:15px;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 20px;
+    line-height: 24px;
+    display: flex;
+    align-items: center;
+    color: #4A433B;
+}

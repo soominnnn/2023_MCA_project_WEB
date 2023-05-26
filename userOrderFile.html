@@ -4,18 +4,48 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style_cart.css">
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
     <title>Document</title>
 </head>
 <body>
-    
+    <header>
+        <img src="/image/arrow-small-left.png" class="arrow">
+        <img src="/image/order_brown.png" class="order">
+        <p class="orderP">주문 목록</p>
+        <img src="/image/circle-user.png" class="user">
+    </header>
+    <div class="main">
+
+    </div>
+    <footer>
+        <div class="bottomLine"></div>
+        <p class="roomnum">101호</p>
+        <p class="alt">로봇이 도착하면, 하단 QR코드를 인식해주세요.</p>
+        <img src="">
+    </footer>
 </body>
-
-
-
-<style>
-
-</style>
+<script >
+    // Import the functions you need from the SDKs you need
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+    // Your web app's Firebase configuration
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    const firebaseConfig = {
+        apiKey: "AIzaSyCAT7bkhzoDUEMN7RaYUx9ZyRJyhs4yP0Q",
+        authDomain: "project1-6dfc7.firebaseapp.com",
+        databaseURL: "https://project1-6dfc7-default-rtdb.firebaseio.com",
+        projectId: "project1-6dfc7",
+        storageBucket: "project1-6dfc7.appspot.com",
+        messagingSenderId: "1086482242380",
+        appId: "1:1086482242380:web:7ef4b2d6b3c2a886fc8de9",
+        measurementId: "G-FQY04VY3MQ"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+</script>
 <script>
-
+    
 </script>
 </html>

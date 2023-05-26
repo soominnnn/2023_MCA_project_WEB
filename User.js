@@ -146,6 +146,7 @@ const closeModalBtn = document.querySelector('.arrow');
 const modalContainer = document.getElementById('modalContainer');
 const BoxSelect = document.querySelectorAll('.CartBox').length;
 document.querySelector('.modalBTN').addEventListener('click', () => {
+  ref.remove();
   modalContainer.style.display = 'block';
   document.body.style.overflow = 'hidden';
   itemArr.forEach((item, index) => {
@@ -153,6 +154,7 @@ document.querySelector('.modalBTN').addEventListener('click', () => {
       if( item.create == false){
         CartDiv(ImageFile[index]+'.png', item.name, item.count);
         item.create = true;
+        
       }
     }
   });
@@ -210,17 +212,14 @@ const CartDiv = (firImg, P1Name, ItemCount) => {
   Boxdiv.appendChild(btn2);
   document.querySelector('.main').appendChild(Boxdiv);
 };
-
+const ref = firebase.database().ref('service/장바구니/101');
 document.querySelector('.orderFire').addEventListener('click', () => {
   let itemArray = [];
   itemArr.forEach((item) => {
     if (item.getCount() > 0) {
       itemArray.push(item.name, item.count);
+      ref.update(itemArray)
       console.log(itemArray);
-      firebase.database().ref('service/장바구니/101').update({
-        name : itemArray[0],
-        count : itemArray[1]
-      })
     }
   })
 })
