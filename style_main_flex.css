@@ -467,7 +467,7 @@
 }
 .amenity{
         position: relative;
-        width: 147px;
+        width: 180px;
         height: 12px;
         margin-left:13px;
         font-style: normal;
@@ -480,7 +480,7 @@
 }
 .line_room{
     position: relative;
-    width: 100px;
+    width: 160px;
     height: 1px;
     left: 13px;
     margin-top: 6px;

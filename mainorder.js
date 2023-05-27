@@ -25,8 +25,7 @@ const Order = new Contents('order');
 const process = new Contents('process');
 const complete = new Contents('complete');
 
-function createOrderTags(count, valuedata) {
-    // 부모 요소 생성
+const createBoxTags = (count, valuedata) => {
   let DivArea = document.createElement("div");
   DivArea.setAttribute("id", "rectang");
 
@@ -37,131 +36,76 @@ function createOrderTags(count, valuedata) {
   DivArea.appendChild(roomNumTag);
 
   // 내역 태그 생성
-  for(let i = 0; i < count; i+2){
+  for (let i = 0; i < count; i + 2) {
     let amenityTag = document.createElement("p");
     amenityTag.setAttribute("class", "amenity");
-    amenityTag.innerHTML = valuedata[i] + "&emsp;" + "&emsp;" + valuedata[i+1];
+    amenityTag.innerHTML = valuedata[i] + "&emsp;" + "&emsp;" + valuedata[i + 1];
     DivArea.appendChild(amenityTag);
 
-     // 라인 태그 생성
+    // 라인 태그 생성
     let lineTag = document.createElement("div");
     lineTag.setAttribute("class", "line_room");
     DivArea.appendChild(lineTag);
   }
+  return DivArea;
+}
 
+function createOrderTags(count, valuedata) {
   // 취소 요청 버튼 생성
   let cancelOrderBtn = document.createElement("button");
   cancelOrderBtn.setAttribute("id", "btnCanOrder");
   cancelOrderBtn.innerHTML = "취소 요청";
-  cancelOrderBtn.addEventListener('click',function(){
+  cancelOrderBtn.addEventListener('click', function () {
     const parent = this.parentNode; // 부모 요소 찾기
     parent.parentNode.removeChild(parent); // 부모 요소 삭제
     Order.countDown();
     complete.countUp();
-    let DivArea = document.createElement("div");
-    DivArea.setAttribute("id", "rectang");
-
-    // 객실 번호 태그 생성
-    let roomNumTag = document.createElement("p");
-    roomNumTag.setAttribute("class", "room_number");
-    roomNumTag.innerHTML = "101호";
-    DivArea.appendChild(roomNumTag);
-
-    // 내역 태그 생성
-  for(let i = 0; i < count; i+2){
-    let amenityTag = document.createElement("p");
-    amenityTag.setAttribute("class", "amenity");
-    amenityTag.innerHTML = valuedata[i] + "&emsp;" + "&emsp;" + valuedata[i+1];
-    DivArea.appendChild(amenityTag);
-
-     // 라인 태그 생성
-    let lineTag = document.createElement("div");
-    lineTag.setAttribute("class", "line_room");
-    DivArea.appendChild(lineTag);
-  }
+    let boxTaginCancel = createBoxTags();
     // 완료 버튼 생성
     let btnCanAlltoComp = document.createElement('button');
-        btnCanAlltoComp.setAttribute('id','btnCancelAlltoComp');
-        DivArea.appendChild(btnCanAlltoComp);
-        btnCanAlltoComp.innerHTML = "취소 완료"
+    btnCanAlltoComp.setAttribute('id', 'btnCancelAlltoComp');
+    boxTaginCancel.appendChild(btnCanAlltoComp);
+    btnCanAlltoComp.innerHTML = "취소 완료"
     //완료 컨텐츠에 생성
-    tagArea_comp.appendChild(DivArea);
+    tagArea_comp.appendChild(boxTaginCancel);
   })
-  DivArea.appendChild(cancelOrderBtn);
+  boxTaginCancel.appendChild(cancelOrderBtn);
 
   // 접수 받기 버튼 생성
   let takeOrderBtn = document.createElement("button");
   takeOrderBtn.setAttribute("id", "btnTakeOrder");
-  takeOrderBtn.addEventListener('click',function(){
+  takeOrderBtn.addEventListener('click', function () {
     const parent = this.parentNode; // 부모 요소 찾기
     parent.parentNode.removeChild(parent); // 부모 요소 삭제    
 
     Order.countDown();
     process.countUp();
 
-    let DivArea = document.createElement("div");
-    DivArea.setAttribute("id", "rectang");
+    let boxTaginOrder = createBoxTags();
 
-    // 객실 번호 태그 생성
-    let roomNumTag = document.createElement("p");
-    roomNumTag.setAttribute("class", "room_number");
-    roomNumTag.innerHTML = "101호";
-    DivArea.appendChild(roomNumTag);
-
-    // 내역 태그 생성
-  for(let i = 0; i < count; i+2){
-    let amenityTag = document.createElement("p");
-    amenityTag.setAttribute("class", "amenity");
-    amenityTag.innerHTML = valuedata[i] + "&emsp;" + "&emsp;" + valuedata[i+1];
-    DivArea.appendChild(amenityTag);
-
-     // 라인 태그 생성
-    let lineTag = document.createElement("div");
-    lineTag.setAttribute("class", "line_room");
-    DivArea.appendChild(lineTag);
-  }
-
+    //완료 버튼 생성
     const btnConti = document.createElement('button');
-        btnConti.setAttribute('id','btnTakeOrdertoComp');
-        DivArea.appendChild(btnConti);
-        btnConti.innerHTML = "완료하기";
+    btnConti.setAttribute('id', 'btnTakeOrdertoComp');
+    boxTaginOrder.appendChild(btnConti);
+    btnConti.innerHTML = "완료하기";
 
-    tagArea_conti.appendChild(DivArea);    
-    btnConti.addEventListener('click',function(){
-        const parentConti = this.parentNode;
-        parentConti.parentNode.removeChild(parentConti);
-        process.countDown();
+    tagArea_conti.appendChild(boxTaginOrder);
 
-        let DivArea = document.createElement("div");
-        DivArea.setAttribute("id", "rectang");
+    btnConti.addEventListener('click', function () {
+      const parentConti = this.parentNode;
+      parentConti.parentNode.removeChild(parentConti);
+      process.countDown();
 
-        // 객실 번호 태그 생성
-        let roomNumTag = document.createElement("p");
-        roomNumTag.setAttribute("class", "room_number");
-        roomNumTag.innerHTML = "101호";
-        DivArea.appendChild(roomNumTag);
+      let boxTagincon = createBoxTags();
 
-        // 내역 태그 생성
-    for(let i = 0; i < count; i+2){
-        let amenityTag = document.createElement("p");
-        amenityTag.setAttribute("class", "amenity");
-        amenityTag.innerHTML = valuedata[i] + "&emsp;" + "&emsp;" + valuedata[i+1];
-        DivArea.appendChild(amenityTag);
+      complete.countUp();
 
-        // 라인 태그 생성
-        let lineTag = document.createElement("div");
-        lineTag.setAttribute("class", "line_room");
-        DivArea.appendChild(lineTag);
-    }
+      const btnComp = document.createElement('button');
+      btnComp.setAttribute('id', 'btnTakeContitoComp');
+      DivArea.appendChild(btnComp);
+      btnComp.innerHTML = "처리 완료";
 
-        complete.countUp();
-
-        const btnComp = document.createElement('button');
-                  btnComp.setAttribute('id','btnTakeContitoComp');
-                  DivArea.appendChild(btnComp);
-                  btnComp.innerHTML = "처리 완료";
-        
-        tagArea_comp.appendChild(DivArea);
+      tagArea_comp.appendChild(DivArea);
     })
   })
   takeOrderBtn.innerHTML = "접수 받기";
