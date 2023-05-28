@@ -506,7 +506,7 @@
 #btnCanOrder{
     position: relative;
     margin-left: 9px;
-    bottom: -45px;
+    bottom: -16px;
     width: 100px;
     height: 30px;
     background-color: white;
@@ -525,7 +525,7 @@
     width: 192px;
     height: 30px;
     left:8px;
-    bottom: -45px;
+    bottom: -16px;
     background: #FF612F;
     border: 0.1px solid #FFFFFF;
     border-radius: 15px;

@@ -218,10 +218,10 @@ document.querySelector('.orderFire').addEventListener('click', () => {
   itemArr.forEach((item) => {
     if (item.getCount() > 0) {
       itemArray.push(item.name, item.count);
-      ref.set(itemArray)
       console.log(itemArray);
     }
   })
+  ref.set(itemArray)
 })
 
 
