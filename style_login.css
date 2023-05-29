@@ -17,7 +17,13 @@
     box-sizing: border-box;
     list-style: none;
 }
-
+.modalbtn{
+    position: relative;
+    margin-left: 716px;
+    margin-top: 523px;
+    border: 1px solid lightgray;
+    background-color: transparent;
+}
 .container{
     width: 100%;
     height: 100vh;
