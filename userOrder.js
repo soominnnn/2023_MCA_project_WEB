@@ -28,7 +28,7 @@ const ImageFile = [
 
   const getImageUrl = (name) => {
     switch (name) {
-        case '치약/칫솔 세트':
+        case '칫솔/치약 세트':
             return ImageFile[0];
         case '면도기 세트':
             return ImageFile[1];
