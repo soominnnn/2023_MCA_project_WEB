@@ -4,29 +4,72 @@ backArrow.addEventListener('click',function(){
 })
 
 const ImageFile = [
-    './image/set',
-    './UserImage/RoomItem',
-    './UserImage/ObathSoap',
-    './UserImage/ObathBodyrotion',
-    './UserImage/ObathBodywash',
-    './UserImage/ObathConditioner',
-    './UserImage/ObathShampoo',
-    './UserImage/mouthwasher',
-    './UserImage/RoomItem3',
-    './UserImage/BathTowel',
-    './UserImage/slipper',
-    './UserImage/showerwear',
-    './UserImage/RoomItem4',
-    './UserImage/RoomItem2',
-    './UserImage/Bath2',
-    './UserImage/Bath1',
-    './UserImage/OsulocAlgreyTea',
-    './UserImage/OsulocegreenTea',
-    './UserImage/kitchenTowel',
-    './UserImage/HotPack',
+    './image/set.png',
+    './UserImage/RoomItem.png',
+    './UserImage/ObathSoap.png',
+    './UserImage/ObathBodyrotion.png',
+    './UserImage/ObathBodywash.png',
+    './UserImage/ObathConditioner.png',
+    './UserImage/ObathShampoo.png',
+    './UserImage/mouthwasher.png',
+    './UserImage/RoomItem3.png',
+    './UserImage/BathTowel.png',
+    './UserImage/slipper.png',
+    './UserImage/showerwear.png',
+    './UserImage/RoomItem4.png',
+    './UserImage/RoomItem2.png',
+    './UserImage/Bath2.png',
+    './UserImage/Bath1.png',
+    './UserImage/OsulocAlgreyTea.png',
+    './UserImage/OsulocegreenTea.png',
+    './UserImage/kitchenTowel.png',
+    './UserImage/HotPack.png',
   ]
 
-
+  const getImageUrl = (name) => {
+    switch (name) {
+        case '치약/칫솔 세트':
+            return ImageFile[0];
+        case '면도기 세트':
+            return ImageFile[1];
+        case 'O\'bath 비누':
+            return ImageFile[2];
+        case 'O\'bath 바디로션':
+            return ImageFile[3];
+        case 'O\'bath 바디워시':
+            return ImageFile[4];
+        case 'O\'bath 컨디셔너':
+            return ImageFile[5];
+        case 'O\'bath 샴푸':
+            return ImageFile[6];
+        case '알로알로 마우스워시':
+            return ImageFile[7];
+        case '스크럽 샤워타올':
+            return ImageFile[8];
+        case '바스 타올':
+            return ImageFile[9];
+        case '슬리퍼':
+            return ImageFile[10];
+        case '샤워 가운':
+            return ImageFile[11];
+        case '옷걸이':
+            return ImageFile[12];
+        case '베니티킷':
+            return ImageFile[13];
+        case '침구 정리':
+            return ImageFile[14];
+        case '배게 교체':
+            return ImageFile[15];
+        case '오설록 제주 얼그레이 티':
+            return ImageFile[16];
+        case '오설록 순수 녹차':
+            return ImageFile[17];
+        case '키친 타올':
+            return ImageFile[18];
+        case '핫팩':
+            return ImageFile[19];
+    }
+};
 const CartDiv = (Img, name, count) => {
     const Boxdiv = document.createElement('div');
     Boxdiv.className = 'CartBox';
@@ -47,7 +90,8 @@ const CartDiv = (Img, name, count) => {
     linediv.className = 'LineDiv';
 
     const numberP = document.createElement('p');
-    numberP.textContent = count;
+    numberP.className = 'numberP';
+    numberP.textContent = count + '개';
   
     Boxdiv.appendChild(BoxImg);
     Boxdiv.appendChild(BoxP1);
@@ -66,7 +110,13 @@ firebase.database().ref('service/장바구니/101').on('value',function(getData)
         let tester = Object.fromEntries(entries);
         let valuedata = Object.values(tester);
         for ( var i = 0; i < count; i+=2){
-            CartDiv(valuedata[i], valuedata[i+1]);
+            CartDiv(getImageUrl(valuedata[i]),valuedata[i], valuedata[i+1]);
+        }
+        if( document.querySelector('.main').querySelectorAll('.CartBox').length == 0){
+            document.querySelector('.footer').style.marginTop= ' 473px'
+        }
+        else{
+            document.querySelector('.footer').style.marginTop = '16px';
         }
     }
 })

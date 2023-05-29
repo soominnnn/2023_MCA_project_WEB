@@ -55,14 +55,23 @@ header .order{
 
 }
 .main{
+    position: relative;
+    min-height: 100%;
+    padding-bottom: 50px;
+    width: 390px;
+    overflow-y: scroll;
 }
-
+footer{
+    background-color: #ffffff;
+    width: 390px;
+    height: 300px;
+    position: absolute;
+    margin-top: 80px;
+}
 footer .bottomLine{
-    position:relative;
     width: 390px;
     height: 5px;
     background: rgba(74, 67, 59, 0.5);
-    margin-top:473px;
 }
 footer .roomnum{
     position:relative;
@@ -121,7 +130,7 @@ footer .alt{
     position:inherit;
     margin-left: 144.09px;
     margin-top: -120px;
-    width: 400px;
+    width: 200px;
     height: 12px;
     font-family: 'Pretendard';
     font-style: normal;
@@ -134,7 +143,7 @@ footer .alt{
 }
 .CartBox .itemWon{
     position:inherit;
-    width: 500px;
+    width: 200px;
     height: 14px;
     margin-top:6px;
     margin-left: 144.09px;
@@ -167,6 +176,26 @@ footer .alt{
     line-height: 18px;
     margin-left:8px;
     margin-top:3px;
+    display: flex;
+    align-items: center;
+    color: #4A433B;
+}
+.qr{
+    width: 180px;
+    height: 180px;
+    margin-left: 100px;
+}
+.numberP{
+    position:relative;
+    width: 23px;
+    height: 18px;
+    margin-left: 313px;
+    margin-top: 6px;
+    font-family: 'Pretendard';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 15px;
+    line-height: 18px;
     display: flex;
     align-items: center;
     color: #4A433B;
