@@ -40,14 +40,14 @@ const badimg = document.querySelector('.RoomImg');
 
 
 tab1.addEventListener('click',function(){
-    bathimg.style.content = 'url(/Image/rain.png)';
-    badimg.style.content = 'url(/Image/Vector.png)';
+    bathimg.style.content = 'url(./image/rain.png)';
+    badimg.style.content = 'url(./image/Vector.png)';
 })
 tab2.addEventListener('click',function(){
-  bathimg.style.content = 'url(/Image/rainn.png)';
+  bathimg.style.content = 'url(./image/rainn.png)';
   bathimg.style.width = '9.23px';
   bathimg.style.height = '15px';
-  badimg.style.content = 'url(/Image/bad_white.png)';
+  badimg.style.content = 'url(/image/bad_white.png)';
 })
 
 class Item {
@@ -92,25 +92,25 @@ const data = [
 ];
 const ImageFile = [
   './image/set',
-  './UserImage/RoomItem',
-  './UserImage/ObathSoap',
-  './UserImage/ObathBodyrotion',
-  './UserImage/ObathBodywash',
-  './UserImage/ObathConditioner',
-  './UserImage/ObathShampoo',
-  './UserImage/mouthwasher',
-  './UserImage/RoomItem3',
-  './UserImage/BathTowel',
-  './UserImage/slipper',
-  './UserImage/showerwear',
-  './UserImage/RoomItem4',
-  './UserImage/RoomItem2',
-  './UserImage/Bath2',
-  './UserImage/Bath1',
-  './UserImage/OsulocAlgreyTea',
-  './UserImage/OsulocegreenTea',
-  './UserImage/kitchenTowel',
-  './UserImage/HotPack',
+  './image/RoomItem',
+  './image/ObathSoap',
+  './image/ObathBodyrotion',
+  './image/ObathBodywash',
+  './image/ObathConditioner',
+  './image/ObathShampoo',
+  './image/mouthwasher',
+  './image/RoomItem3',
+  './image/BathTowel',
+  './image/slipper',
+  './image/showerwear',
+  './image/RoomItem4',
+  './image/RoomItem2',
+  './image/Bath2',
+  './image/Bath1',
+  './image/OsulocAlgreyTea',
+  './image/OsulocegreenTea',
+  './image/kitchenTowel',
+  './image/HotPack',
 ]
 
 // 동적으로 itemArr 생성
@@ -241,7 +241,7 @@ const CartDiv = (firImg, P1Name, Item) => {
     }
   })
   const btn1Img = document.createElement('img');
-  btn1Img.src = '/UserImage/plus.png'
+  btn1Img.src = '/image/plus.png'
   btn1.appendChild(btn1Img);
 
   const numberDiv = document.createElement('div');
@@ -264,7 +264,7 @@ const CartDiv = (firImg, P1Name, Item) => {
     }
   })
   const btn2Img = document.createElement('img');
-  btn2Img.src = '/UserImage/minus.png';
+  btn2Img.src = '/image/minus.png';
   btn2.appendChild(btn2Img);
 
   Boxdiv.appendChild(BoxImg);
@@ -292,7 +292,7 @@ document.querySelector('.orderFire').addEventListener('click', () => {
 
 const orderFile = document.querySelector('.href_OrderFile');  
 orderFile.addEventListener('click', function(){
-  window.location.href="/userOrder.html";
+  window.location.href="./userOrder.html";
 })
 
 

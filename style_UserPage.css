@@ -51,19 +51,19 @@ main{
     margin: 0;
     overflow: hidden;
     position: relative;
-    width: 390px;
+    width: 395px;
     height: 218px;
     background: #4A433B;
     user-select: none;
 }
 .container{
     position: relative;
-    width: 390px;
+    width: 395px;
     height: 218px;
     background: #4A433B;
 }
 .displayWrap{
-    width: 390px;
+    width: 395px;
     height: 218px;
     margin: 0 auto;
     overflow: hidden;
@@ -76,7 +76,7 @@ main{
     left: 0; top: 0;
 }
   .slideWrap .slide{
-    width: 390px; height: 100%;
+    width: 395px; height: 100%;
     font-size: 50px;
     display: flex;
     justify-content: center; align-items: center;
@@ -185,7 +185,7 @@ color: rgba(0, 0, 0, 0.5);
     line-height: 10px;
 }
 .Menu{
-    width: 390px;
+    width: 395px;
 }
 .scrollPage{
     overflow: auto;
@@ -207,7 +207,7 @@ color: rgba(0, 0, 0, 0.5);
 
 footer{
     position: fixed;
-    width: 390px;
+    width: 395px;
     height: 60px;
     background: #4A433B;
     bottom:0;
@@ -392,13 +392,13 @@ input[type=radio]{
     position: fixed;
     top: 0;
     left: 0;
-    width: 390px;
+    width: 395px;
     height: 844px;
   }
   
   #modalContent {
     background-color: #fff;
-    width: 390px;
+    width: 395px;
     height: 100%;
     overflow-y: scroll;
     overflow-x: hidden;
@@ -451,7 +451,7 @@ input[type=radio]{
 
 #modalContent footer{
     position: fixed;
-    width: 390px;
+    width: 395px;
     height: 60px;
     bottom: 0;
     background: #4A433B;
@@ -522,7 +522,7 @@ input[type=radio]{
     position:inherit;
     margin-left: 144.09px;
     margin-top: -120px;
-    width: 400px;
+    width: 395px;
     height: 12px;
     font-family: 'Pretendard';
     font-style: normal;
@@ -606,6 +606,6 @@ input[type=radio]{
 }
 
 .main{
-    width: 390px;
+    width: 395px;
     height: auto;
 }
