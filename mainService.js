@@ -19,17 +19,20 @@ const createBoxTags = (count, valuedata,Area) => {
     roomNumTag.innerHTML = "101호";
     DivArea.appendChild(roomNumTag);
   
+    let LiTag = document.createElement('div');
+    LiTag.setAttribute("class", "In");
+    DivArea.appendChild(LiTag);
     // 내역 태그 생성
     for (let i = 0; i < count; i +=2) {
       let amenityTag = document.createElement("p");
       amenityTag.setAttribute("class", "amenity");
       amenityTag.innerHTML = valuedata[i] + "&emsp;" + valuedata[i + 1]+"개";
-      DivArea.appendChild(amenityTag);
+      LiTag.appendChild(amenityTag);
   
       // 라인 태그 생성
       let lineTag = document.createElement("div");
       lineTag.setAttribute("class", "line_room");
-      DivArea.appendChild(lineTag);
+      LiTag.appendChild(lineTag);
     }
     Area.appendChild(DivArea);
     return DivArea;

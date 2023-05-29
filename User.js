@@ -130,6 +130,42 @@ const btnPlusMinusCreate = (btn, item, itemText) => {
   });
 };
 
+const menuDiv = document.querySelector('.Menu');
+const searchInput = document.querySelector(".inputSearch");
+const resultsContainer = document.querySelector('.searchLi');
+// 검색어 입력 시 결과를 업데이트하는 함수
+function updateResults() {
+  const searchTerm = searchInput.value.toLowerCase();
+  resultsContainer.style.display = 'none';
+  menuDiv.style.display = 'block';
+  resultsContainer.innerHTML = ""; // 이전 결과 초기화
+  // 검색어와 일치하는 항목을 찾아 결과에 추가
+  const matchingItems = data.filter(item => item.toLowerCase().includes(searchTerm));
+  matchingItems.forEach(item => {
+    menuDiv.style.display = 'none';
+    resultsContainer.style.display = 'block';
+    const li = document.createElement("li");
+    li.textContent = item;
+    li.addEventListener('click',function(e){
+      resultsContainer.style.display = 'none'; 
+      menuDiv.style.display = 'block';
+    })
+    resultsContainer.appendChild(li);
+  });
+
+  if (matchingItems.length === 0) {
+    menuDiv.style.display = 'none';
+    const li = document.createElement("li");
+    resultsContainer.style.display = 'block';
+    li.textContent = "일치하는 결과가 없습니다.";
+    resultsContainer.appendChild(li);
+  }
+}
+
+const orderNum = document.querySelector('.orderNum');
+// 검색어 입력 시 결과 업데이트
+searchInput.addEventListener("input", updateResults);
+
 const btnsArr = Array.from(document.querySelectorAll('.plus'));
 const btnMinusArr = Array.from(document.querySelectorAll('.minus'));
 const btnItemArr = Array.from(document.querySelectorAll('#number'));
@@ -154,7 +190,6 @@ document.querySelector('.modalBTN').addEventListener('click', () => {
       if( item.create == false){
         CartDiv(ImageFile[index]+'.png', item.name, item.count);
         item.create = true;
-        
       }
     }
   });

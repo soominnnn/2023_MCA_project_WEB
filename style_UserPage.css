@@ -400,7 +400,11 @@ input[type=radio]{
     background-color: #fff;
     width: 390px;
     height: 100%;
+    overflow-y: scroll;
     animation: modalAnimation 0.3s ease-in-out;
+    position: relative;
+    min-height: 100%;
+    padding-bottom: 76px;
   }
   
   @keyframes modalAnimation {
