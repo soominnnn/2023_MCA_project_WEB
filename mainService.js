@@ -5,11 +5,8 @@ const contentOrderNum = document.getElementById('content_order');
 const contentContiNum = document.getElementById('content_conti');
 const contentCompNum = document.getElementById('content_comp');
 
-let OrderCount = 0;
-let ProcessCount = 0;
-let completeCount = 0;
 
-const createBoxTags = (count, valuedata,Area) => {
+const createBoxTags = (count, valuedata,Area) => { 
     let DivArea = document.createElement("div");
     DivArea.setAttribute("id", "rectang");
   
@@ -37,6 +34,14 @@ const createBoxTags = (count, valuedata,Area) => {
     Area.appendChild(DivArea);
     return DivArea;
   }
+  const tagCount = () => {
+    let orderRectangCount = tagArea_order.querySelectorAll('#rectang').length;
+    let processRectangCount = tagArea_conti.querySelectorAll('#rectang').length;
+    let completeRectangCount = tagArea_comp.querySelectorAll('#rectang').length;
+    contentOrderNum.innerHTML = '요청 ' + orderRectangCount + '건';
+    contentContiNum.innerHTML = '처리 ' + processRectangCount + '건';
+    contentCompNum.innerHTML = '완료 ' + completeRectangCount + '건';  
+  }
   const createElement = (count,valuedata) => {
     let firstBox = createBoxTags(count,valuedata,tagArea_order);
     //취소 요청 버튼 생성
@@ -49,7 +54,6 @@ const createBoxTags = (count, valuedata,Area) => {
         parent.parentNode.removeChild(parent); // 부모 요소 삭제
         //박스 생성
         let boxTaginCancel = createBoxTags(count,valuedata,tagArea_comp);
-        //카운트 증가
 
         // 완료 버튼 생성
         let btnCanAlltoComp = document.createElement('button');
@@ -58,8 +62,10 @@ const createBoxTags = (count, valuedata,Area) => {
         btnCanAlltoComp.innerHTML = "취소 완료"
         //완료 컨텐츠에 생성
         tagArea_comp.appendChild(boxTaginCancel);
+        tagCount();
       })
       firstBox.appendChild(cancelOrderBtn);
+      tagCount();
     
     // 접수 받기 버튼 생성
     let takeOrderBtn = document.createElement("button");
@@ -77,26 +83,26 @@ const createBoxTags = (count, valuedata,Area) => {
         btnConti.innerHTML = "완료하기";
     
         tagArea_conti.appendChild(boxTaginOrder);
+        tagCount();
         //처리완료 버튼 생성
         btnConti.addEventListener('click', function () {
           const parentConti = this.parentNode;
           parentConti.parentNode.removeChild(parentConti);
-          process.countDown();
-    
+
           let boxTagincon = createBoxTags(count,valuedata,tagArea_comp);
-    
-          complete.countUp();
-    
+
           const btnComp = document.createElement('button');
           btnComp.setAttribute('id', 'btnTakeContitoComp');
-          DivArea.appendChild(btnComp);
+          boxTagincon.appendChild(btnComp);
           btnComp.innerHTML = "처리 완료";
     
           tagArea_comp.appendChild(boxTagincon);
+          tagCount();
         })
       })
       takeOrderBtn.innerHTML = "접수 받기";
       firstBox.appendChild(takeOrderBtn);
+      tagCount();
   }
 
   firebase.database().ref('service/장바구니/101').on('value',function(getData){

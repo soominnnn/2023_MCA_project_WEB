@@ -118,7 +118,7 @@ data.forEach(item => {
   const newItem = new Item({ name: item });
   itemArr.push(newItem);
 });
-console.log(itemArr);
+
 const btnPlusMinusCreate = (btn, item, itemText) => {
   btn.addEventListener('click', () => {
     if (item.getCount() < 9) {
@@ -129,6 +129,18 @@ const btnPlusMinusCreate = (btn, item, itemText) => {
     }
   });
 };
+
+const btnMinusCreate = (btnMinusArr,item,itemText) => {
+  btnMinusArr.addEventListener('click',function(){
+    if(item.getCount() == 0){
+      alert("수량은 0개 이상이어야합니다.");
+    }
+    else{
+      item.countDown();
+      itemText.innerHTML = item.getCount();
+    }
+  })
+}
 
 const menuDiv = document.querySelector('.Menu');
 const searchInput = document.querySelector(".inputSearch");
@@ -175,20 +187,19 @@ btnsArr.forEach((btn, index) => {
 });
 
 btnMinusArr.forEach((btn, index) => {
-  btnPlusMinusCreate(btn, itemArr[index], btnItemArr[index]);
+  btnMinusCreate(btn, itemArr[index], btnItemArr[index]);
 });
 
 const closeModalBtn = document.querySelector('.arrow');
 const modalContainer = document.getElementById('modalContainer');
 const BoxSelect = document.querySelectorAll('.CartBox').length;
 document.querySelector('.modalBTN').addEventListener('click', () => {
-  ref.remove();
   modalContainer.style.display = 'block';
   document.body.style.overflow = 'hidden';
   itemArr.forEach((item, index) => {
     if (item.getCount() > 0) {
       if( item.create == false){
-        CartDiv(ImageFile[index]+'.png', item.name, item.count);
+        CartDiv(ImageFile[index]+'.png', item.name, item);
         item.create = true;
       }
     }
@@ -200,7 +211,7 @@ closeModalBtn.addEventListener('click', () => {
   document.body.style.removeProperty('overflow');
 });
 
-const CartDiv = (firImg, P1Name, ItemCount) => {
+const CartDiv = (firImg, P1Name, Item) => {
   const Boxdiv = document.createElement('div');
   Boxdiv.className = 'CartBox';
 
@@ -221,6 +232,14 @@ const CartDiv = (firImg, P1Name, ItemCount) => {
 
   const btn1 = document.createElement('button');
   btn1.className = 'CartPlus';
+  btn1.addEventListener('click', function(){
+    if (Item.getCount() < 9) {
+      Item.countUp();
+      numberP.textContent = Item.getCount();
+    } else {
+      alert("9개까지 주문 가능합니다.");
+    }
+  })
   const btn1Img = document.createElement('img');
   btn1Img.src = '/UserImage/plus.png'
   btn1.appendChild(btn1Img);
@@ -229,11 +248,21 @@ const CartDiv = (firImg, P1Name, ItemCount) => {
   numberDiv.className = 'CartNum';
   const numberP = document.createElement('p');
 
-  numberP.textContent = ItemCount;
+  numberP.textContent = Item.getCount();
   numberDiv.appendChild(numberP);
 
   const btn2 = document.createElement('button');
   btn2.className = 'CartMinus';
+  btn2.addEventListener('click', function(){
+    numberP.textContent = Item.getCount();
+    if(Item.getCount() == 0){
+      alert("수량은 0개 이상이어야합니다.");
+    }
+    else{
+      Item.countDown();
+      numberP.textContent = Item.getCount();
+    }
+  })
   const btn2Img = document.createElement('img');
   btn2Img.src = '/UserImage/minus.png';
   btn2.appendChild(btn2Img);
@@ -248,15 +277,22 @@ const CartDiv = (firImg, P1Name, ItemCount) => {
   document.querySelector('.main').appendChild(Boxdiv);
 };
 const ref = firebase.database().ref('service/장바구니/101');
+
 document.querySelector('.orderFire').addEventListener('click', () => {
   let itemArray = [];
   itemArr.forEach((item) => {
     if (item.getCount() > 0) {
       itemArray.push(item.name, item.count);
-      console.log(itemArray);
     }
   })
-  ref.set(itemArray)
+  ref.set(itemArray);
+  alert('주문이 정상적으로 진행되었습니다.');
+  location.reload();
+})
+
+const orderFile = document.querySelector('.href_OrderFile');  
+orderFile.addEventListener('click', function(){
+  window.location.href="/userOrder.html";
 })
 
 
