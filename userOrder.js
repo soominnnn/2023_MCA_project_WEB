@@ -124,6 +124,7 @@ firebase.database().ref('service/장바구니/101').on('value',function(getData)
 })
 
 var permission = Notification.requestPermission();
+
 console.log(permission);
 
 var ros = new ROSLIB.Ros({
@@ -133,11 +134,14 @@ var ros = new ROSLIB.Ros({
   var notify = new ROSLIB.Topic ({
     ros : ros,
     name : '/Check',
-    messageType : 'std_messages/String'
+    messageType : 'std_msgs/String'
   })
-
+  ros.on('connection', function() {
+    console.log("연결");
+  });
   notify.subscribe((message)=> {
     if(message){
+        console.log(message);
 // 브라우저 지원 여부 체크
         if (!("Notification" in window)) {
             alert("데스크톱 알림을 지원하지 않는 브라우저입니다.");
@@ -151,7 +155,7 @@ var ros = new ROSLIB.Ros({
                 return false;
             }
             else if (result == 'granted'){
-                new Notification("로봇이 도착했습니다.", {body:'왔슴'});
+                new Notification("로봇이 도착했습니다.", {body:'물건을 받아주세요'});
             }
         });
     }
