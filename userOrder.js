@@ -100,6 +100,8 @@ const CartDiv = (Img, name, count) => {
     Boxdiv.appendChild(numberP);
     document.querySelector('.main').appendChild(Boxdiv);
   };
+
+
 firebase.database().ref('service/장바구니/101').on('value',function(getData){
     let test = getData.val();
     let count = getData.numChildren();
@@ -120,3 +122,37 @@ firebase.database().ref('service/장바구니/101').on('value',function(getData)
         }
     }
 })
+
+var permission = Notification.requestPermission();
+console.log(permission);
+
+var ros = new ROSLIB.Ros({
+    url : 'ws://192.168.50.39:9090'
+  });
+
+  var notify = new ROSLIB.Topic ({
+    ros : ros,
+    name : '/Check',
+    messageType : 'std_messages/String'
+  })
+
+  notify.subscribe((message)=> {
+    if(message){
+// 브라우저 지원 여부 체크
+        if (!("Notification" in window)) {
+            alert("데스크톱 알림을 지원하지 않는 브라우저입니다.");
+        }
+        // 데스크탑 알림 권한 요청
+        Notification.requestPermission(function (result) {
+            // 권한 거절
+            if(result == 'denied') {
+                Notification.requestPermission();
+                alert('알림을 차단하셨습니다.\n브라우저의 사이트 설정에서 변경하실 수 있습니다.');
+                return false;
+            }
+            else if (result == 'granted'){
+                new Notification("로봇이 도착했습니다.", {body:'왔슴'});
+            }
+        });
+    }
+});

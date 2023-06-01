@@ -1,5 +1,5 @@
 var ros = new ROSLIB.Ros({
-  url : 'ws://172.20.10.3:9090'
+  url : 'ws://192.168.50.39:9090'
 });
 ros.on('connection', function() {
   document.getElementById("stateCircle").style.backgroundColor = '#17A600';
