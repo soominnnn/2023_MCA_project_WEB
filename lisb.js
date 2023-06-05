@@ -15,7 +15,6 @@ ros.on('close', function() {
   document.getElementById("h4").innerHTML = '연결 안됨';
 });
 
-
 // pathShape
 var listenerforPath = new ROSLIB.Topic ({
 ros : ros,
@@ -34,6 +33,21 @@ var battery = new ROSLIB.Topic ({
   name : '/battery_state',
   messageType : 'sensor_msgs/BatteryState'
 })
+var state = new ROSLIB.Topic ({
+  ros: ros,
+  name : '/state',
+  messageType : 'std_msgs/String'
+});
+
+state.subscribe((message) => {
+  if( message == 'hotel'){
+    document.querySelector('.hotel').innerHTML = '호텔 서비스 모듈';
+  }
+  else{
+    document.querySelector('.hotel').innerHTML = '서빙 모듈';
+  }
+})
+
 battery.subscribe((message)=> {
   if(message){
     console.log(Math.floor(message.percentage));
