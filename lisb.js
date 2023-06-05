@@ -40,7 +40,8 @@ var state = new ROSLIB.Topic ({
 });
 
 state.subscribe((message) => {
-  if( message == 'hotel'){
+  console.log( message);
+  if( message.data == 'hotel'){
     document.querySelector('.hotel').innerHTML = '호텔 서비스 모듈';
   }
   else{
@@ -50,7 +51,6 @@ state.subscribe((message) => {
 
 battery.subscribe((message)=> {
   if(message){
-    console.log(Math.floor(message.percentage));
     document.getElementsByClassName('percent')[0].innerHTML =message.percentage.toFixed(1) +'%';
   }
   // listenerforPath.unsubscribe();
