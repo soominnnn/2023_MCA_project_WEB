@@ -1,4 +1,5 @@
 const backArrow = document.querySelector('.arrow');
+
 backArrow.addEventListener('click',function(){
     window.location.href="/UserPage.html";
 })
@@ -24,9 +25,9 @@ const ImageFile = [
     './image/OsulocegreenTea.png',
     './image/kitchenTowel.png',
     './image/HotPack.png',
-  ]
+]
 
-  const getImageUrl = (name) => {
+const getImageUrl = (name) => {
     switch (name) {
         case '칫솔/치약 세트':
             return ImageFile[0];
@@ -73,33 +74,33 @@ const ImageFile = [
 const CartDiv = (Img, name, count) => {
     const Boxdiv = document.createElement('div');
     Boxdiv.className = 'CartBox';
-  
+
     const BoxImg = document.createElement('img');
     BoxImg.src = Img;
     BoxImg.className = 'itemImg';
-  
+
     const BoxP1 = document.createElement('p');
     BoxP1.textContent = name;
     BoxP1.className = 'itemName';
-  
+
     const BoxP2 = document.createElement('p');
     BoxP2.textContent = '원산지 : 중국';
     BoxP2.className = 'itemWon';
-  
+
     const linediv = document.createElement('div');
     linediv.className = 'LineDiv';
 
     const numberP = document.createElement('p');
     numberP.className = 'numberP';
     numberP.textContent = count + '개';
-  
+
     Boxdiv.appendChild(BoxImg);
     Boxdiv.appendChild(BoxP1);
     Boxdiv.appendChild(BoxP2);
     Boxdiv.appendChild(linediv);
     Boxdiv.appendChild(numberP);
     document.querySelector('.main').appendChild(Boxdiv);
-  };
+};
 
 
 firebase.database().ref('service/장바구니/101').on('value',function(getData){
@@ -123,23 +124,21 @@ firebase.database().ref('service/장바구니/101').on('value',function(getData)
     }
 })
 
-var permission = Notification.requestPermission();
+let permission = Notification.requestPermission();
 
-console.log(permission);
-
-var ros = new ROSLIB.Ros({
+let ros = new ROSLIB.Ros({
     url : 'ws://192.168.50.39:9090'
-  });
+});
 
-  var notify = new ROSLIB.Topic ({
+let notify = new ROSLIB.Topic ({
     ros : ros,
     name : '/Check',
     messageType : 'std_msgs/String'
-  })
-  ros.on('connection', function() {
+})
+ros.on('connection', function() {
     console.log("연결");
-  });
-  notify.subscribe((message)=> {
+});
+notify.subscribe((message)=> {
     if(message){
         console.log(message);
 // 브라우저 지원 여부 체크
